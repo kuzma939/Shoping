@@ -1,6 +1,6 @@
 "use client"; // Ensure this is a client-side component
 
-import { useDarkMode } from "../Functions/useDarkMode"; // Import the custom hook
+import { useDarkMode } from "@/Functions/useDarkMode"; // Import the custom hook
 import { LanguageProvider } from "@/Functions/LanguageContext"; // Import the LanguageContext
 import Header from "@/components/Header/Header"; // Import the Header component
 import Home from "./page"; // Import the Home component

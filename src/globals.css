@@ -19,12 +19,20 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
 @layer base {
+  /* Контейнер для секцій */
   .section-container {
-    @apply px-4 md:px-8 lg:px-12 py-12 md:py-16;
+    @apply px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 md:py-16 lg:py-20;
   }
 
+  /* Загальний контейнер вмісту */
   .content-wrapper {
     @apply max-w-7xl mx-auto;
+  }
+
+  /* Картинка з адаптивними розмірами */
+  .responsive-image {
+    @apply w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] h-auto;
   }
 }
