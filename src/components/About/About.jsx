@@ -10,7 +10,7 @@ export default function About() {
         <div className="space-y-4">
           <div className="relative mb-8 group">
             <Image
-              src="/2.jpg"
+              src=""
               alt="Main Image"
               width={300}
               height={400}
@@ -20,7 +20,7 @@ export default function About() {
 
           <div className="relative mt-4 flex flex-col items-center group">
             <Image
-              src="/3.jpg"
+              src=""
               alt="Secondary Image"
               width={150}
               height={200}

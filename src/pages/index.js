@@ -1,11 +1,27 @@
-import Head from "next/head";
-import Image from "next/image";
+"use client"; // Ensure this is a client-side component
 
+import { useDarkMode } from "../Functions/useDarkMode"; // Import the custom hook
+import { LanguageProvider } from "@/Functions/LanguageContext"; // Import the LanguageContext
+import Header from "@/components/Header/Header"; // Import the Header component
+import Home from "./page"; // Import the Home component
 
-export default function Home() {
+export default function Page() {
+  const [isDarkMode, setIsDarkMode] = useDarkMode(); // Use the dark mode state
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      Hello
-    </div>
+      <div
+        className={`${
+          isDarkMode ? "dark bg-black text-white" : "light bg-white text-black"
+        } transition-colors min-h-screen`}
+      >
+        <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+     
+
+        <main>
+          {/* Your page content */}
+          <Home />
+          {/* Other page content */}
+        </main>
+      </div>
   );
 }

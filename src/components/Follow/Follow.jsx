@@ -1,20 +1,21 @@
 "use client"; 
 import Image from "next/image";
-import useImageFollow from "@/app/hooks/useImageFollow";
+import useImageFollow from "../../hooks/useImageFollow";
+
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 export default function FollowUs() {
   const images = [
-    { src: "/1.jpg", link: "https://instagram.com/yourprofile1" },
-    { src: "/2.jpg", link: "https://instagram.com/yourprofile2" },
-    { src: "/3.jpg", link: "https://instagram.com/yourprofile3" },
-    { src: "/4.jpg", link: "https://instagram.com/yourprofile4" },
-    { src: "/5.jpg", link: "https://instagram.com/yourprofile5" },
-    { src: "/6.jpg", link: "https://instagram.com/yourprofile6" },
-    { src: "/7.jpg", link: "https://instagram.com/yourprofile7" },
-    { src: "/8.jpg", link: "https://instagram.com/yourprofile8" },
-    { src: "/9.jpg", link: "https://instagram.com/yourprofile9" },
-    { src: "/10.jpg", link: "https://instagram.com/yourprofile10" },
+    { src: "", link: "https://instagram.com/yourprofile1" },
+    { src: "", link: "https://instagram.com/yourprofile2" },
+    { src: "", link: "https://instagram.com/yourprofile3" },
+    { src: "", link: "https://instagram.com/yourprofile4" },
+    { src: "", link: "https://instagram.com/yourprofile5" },
+    { src: "", link: "https://instagram.com/yourprofile6" },
+    { src: "", link: "https://instagram.com/yourprofile7" },
+    { src: "", link: "https://instagram.com/yourprofile8" },
+    { src: "", link: "https://instagram.com/yourprofile9" },
+    { src: "", link: "https://instagram.com/yourprofile10" },
   ];
   const { displayedImages, handleNext, handlePrev } = useImageFollow(
     images.length,
@@ -22,7 +23,7 @@ export default function FollowUs() {
   );
 
   return (
-    <section id="follow-us" className="bg-black text-white py-12 px-8">
+    <section id="follow-us" className="bg-black text-white section-container">
       <div className="space-y-4">
         <h2 className="text-4xl font-bold mb-10">Follow Us</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 border-t border-gray-300 "></div>
@@ -35,7 +36,7 @@ export default function FollowUs() {
         >
           <FaChevronLeft />
         </div>
-        <div className="flex space-x-4  overflow-hidden gap-8 mt-8">
+        <div className="flex space-x-4 overflow-hidden gap-8 mt-8">
           {displayedImages.map((imageIndex) => (
             <a
               key={imageIndex}
@@ -49,7 +50,7 @@ export default function FollowUs() {
                 alt={`Image ${imageIndex + 1}`}
                 width={200}
                 height={200}
-                className="rounded-lg object-cover transform transition duration-300 ease-in-out group-hover:scale-125"
+                className="rounded-lg object-cover opacity-100 translate-y-5 transform transition duration-700 ease-in-out group-hover:scale-125 group-hover:opacity-100 group-hover:translate-y-0"
               />
             </a>
           ))}

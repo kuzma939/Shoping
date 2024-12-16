@@ -2,7 +2,7 @@ import { FaFacebook, FaInstagram, FaTwitter, FaTelegramPlane } from "react-icons
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white py-12 px-8">
+    <footer className="bg-black text-white section-container">
       <div className=" space-y-4">
         <h3 className="text-2xl font-bold mb-8">Latore Atelier</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 border-t border-gray-300">
