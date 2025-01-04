@@ -1,0 +1,98 @@
+{
+  "EN": {
+    "home": {
+      "header": ["Home", "Catalogues", "About", "Contact", "Conditions"],
+      "hero": ["Welcome to our site!", "Explore the latest trends in fashion.", "Discover your style with us.", "Shop now"],
+      "about": [
+        "About",
+        "Our Story",
+        "LATORE - Ukrainian brand of women's clothing with its own production, with over 10 years of experience, with two showrooms in Ivano-Frankivsk and Kharkiv.",
+        "We are the embodiment of basic models and an original, designer approach to all products.",
+        "Our clothes are a combination of classics and comfort, femininity and harmony. Thanks to our own production, we guarantee the high quality of each product.",
+        "A professional team of craftsmen knows what Ukrainian women need and creates things that are easily combined with each other.",
+        "We especially emphasize your attention to individual tailoring for each of our clients - we sew according to the parameters, which allows any clothes to fit perfectly on the figure."
+      ],
+      "top_products": ["Top Products"],
+      "Our_Products": ["Our Products"],
+      "special_offers": [
+        "Special Offers",
+        "Limited Time",
+        "Don't miss out on our exclusive deals. Grab them while they last \nand enjoy discounts that won&t be around forever!",
+        "Shop Now"
+      ],
+      "follow_us": ["Follow Us"]
+    },
+    "products": {
+      "header": ["Catalogues", "About", "Contact", "Conditions"]
+    },
+    "contact": {
+      "header": ["Contact", "Catalogues", "About", "Conditions"],
+      "hero": ["Contact Us", "We’d love to hear from you! Whether you have questions, comments, or simply want to learn more about what we offer, feel free to get in touch. Our team is here to assist you with any inquiries and help bring your vision to life. Don’t hesitate to reach out—we’re just a message away!"]
+    },
+    "toppro": {
+      "header": ["Contact", "Catalogues", "About", "Conditions"]
+    },
+    "condition": {
+      "header": ["Contact", "Catalogues", "About", "Conditions"]
+    }
+  },
+  "FR": {
+    "home": {
+      "header": ["Accueil", "Catalogues", "À propos", "Contact", "Conditions"],
+      "hero": ["Bienvenue sur notre site!", "Explorez les dernières tendances de la mode.", "Découvrez votre style avec nous.", "Achetez maintenant"],
+      "about": [
+        "À propos",
+        "Latore Atelier est votre destination en ligne incontournable pour la mode haut de gamme. \nNous proposons une sélection soignée de vêtements et d'accessoires de haute qualité, \ndestinés à sublimer votre garde-robe. Notre mission est de fournir à nos clients \ndes pièces sophistiquées et élégantes qui reflètent leur personnalité \net leur goût uniques.",
+        "En savoir plus",
+        "Latore Atelier est votre destination en ligne incontournable pour la mode haut de gamme. Nous proposons une sélection soignée de vêtements et d'accessoires de haute qualité, destinés à sublimer votre garde-robe.",
+        "En savoir plus"
+      ],
+      "top_products": ["Produits phares"],
+      "Our_Products": ["Nos Produits"],
+      "special_offers": [
+        "Offres Spéciales",
+        "Offre Limitée",
+        "Ne manquez pas nos offres exclusives. Profitez-en tant qu'elles sont disponibles \net bénéficiez de réductions qui ne dureront pas éternellement !",
+        "Achetez Maintenant"
+      ],
+      "follow_us": ["Suivez-nous"]
+    },
+    
+    "contact":{
+      "hero": [
+        "Contactez-nous",
+        "Nous serions ravis de vous entendre ! Que vous ayez des questions, des commentaires ou que vous souhaitiez simplement en savoir plus sur ce que nous proposons, n'hésitez pas à nous contacter. Notre équipe est là pour répondre à vos demandes et vous aider à concrétiser vos idées. N'hésitez pas à nous écrire – nous sommes à un message de vous !"
+      ]
+    }
+  },
+  "UA": {
+    "home": {
+      "header": ["Головна", "Каталоги", "Про нас", "Контакт", "Умови"],
+      "hero": ["Ласкаво просимо на наш сайт!", "Досліджуйте останні тренди моди.", "Відкрийте свій стиль разом з нами.", "Купуйте зараз"],
+      "about": [
+        "Про нас",
+        "Наша історія",
+        "LATORE - український бренд жіночого одягу з власним виробництвом, з досвідом понад 10 років, з двома шоурумами в Івано-Франківську та Харкові.",
+        "Ми - втілення базових моделей та авторського, дизайнерського підходу до всіх виробів.",
+        "Наш одяг - це поєднання класики та комфорту, жіночності та гармонії. Завдяки власному виробництву ми гарантуємо високу якість кожного виробу.",
+        "Професійна команда майстринь знає, що необхідно українським жінкам та створює речі, які легко поєднуються між собою.",
+        "Особливо акцентуємо Вашу увагу стосовно індивідуального пошиву для кожного нашого клієнта - відшиваємо за параметрами, що дозволяє будь-якому одягу ідеально сидіти по фігурі."
+      ],
+      "top_products": ["Популярні продукти"],
+      "Our_Products": ["Наші продукти"],
+      "special_offers": [
+        "Спеціальні пропозиції",
+        "Обмежена пропозиція",
+        "Не пропустіть наші ексклюзивні пропозиції. Отримайте їх, поки вони доступні, \nі насолоджуйтеся знижками, які не триватимуть вічно!",
+        "Купуйте зараз"
+      ],
+      "follow_us": ["Слідкуйте за нами"]
+    },
+    "contact": {
+      "hero": [
+        "Зв’яжіться з нами",
+        "Ми раді вас чути! Якщо у вас є запитання, коментарі або ви просто хочете дізнатися більше про те, що ми пропонуємо, не соромтеся зв'язатися з нами. Наша команда готова допомогти вам із будь-якими запитами та допомогти втілити вашу ідею в життя. Не вагайтеся – ми завжди поруч, щоб відповісти на ваші повідомлення!"
+      ]
+    }
+  }
+}
