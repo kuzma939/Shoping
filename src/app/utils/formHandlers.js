@@ -1,44 +1,104 @@
+
 // Function to handle form submission
-export const handleFormSubmit = ({
-  e, // Form submission event
-  setFormSubmitted, // Function to set the form submission state
-  setSuccessMessageVisible, // Function to display the success message
-  setProductData, // Function to reset product data
-  setFormValues, // Function to reset form values
+export const handleFormSubmit = async ({
+  e,
+  setFormSubmitted,
+  setSuccessMessageVisible,
+  setFormValues,
+  productData,
 }) => {
-  e.preventDefault(); // Prevent default form behavior
+  e.preventDefault();
+  try {
+    const response = await fetch("/api/sendEmail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstName: e.target.firstName.value,
+        lastName: e.target.lastName.value,
+        phone: e.target.phone.value,
+        email: e.target.email.value,
+        message: e.target.message.value,
+        productName: productData.name,
+        productDescription: productData.description,
+        productImage: productData.image, // Передаємо зображення
+        productPrice: productData.price, // Ціна продукту
+        productColor: productData.color, // Колір продукту
+        productSize: productData.size,   // Розмір продукту
+        productQuantity: productData.quantity, // Кількість
+        productSKU: productData.sku,     // SKU
+      }),
+      
+    });
 
-  setFormSubmitted(true); // Set the form submission state
-  setSuccessMessageVisible(true); // Display the success message
-
-  // Reset product data
-  setProductData({
-    name: null,
-    price: null,
-    description: null,
-    image: "/4.jpg", 
-    color: null,
-    size: null,
-    quantity: null,
-    sku: null,
-  });
-
-  // Reset form values
-  setFormValues({
-    firstName: "", 
-    lastName: "", 
-    phone: "", 
-    email: "", 
-    message: "", 
-  });
-
-  // Timer to hide the success message
-  setTimeout(() => {
-    setFormSubmitted(false); // Reset form submission state
-    setSuccessMessageVisible(false); // Hide success message
-  }, 8000); // Duration: 8 seconds
+    if (response.ok) {
+      setFormSubmitted(true);
+      setSuccessMessageVisible(true);
+      alert("Email sent successfully!");
+      setFormValues({
+        firstName: "",
+        lastName: "",
+        phone: "",
+        email: "",
+        message: "",
+      });
+      setTimeout(() => setSuccessMessageVisible(false), 5000);
+    } else {
+      alert("Failed to send email");
+    }
+  } catch (error) {
+    console.error("Error sending email:", error);
+    alert("Error occurred");
+  }
 };
 
+{/*export const handleFormSubmit = async ({
+  e,
+  setFormSubmitted,
+  setSuccessMessageVisible,
+  setFormValues,
+}) => {
+  e.preventDefault();
+  try {
+    const response = await fetch("/api/sendEmail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstName: e.target.firstName.value,
+        lastName: e.target.lastName.value,
+        phone: e.target.phone.value,
+        email: e.target.email.value,
+        message: e.target.message.value,
+     
+      }),
+    });
+    
+
+    
+    if (response.ok) {
+      setFormSubmitted(true);
+      setSuccessMessageVisible(true);
+      alert("Email sent successfully!");
+      setFormValues({
+        firstName: "",
+        lastName: "",
+        phone: "",
+        email: "",
+        message: "",
+      }); // Очищення форми
+      setTimeout(() => setSuccessMessageVisible(false), 5000);
+    } else {
+      alert("Failed to send email");
+    }
+  } catch (error) {
+    console.error("Error sending email:", error);
+    alert("Error occurred");
+  }
+};
+*/}
 // Function to handle changes in form values
 export const handleInputChange = (e, setFormValues) => {
   const { name, value } = e.target; // Get the name and value of the changed field

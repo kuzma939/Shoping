@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useState, useEffect } from "react";
 import { useLanguage } from "../../Functions/useLanguage"; 
@@ -43,8 +42,9 @@ const ContactUs = () => {
     e,
     setFormSubmitted,
     setSuccessMessageVisible,
-    setProductData,
+   // setProductData,
     setFormValues,
+    productData, 
   });
   const onInputChange = (e) => handleInputChange(e, setFormValues);
  
