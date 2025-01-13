@@ -1,4 +1,3 @@
-
 // Function to handle form submission
 export const handleFormSubmit = async ({
   e,
@@ -42,7 +41,9 @@ export const handleFormSubmit = async ({
         phone: "",
         email: "",
         message: "",
+      
       });
+       
       setTimeout(() => setSuccessMessageVisible(false), 5000);
     } else {
       alert("Failed to send email");
@@ -53,52 +54,6 @@ export const handleFormSubmit = async ({
   }
 };
 
-{/*export const handleFormSubmit = async ({
-  e,
-  setFormSubmitted,
-  setSuccessMessageVisible,
-  setFormValues,
-}) => {
-  e.preventDefault();
-  try {
-    const response = await fetch("/api/sendEmail", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        firstName: e.target.firstName.value,
-        lastName: e.target.lastName.value,
-        phone: e.target.phone.value,
-        email: e.target.email.value,
-        message: e.target.message.value,
-     
-      }),
-    });
-    
-
-    
-    if (response.ok) {
-      setFormSubmitted(true);
-      setSuccessMessageVisible(true);
-      alert("Email sent successfully!");
-      setFormValues({
-        firstName: "",
-        lastName: "",
-        phone: "",
-        email: "",
-        message: "",
-      }); // Очищення форми
-      setTimeout(() => setSuccessMessageVisible(false), 5000);
-    } else {
-      alert("Failed to send email");
-    }
-  } catch (error) {
-    console.error("Error sending email:", error);
-    alert("Error occurred");
-  }
-};
-*/}
 // Function to handle changes in form values
 export const handleInputChange = (e, setFormValues) => {
   const { name, value } = e.target; // Get the name and value of the changed field
@@ -107,3 +62,4 @@ export const handleInputChange = (e, setFormValues) => {
     [name]: value, 
   }));
 };
+
