@@ -20,6 +20,7 @@
     "next": "15.0.4",
     "next-i18next": "^15.4.1",
     "next-sanity": "^9.8.25",
+    "next-seo": "^6.6.0",
     "nodemailer": "^6.9.16",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

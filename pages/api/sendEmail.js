@@ -53,7 +53,7 @@ export default async function handler(req, res) {
     // Email to admin
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: "latoreatelier01@gmail.com", // Administrator email
+      to: "anjakuzma9393@gmail.com", // Administrator email
       subject: "New Contact Form Submission",
       html: `
         <!DOCTYPE html>
