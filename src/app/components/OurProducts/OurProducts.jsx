@@ -4,6 +4,7 @@ import useImageFollow from "../../hooks/useImageFollow";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Link from "next/link";
 import { useLanguage } from "../../Functions/useLanguage"; 
+import useKeyboardNavigation from "../../hooks/useKeyboardNavigation";
 export default function OurProducts() {
   const {  translateList } = useLanguage(); 
   
@@ -25,7 +26,7 @@ export default function OurProducts() {
     images.length,
     5
   );
-
+  useKeyboardNavigation(handlePrev, handleNext);
   return (
     <section
       id="our-products"
@@ -80,4 +81,3 @@ export default function OurProducts() {
     </section>
   );
 }
-

@@ -4,7 +4,7 @@ import useImageFollow from "../../hooks/useImageFollow";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Link from "next/link";
 import { useLanguage } from "../../Functions/useLanguage"; // Import the custom hook
-
+import useKeyboardNavigation from "../../hooks/useKeyboardNavigation";
 export default function TopProducts() {
   
   const images = [
@@ -28,7 +28,7 @@ export default function TopProducts() {
     const {  translateList } = useLanguage(); // Use the hook
     const menuItems = translateList("home", "top_products");
     
-
+    useKeyboardNavigation(handlePrev, handleNext);
   return (
     <section
       id="top-products"
