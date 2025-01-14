@@ -1,4 +1,16 @@
-"use client";
+import TopProductsInfo from "../components/TopProductsInfo/TopProductsInfo";
+import Layout from "../components/Layout";
+
+export default function TopProductspage() {
+    return (
+        <div className="transition-colors">
+            <Layout>
+                <TopProductsInfo />
+            </Layout>
+        </div>
+    );
+}
+{/*"use client";
 import dynamic from "next/dynamic";
 import Layout from "../components/Layout";
 import { NextSeo } from "next-seo";
@@ -18,3 +30,4 @@ export default function TopProductsPage() {
     </>
   );
 }
+*/}

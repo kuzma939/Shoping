@@ -1,4 +1,17 @@
-"use client";
+
+import Layout from "../components/Layout";
+import Conditions from "../components/Conditions/Conditions";
+
+export default function ConditionPage() {
+    return (
+        <div className="transition-colors">
+            <Layout>
+                <Conditions />
+            </Layout>
+        </div>
+    );
+}
+{/*"use client";
 import dynamic from "next/dynamic";
 import Layout from "../components/Layout";
 import { NextSeo } from "next-seo";
@@ -16,3 +29,4 @@ export default function ConditionPage() {
     </>
   );
 }
+*/}

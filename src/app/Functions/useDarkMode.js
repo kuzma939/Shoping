@@ -31,4 +31,7 @@ export function useDarkMode() {
     // Функция для переключения темы
     const toggleDarkMode = useCallback(() => {
         setIsDarkMode((prev) => !prev);
-    }, []);}
+    }, []);
+
+    return [isDarkMode, toggleDarkMode]; // Возвращаем текущую тему и функцию для переключения
+}

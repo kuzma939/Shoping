@@ -1,7 +1,4 @@
-
-"use client"; // Позначаємо файл клієнтським
-
-import { useState, useContext, createContext, useEffect } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 
 const LanguageContext = createContext();
 
@@ -10,31 +7,50 @@ export function LanguageProvider({ children }) {
   const [translations, setTranslations] = useState({});
 
   useEffect(() => {
+    // Load translations
     const fetchTranslations = async () => {
+      const res = await fetch("/locales/translations.json");
+      const data = await res.json();
+      setTranslations(data);
+    };
+    fetchTranslations();
+  }, []);
+
+  useEffect(() => {
+    // Detect user's location and set default language
+    const setDefaultLanguage = async () => {
       try {
-        const res = await fetch("/locales/translations.json");
-        if (!res.ok) throw new Error("Failed to load translations");
+        const res = await fetch("https://ipapi.co/json/"); // Free IP geolocation API
         const data = await res.json();
-        setTranslations(data);
+
+        if (data.country === "UA") {
+          setLanguage("UA"); // Ukrainian
+        } else if (data.country === "FR") {
+          setLanguage("FR"); // French
+        } else {
+          setLanguage("EN"); // Default to English
+        }
       } catch (error) {
-        console.error("Error loading translations:", error);
+        console.error("Failed to detect location. Defaulting to English.", error);
+        setLanguage("EN");
       }
     };
 
-    if (typeof window !== "undefined") {
-      fetchTranslations(); // Виконується лише на клієнті
-    }
+    setDefaultLanguage();
   }, []);
 
-  const translate = (page, component) => {
-    return translations[language]?.[page]?.[component] || "Missing translation";
+  const translateList = (page, component) => {
+    const result = translations[language]?.[page]?.[component];
+    return result || [];
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, translate }}>
+    <LanguageContext.Provider value={{ language, setLanguage, translateList }}>
       {children}
     </LanguageContext.Provider>
   );
 }
 
-export const useLanguage = () => useContext(LanguageContext);
+export function useLanguage() {
+  return useContext(LanguageContext);
+}
