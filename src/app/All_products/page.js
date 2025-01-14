@@ -4,7 +4,6 @@ import Layout from "../components/Layout";
 import { NextSeo } from "next-seo";
 import seoConfig from "../next-seo.config";
 
-
 // Динамічний імпорт компонента AllProducts
 const DynamicAllProducts = dynamic(() => import("../components/AllProducts/AllProducts"), { ssr: false });
 

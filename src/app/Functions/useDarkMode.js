@@ -1,66 +1,34 @@
 import { useState, useEffect, useCallback } from "react";
 
 export function useDarkMode() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // Завантаження стану з localStorage під час першого рендера
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const savedMode = localStorage.getItem("darkMode");
-      setIsDarkMode(savedMode === "true");
-    }
-  }, []);
+    // Загружаем состояние темы при первом рендере
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const savedMode = localStorage.getItem("darkMode");
 
-  // Оновлення className для темного режиму та збереження у localStorage
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const root = document.documentElement;
+            if (savedMode !== null) {
+                // Если в localStorage есть сохраненное значение, используем его
+                setIsDarkMode(savedMode === "true");
+            } else {
+                // Если в localStorage нет значения, проверяем предпочтения пользователя
+                const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                setIsDarkMode(prefersDark);
+            }
+        }
+    }, []);
 
-      // Зміна className
-      root.className = isDarkMode ? "dark" : "light";
+    // Сохраняем состояние в localStorage и обновляем класс на html
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const root = document.documentElement;
+            root.className = isDarkMode ? "dark" : "light"; // Меняем класс на html
+            localStorage.setItem("darkMode", isDarkMode); // Сохраняем состояние в localStorage
+        }
+    }, [isDarkMode]);
 
-      // Збереження стану у localStorage
-      localStorage.setItem("darkMode", isDarkMode);
-    }
-  }, [isDarkMode]);
-
-  // Мемоізована функція для перемикання темного режиму
-  const toggleDarkMode = useCallback(() => {
-    setIsDarkMode((prev) => !prev);
-  }, []);
-
-  // Лог для перевірки
-  useEffect(() => {
-    console.log("Dark mode updated:", isDarkMode);
-  }, [isDarkMode]);
-
-  return [isDarkMode, toggleDarkMode];
-}
-{/*
-import { useState, useEffect } from "react";
-
-export function useDarkMode() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const savedMode = localStorage.getItem("darkMode");
-      setIsDarkMode(savedMode === "true");
-    }
-  }, []);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const root = document.documentElement;
-
-      // Змінюємо весь className
-      root.className = isDarkMode ? "dark" : "light";
-
-      // Зберігаємо стан у localStorage
-      localStorage.setItem("darkMode", isDarkMode);
-    }
-  }, [isDarkMode]);
-
-  return [isDarkMode, setIsDarkMode];
-}
-*/}
+    // Функция для переключения темы
+    const toggleDarkMode = useCallback(() => {
+        setIsDarkMode((prev) => !prev);
+    }, []);}
