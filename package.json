@@ -17,6 +17,7 @@
     "express": "^4.21.2",
     "i18next": "^24.1.2",
     "i18next-browser-languagedetector": "^8.0.2",
+    "lodash-es": "^4.17.21",
     "next": "15.0.4",
     "next-i18next": "^15.4.1",
     "next-sanity": "^9.8.25",
