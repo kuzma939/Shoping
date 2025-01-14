@@ -1,7 +1,7 @@
 "use client";
 
-import { NextSeo } from "next-seo";
 import dynamic from "next/dynamic";
+import { NextSeo } from "next-seo";
 import Layout from "../components/Layout";
 
 // Динамічний імпорт компонента OffersInfo

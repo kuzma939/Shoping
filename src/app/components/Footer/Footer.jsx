@@ -1,4 +1,4 @@
-
+"use client"
 import { FaFacebook, FaInstagram, FaTwitter, FaTelegramPlane } from "react-icons/fa";
 import { useLanguage } from "../../Functions/useLanguage"; 
 
