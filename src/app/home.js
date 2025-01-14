@@ -7,13 +7,14 @@ import OurProducts from "./components/OurProducts/OurProducts.jsx";
 
 export default function Home() {
   return (
-    <main className="transition-colors" role="main" aria-label="Home Page Content">
+    <div className="transition-colors">
       <Hero />
       <TopProducts />
       <SpecialOffers />
       <OurProducts />
       <About />
       <FollowUs />
-    </main>
+
+     </div>
   );
 }
