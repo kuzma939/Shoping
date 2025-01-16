@@ -1,32 +1,21 @@
+"use client";
 
 import Layout from "../components/Layout";
 import Conditions from "../components/Conditions/Conditions";
-
-export default function ConditionPage() {
-    return (
-        <div className="transition-colors">
-            <Layout>
-                <Conditions />
-            </Layout>
-        </div>
-    );
-}
-{/*"use client";
-import dynamic from "next/dynamic";
-import Layout from "../components/Layout";
 import { NextSeo } from "next-seo";
-import seoConfig from "../next-seo.config";
-
-const DynamicConditions = dynamic(() => import("../components/Conditions/Conditions"), { ssr: false });
+import seoConfig from "../../../next-seo.config";
+import generateConditionsJsonLd from "../seo/conditions-jsonld";
 
 export default function ConditionPage() {
+  const conditionsJsonLd = generateConditionsJsonLd();
+
   return (
-    <>
+    <div className="transition-colors">
       <NextSeo {...seoConfig.conditions} />
+      <script type="application/ld+json">{JSON.stringify(conditionsJsonLd)}</script>
       <Layout>
-        <DynamicConditions />
+        <Conditions />
       </Layout>
-    </>
+    </div>
   );
 }
-*/}

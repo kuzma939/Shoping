@@ -1,35 +1,21 @@
+"use client";
 import AllProducts from "../components/AllProducts/AllProducts";
 import Layout from "../components/Layout";
+import { NextSeo } from "next-seo";
+import seoConfig from "../../../next-seo.config";
+import generateProductsJsonLd from "../seo/all-products-jsonld";
+import products from "../data/products"; 
 
 export default function Products() {
-    return (
-      <div className="transition-colors">
-       
-            <Layout>
-                <AllProducts />
-            </Layout>
-        </div>
-    );
-}
-{/*"use client";
-import dynamic from "next/dynamic";
-import Layout from "../components/Layout";
-import { NextSeo } from "next-seo";
-import seoConfig from "../next-seo.config";
-
-// Динамічний імпорт компонента AllProducts
-const DynamicAllProducts = dynamic(() => import("../components/AllProducts/AllProducts"), { ssr: false });
-
-export default function AllProductsPage() {
-  console.log("Rendering AllProducts Page...");
+  const productsJsonLd = generateProductsJsonLd(products);
 
   return (
-    <>
+    <div className="transition-colors">
       <NextSeo {...seoConfig.allProducts} />
+      <script type="application/ld+json">{JSON.stringify(productsJsonLd)}</script>
       <Layout>
-        <DynamicAllProducts />
+        <AllProducts />
       </Layout>
-    </>
+    </div>
   );
 }
-*/}
