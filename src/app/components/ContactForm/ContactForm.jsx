@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { validateForm } from "../../utils/validationContactForm"; // Import the validation function
 

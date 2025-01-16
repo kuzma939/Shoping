@@ -1,3 +1,4 @@
+"use client";
 import { useEffect } from "react";
 /**
  * Custom hook for keyboard navigation.

@@ -1,3 +1,4 @@
+
 "use client";
 
 import TopProductsInfo from "../components/TopProductsInfo/TopProductsInfo";

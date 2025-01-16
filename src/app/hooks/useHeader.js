@@ -1,3 +1,4 @@
+"use client";
 // Hook for managing the state of the header
 // This hook combines logic for handling application language, menu state, and menu items.
 import { useState } from "react";
