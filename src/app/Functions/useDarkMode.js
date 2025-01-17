@@ -1,37 +1,48 @@
+
+"use client";
+
 import { useState, useEffect, useCallback } from "react";
 
 export function useDarkMode() {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(() => {
+        // Ініціалізація стану (без доступу до браузера)
+        if (typeof window !== "undefined") {
+            const savedMode = localStorage.getItem("darkMode");
+            if (savedMode !== null) {
+                return savedMode === "true";
+            }
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            return prefersDark;
+        }
+        return false; // Значення за замовчуванням для серверного середовища
+    });
 
-    // Загружаем состояние темы при первом рендере
+    // Завантаження стану при першому рендері
     useEffect(() => {
         if (typeof window !== "undefined") {
             const savedMode = localStorage.getItem("darkMode");
-
             if (savedMode !== null) {
-                // Если в localStorage есть сохраненное значение, используем его
                 setIsDarkMode(savedMode === "true");
             } else {
-                // Если в localStorage нет значения, проверяем предпочтения пользователя
                 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
                 setIsDarkMode(prefersDark);
             }
         }
     }, []);
 
-    // Сохраняем состояние в localStorage и обновляем класс на html
+    // Зміна теми в localStorage і DOM
     useEffect(() => {
         if (typeof window !== "undefined") {
             const root = document.documentElement;
-            root.className = isDarkMode ? "dark" : "light"; // Меняем класс на html
-            localStorage.setItem("darkMode", isDarkMode); // Сохраняем состояние в localStorage
+            root.className = isDarkMode ? "dark" : "light"; // Зміна класу на `html`
+            localStorage.setItem("darkMode", isDarkMode.toString()); // Збереження стану в localStorage
         }
     }, [isDarkMode]);
 
-    // Функция для переключения темы
+    // Функція для перемикання теми
     const toggleDarkMode = useCallback(() => {
         setIsDarkMode((prev) => !prev);
     }, []);
 
-    return [isDarkMode, toggleDarkMode]; // Возвращаем текущую тему и функцию для переключения
+    return [isDarkMode, toggleDarkMode]; // Повернення стану теми та функції перемикання
 }

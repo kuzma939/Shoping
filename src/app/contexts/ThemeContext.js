@@ -1,14 +1,16 @@
+
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-// Контекст для темы
+// Контекст для теми
 const ThemeContext = createContext();
 
-// Провайдер контекста для темы
+// Провайдер контекста для теми
 export function ThemeProvider({ children }) {
     const [isDarkMode, setIsDarkMode] = useState(false);
 
+    // Виконується лише на клієнті
     useEffect(() => {
         if (typeof window !== "undefined") {
             const savedMode = localStorage.getItem("darkMode");
@@ -21,12 +23,14 @@ export function ThemeProvider({ children }) {
         }
     }, []);
 
+    // Збереження теми в localStorage (тільки на клієнті)
     useEffect(() => {
         if (typeof window !== "undefined") {
             localStorage.setItem("darkMode", isDarkMode);
         }
     }, [isDarkMode]);
 
+    // Тогл для перемикання теми
     const toggleDarkMode = () => {
         setIsDarkMode((prevMode) => !prevMode);
     };
@@ -38,7 +42,5 @@ export function ThemeProvider({ children }) {
     );
 }
 
-// Хук для использования контекста
+// Хук для використання контекста
 export const useTheme = () => useContext(ThemeContext);
-
-

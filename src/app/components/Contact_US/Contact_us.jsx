@@ -1,6 +1,7 @@
 "use client";
+
 import React, { useState } from "react";
-import { useLanguage } from "../../Functions/useLanguage"; 
+import { useLanguage } from "../../Functions/useLanguage";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { getInitialProductData } from "../../utils/productData";
@@ -13,11 +14,11 @@ import ContactForm from "../ContactForm/ContactForm";
 import SuccessMessage from "../../Functions/SuccessMessage";
 
 const ContactUs = () => {
-  const { translateList } = useLanguage(); 
-  const menuItems = translateList("contact", "hero");
-  //const searchParams = typeof window !== "undefined" ? useSearchParams() : null;
+  const { translateList } = useLanguage();
 
-  const searchParams = useSearchParams();
+  const menuItems = translateList ? translateList("contact", "hero") : ["Default Title", "Default Description"];
+  const searchParams = typeof window !== "undefined" ? useSearchParams() : { get: () => null };
+
   const initialProductData = getInitialProductData(searchParams);
 
   const [productData, setProductData] = useState(initialProductData);
@@ -29,7 +30,7 @@ const ContactUs = () => {
     phone: "",
     email: "",
     message: "",
-    productImage: null, 
+    productImage: null,
   });
   const [photoPreview, setPhotoPreview] = useState(null);
 
@@ -44,14 +45,15 @@ const ContactUs = () => {
     }
   };
 
-  const onFormSubmit = (e) => handleFormSubmit({
-    e,
-    setFormSubmitted,
-    setSuccessMessageVisible,
-    setFormValues,
-    productData,
-    setPhotoPreview,
-  });
+  const onFormSubmit = (e) =>
+    handleFormSubmit({
+      e,
+      setFormSubmitted,
+      setSuccessMessageVisible,
+      setFormValues,
+      productData,
+      setPhotoPreview,
+    });
 
   const onInputChange = (e) => handleInputChange(e, setFormValues);
 
@@ -63,19 +65,16 @@ const ContactUs = () => {
           {menuItems[0]}
         </h1>
         <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-lg sm:max-w-xl md:max-w-2xl mx-auto mb-8 sm:mb-12 md:mb-16">
-          {menuItems[1]}  
+          {menuItems[1]}
         </p>
         <section className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-12 md:gap-16 lg:gap-28 bg-[#f5e7da] dark:bg-[#111827] p-4 sm:p-6 md:p-8 rounded-lg shadow-lg">
           <div className="w-full sm:w-1/2 lg:w-[56%] h-[400px] sm:h-[900px] lg:h-[900px] dark:shadow-[0_0_20px_10px_rgba(59,130,246,0.4)]">
             <Image
-              src={productData.image}
+              src={productData.image || "/default-image.jpg"}
               alt={productData.name || "Default Image"}
               width={400}
               height={600}
               className="w-full h-full object-cover rounded-lg shadow-lg"
-              onError={(e) => {
-                e.target.src = "/4.jpg";
-              }}
             />
           </div>
 
@@ -84,13 +83,10 @@ const ContactUs = () => {
               500 Terry Francine Street, San Francisco, CA 94158
             </address>
             <div className="flex flex-col sm:flex-row xl:justify-center items-center gap-2 sm:gap-4">
-              <a
-                href="mailto:info@mysite.com"
-                className="text-blue-400 hover:underline"
-              >
+              <a href="mailto:info@mysite.com" className="text-blue-400 hover:underline">
                 info@mysite.com
               </a>
-              <span className="hidden sm:block  dark:text-white">|</span>
+              <span className="hidden sm:block dark:text-white">|</span>
               <p className="text-sm sm:text-base">123-456-7890</p>
             </div>
             {searchParams.get("productName") ? (

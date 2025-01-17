@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://shoping-tdfr.vercel.app/Conditions</loc><lastmod>2025-01-17T07:35:01.920Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shoping-tdfr.vercel.app/offers</loc><lastmod>2025-01-17T07:35:01.921Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shoping-tdfr.vercel.app/Top_products</loc><lastmod>2025-01-17T07:35:01.921Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shoping-tdfr.vercel.app/All_products</loc><lastmod>2025-01-17T07:35:01.921Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shoping-tdfr.vercel.app</loc><lastmod>2025-01-17T07:35:01.921Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://shoping-tdfr.vercel.app/contact</loc><lastmod>2025-01-17T07:35:01.921Z</lastmod></url>
+<url><loc>https://shoping-tdfr.vercel.app</loc><lastmod>2025-01-17T12:05:57.126Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://shoping-tdfr.vercel.app/offers</loc><lastmod>2025-01-17T12:05:57.128Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://shoping-tdfr.vercel.app/Top_products</loc><lastmod>2025-01-17T12:05:57.128Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://shoping-tdfr.vercel.app/All_products</loc><lastmod>2025-01-17T12:05:57.128Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://shoping-tdfr.vercel.app/Conditions</loc><lastmod>2025-01-17T12:05:57.128Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
