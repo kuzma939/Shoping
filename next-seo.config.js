@@ -3,17 +3,17 @@ const seoConfig = {
     title: "Контакти | Магазин жіночого одягу",
     description: "Контактна сторінка для запитів та зв'язку.",
     openGraph: {
-      url: "https://yourdomain.com/contact",
+      url: "https://shoping-tdfr.vercel.app/contact",
       title: "Контакти | Магазин жіночого одягу",
       description: "Отримайте контактну інформацію для вашого запиту.",
       type: "website",
       images: [
         { 
-          url: "https://yourdomain.com/preview-contact-image.jpg" 
+          url: "https://shoping-tdfr.vercel.app/images/contact-preview.jpg" 
         }
       ]
     },
-    canonical: "https://yourdomain.com/contact",
+    canonical: "https://shoping-tdfr.vercel.app/contact",
     robots: "index, follow"
   },
 

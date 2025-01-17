@@ -1,30 +1,27 @@
-import { FlatCompat } from "@eslint/eslintrc";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals"),
-  {
-    files: ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
-    ignores: ["node_modules", "build", "dist"],
-    languageOptions: {
-      parserOptions: {
-        ecmaVersion: 2021,
-        sourceType: "module",
-      },
-    },
-    rules: {
-      "no-console": "warn",
-      "react/react-in-jsx-scope": "off", // Вимикаємо, оскільки Next.js автоматично додає React
+/** @type {import('eslint').Linter.Config} */
+export default {
+  root: true,
+  parserOptions: {
+    ecmaVersion: 2021,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
     },
   },
-];
-
-export default eslintConfig;
+  env: {
+    browser: true,
+    node: true,
+    es2021: true,
+  },
+  extends: ["next/core-web-vitals"],
+    rules: {
+      "react/no-unescaped-entities": "off"
+    },
+  
+  settings: {
+    react: {
+      version: 'detect', // Автоматичне визначення версії React
+    },
+  },
+  
+};

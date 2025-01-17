@@ -15,6 +15,7 @@ import SuccessMessage from "../../Functions/SuccessMessage";
 const ContactUs = () => {
   const { translateList } = useLanguage(); 
   const menuItems = translateList("contact", "hero");
+  //const searchParams = typeof window !== "undefined" ? useSearchParams() : null;
 
   const searchParams = useSearchParams();
   const initialProductData = getInitialProductData(searchParams);

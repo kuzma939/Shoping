@@ -1,3 +1,4 @@
+"use client";
 import { socialLinks } from "../../utils/socialLinks";
 
 const SocialLinks = () => (

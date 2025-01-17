@@ -40,3 +40,5 @@ export function ThemeProvider({ children }) {
 
 // Хук для использования контекста
 export const useTheme = () => useContext(ThemeContext);
+
+
