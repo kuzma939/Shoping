@@ -7,15 +7,12 @@ import seoConfig from "../../../next-seo.config";
 import products from "../data/products";
 
 export default function Products() {
-    const jsonLd = generateProductsJsonLd(products); // Генерація JSON-LD
-    console.log("Generated JSON-LD:", JSON.stringify(jsonLd, null, 2));
-
+    const jsonLd = generateProductsJsonLd(products); // Передаємо масив продуктів
     const seo = seoConfig.allProducts; // SEO-конфігурація для сторінки
 
     return (
         <div className="transition-colors">
             <Head>
-                {/* SEO метатеги */}
                 <title>{seo.title}</title>
                 <meta name="description" content={seo.description} />
                 <meta property="og:title" content={seo.openGraph.title} />
@@ -26,14 +23,11 @@ export default function Products() {
                 <link rel="canonical" href={seo.canonical} />
                 <meta name="robots" content={seo.robots} />
             </Head>
-
-            {/* JSON-LD через Script */}
             <Script
-                id="products-jsonld"
+                id="all-products-jsonld"
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
-
             <Layout>
                 <AllProducts />
             </Layout>

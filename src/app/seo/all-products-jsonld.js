@@ -16,12 +16,7 @@ const generateProductsJsonLd = (products) => {
         caption: product.translations?.EN?.name || "Unnamed Product", // Альтернативний текст
       },
       description: product.translations?.EN?.description || "No description available", // Опис продукту
-      inLanguage: [
-        { "@type": "Language", name: "Ukrainian" }, // Українська
-        { "@type": "Language", name: "English" }, // Англійська
-        { "@type": "Language", name: "French" }, // Французька
-      ],
-      dateModified: product.dateModified || new Date().toISOString(), // Дата останнього оновлення
+    
     })),
   };
 };
