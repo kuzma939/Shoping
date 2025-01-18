@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
                 />
                 <meta
                     property="og:image"
-                    content="https://shoping-tdfr.vercel.app/avicon-latore.ico"
+                    content="https://shoping-tdfr.vercel.app/favicon-latore.ico"
                 />
                 <meta property="og:url" content="https://shoping-tdfr.vercel.app" />
                 <meta property="og:type" content="website" />
@@ -63,7 +63,7 @@ export default function RootLayout({ children }) {
                             "@type": "Organization",
                             name: "Latore Atelier",
                             url: "https://shoping-tdfr.vercel.app",
-                            logo: "https://shoping-tdfr.vercel.app/4.jpg",
+                            logo: "https://shoping-tdfr.vercel.app/logo-social.webp",
                             sameAs: [
                                 "https://www.facebook.com/latoreatelier",
                                 "https://www.instagram.com/latoreatelier"
