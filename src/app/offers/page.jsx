@@ -2,15 +2,13 @@ import OffersInfo from "../components/OffersInfo/OffersInfo";
 import Layout from "../components/Layout";
 import Head from "next/head";
 import Script from "next/script";
-import generateOffersJsonLd from "../seo/offers-jsonld";
+import offersJsonLd from "../seo/offers-jsonld";
 import products from "../data/products"; // Загальний масив продуктів
 import seoConfig from "../../../next-seo.config";
 
 export default function Offerspage() {
-  // Отримуємо продукти з основного масиву, позначені як `isSpecialOffer`
-  const offers = products.filter((product) => product.isSpecialOffer);
-
-  const jsonLd = generateOffersJsonLd(offers); // Генерація JSON-LD для пропозицій
+  const offers = products; // Використовуємо загальний масив продуктів
+  const jsonLd = offersJsonLd(offers); // Генеруємо JSON-LD тільки для спеціальних пропозицій
 
   const seo = seoConfig.offers; // SEO-конфігурація
 
