@@ -63,7 +63,7 @@ export default function RootLayout({ children }) {
                             "@type": "Organization",
                             name: "Latore Atelier",
                             url: "https://shoping-tdfr.vercel.app",
-                            logo: "https://shoping-tdfr.vercel.app/favicon-latore.ico",
+                            logo: "https://shoping-tdfr.vercel.app/4.jpg",
                             sameAs: [
                                 "https://www.facebook.com/latoreatelier",
                                 "https://www.instagram.com/latoreatelier"
