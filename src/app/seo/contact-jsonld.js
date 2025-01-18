@@ -12,7 +12,7 @@ const contactJsonLd = {
       { "@type": "Language", name: "English" }, // Англійська мова
       { "@type": "Language", name: "French" }, // Французька мова
     ],
-    dateModified: new Date().toISOString(), // Дата останньої модифікації
+   
   },
 };
 
