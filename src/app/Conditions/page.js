@@ -1,54 +1,33 @@
-
 import Layout from "../components/Layout";
 import Conditions from "../components/Conditions/Conditions";
-
-export default function ConditionPage() {
-    return (
-        <div className="transition-colors">
-            <Layout>
-                <Conditions />
-            </Layout>
-        </div>
-    );
-}
-
-{/*"use client";
-
-import Layout from "../components/Layout";
-import Conditions from "../components/Conditions/Conditions";
-import { NextSeo } from "next-seo";
-import seoConfig from "../../../next-seo.config";
+import Head from "next/head";
 import generateConditionsJsonLd from "../seo/conditions-jsonld";
-import { useState, useEffect } from "react";
+import seoConfig from "../../../next-seo.config";
 
 export default function ConditionPage() {
-  const [translations, setTranslations] = useState(null);
-
-  useEffect(() => {
-    const fetchTranslations = async () => {
-      const data = await import("../../../public/locales/translations.json").then(
-        (module) => module.default
-      );
-      setTranslations(data);
-    };
-
-    fetchTranslations();
-  }, []);
-
-  const conditionsJsonLd = generateConditionsJsonLd();
-
-  if (!translations) {
-    return <div>Loading...</div>; // Завантаження даних
-  }
+  const jsonLd = generateConditionsJsonLd(); // Генерація JSON-LD
+  const seo = seoConfig.conditions; // SEO-конфігурація
 
   return (
     <div className="transition-colors">
-      <NextSeo {...seoConfig.conditions} />
-      <script type="application/ld+json">{JSON.stringify(conditionsJsonLd)}</script>
+      <Head>
+        <title>{seo.title}</title>
+        <meta name="description" content={seo.description} />
+        <meta property="og:title" content={seo.openGraph.title} />
+        <meta property="og:description" content={seo.openGraph.description} />
+        <meta property="og:url" content={seo.openGraph.url} />
+        <meta property="og:type" content={seo.openGraph.type} />
+        <meta property="og:image" content={seo.openGraph.images[0].url} />
+        <link rel="canonical" href={seo.canonical} />
+        <meta name="robots" content={seo.robots} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </Head>
       <Layout>
-        <Conditions translations={translations} />
+        <Conditions />
       </Layout>
     </div>
   );
 }
-*/}

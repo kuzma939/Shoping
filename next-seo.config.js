@@ -9,7 +9,10 @@ const seoConfig = {
       type: "website",
       images: [
         { 
-          url: "https://shoping-tdfr.vercel.app/images/contact-preview.jpg" 
+          url: "https://shoping-tdfr.vercel.app/4.jpg", // Додаємо повний шлях до зображення
+          width: 1200, // Рекомендовані розміри
+          height: 628,
+          alt: "Contact Page Image" // Альтернативний текст
         }
       ]
     },
@@ -21,16 +24,19 @@ const seoConfig = {
     title: "Спеціальні пропозиції | Магазин жіночого одягу",
     description: "Спеціальні пропозиції та акції для покупців.",
     openGraph: {
-      url: "https://yourdomain.com/offers",
+      url: "https://shoping-tdfr.vercel.app/offers",
       title: "Спеціальні пропозиції | Магазин жіночого одягу",
       description: "Дізнайтеся про наші акції та спеціальні знижки.",
       images: [
         { 
-          url: "https://yourdomain.com/preview-offers-image.jpg" 
+          url: "https://shoping-tdfr.vercel.app/offers-preview.jpg",
+          width: 1200,
+          height: 628,
+          alt: "Offers Page Image"
         }
       ]
     },
-    canonical: "https://yourdomain.com/offers",
+    canonical: "https://shoping-tdfr.vercel.app/offers",
     robots: "index, follow"
   },
 
@@ -38,16 +44,19 @@ const seoConfig = {
     title: "Топ продукти | Магазин жіночого одягу",
     description: "Дивіться наші найкращі товари та популярні колекції.",
     openGraph: {
-      url: "https://yourdomain.com/top-products",
+      url: "https://shoping-tdfr.vercel.app/top-products",
       title: "Топ продукти | Магазин жіночого одягу",
       description: "Наші найкращі товари для стильних образів.",
       images: [
         { 
-          url: "https://yourdomain.com/preview-top-products-image.jpg" 
+          url: "https://shoping-tdfr.vercel.app/top-products-preview.jpg",
+          width: 1200,
+          height: 628,
+          alt: "Top Products Page Image"
         }
       ]
     },
-    canonical: "https://yourdomain.com/top-products",
+    canonical: "https://shoping-tdfr.vercel.app/top-products",
     robots: "index, follow"
   },
 
@@ -55,16 +64,19 @@ const seoConfig = {
     title: "Умови користування | Магазин жіночого одягу",
     description: "Перегляньте наші умови користування та політику конфіденційності.",
     openGraph: {
-      url: "https://yourdomain.com/conditions",
+      url: "https://shoping-tdfr.vercel.app/conditions",
       title: "Умови користування | Магазин жіночого одягу",
       description: "Важлива інформація щодо умов користування сервісом.",
       images: [
         { 
-          url: "https://yourdomain.com/preview-conditions-image.jpg" 
+          url: "https://shoping-tdfr.vercel.app/conditions-preview.jpg",
+          width: 1200,
+          height: 628,
+          alt: "Conditions Page Image"
         }
       ]
     },
-    canonical: "https://yourdomain.com/conditions",
+    canonical: "https://shoping-tdfr.vercel.app/conditions",
     robots: "index, follow"
   },
 
@@ -72,16 +84,19 @@ const seoConfig = {
     title: "Всі товари | Магазин жіночого одягу",
     description: "Перегляньте всі доступні товари нашого магазину.",
     openGraph: {
-      url: "https://yourdomain.com/all-products",
+      url: "https://shoping-tdfr.vercel.app/all-products",
       title: "Всі товари | Магазин жіночого одягу",
       description: "Дізнайтеся більше про наші колекції жіночого одягу.",
       images: [
         { 
-          url: "https://yourdomain.com/preview-all-products-image.jpg" 
+          url: "https://shoping-tdfr.vercel.app/all-products-preview.jpg",
+          width: 1200,
+          height: 628,
+          alt: "All Products Page Image"
         }
       ]
     },
-    canonical: "https://yourdomain.com/all-products",
+    canonical: "https://shoping-tdfr.vercel.app/all-products",
     robots: "index, follow"
   }
 };
