@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
         url: "https://shoping-tdfr.vercel.app",
         description:
             "Latore Atelier пропонує стильний та ексклюзивний жіночий одяг для кожного сезону.",
-        image: "https://shoping-tdfr.vercel.app/Darklogo.avif",
+        image: "https://shoping-tdfr.vercel.app/favicon-latore.ico",
         potentialAction: {
             "@type": "SearchAction",
             target: "https://shoping-tdfr.vercel.app/search?q={search_term_string}",
@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
                     property="og:image"
                     content="https://shoping-tdfr.vercel.app/Darklogo.avif"
                 />
-                <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+                <link rel="icon" href="/favicon-latore.ico" type="image/x-icon" />
                 <link rel="canonical" href="https://shoping-tdfr.vercel.app" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </head>
