@@ -52,7 +52,7 @@ export default function RootLayout({ children }) {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </head>
             <body className="transition-colors min-h-screen">
-                {/* Google Analytics */}
+                {/* Google Analytics 
                 <Script
                     src="https://www.googletagmanager.com/gtag/js?id=G-0PPLZGLX20"
                     strategy="afterInteractive"
@@ -65,7 +65,7 @@ export default function RootLayout({ children }) {
                         gtag('config', 'G-0PPLZGLX20');
                     `}
                 </Script>
-
+*/}
                 {/* JSON-LD через next/script */}
                 <Script
                     id="website-jsonld"
