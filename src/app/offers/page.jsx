@@ -2,7 +2,7 @@ import OffersInfo from "../components/OffersInfo/OffersInfo";
 import Layout from "../components/Layout";
 import Head from "next/head";
 import offersJsonLd from "../seo/offers-jsonld"; // Імпорт функції JSON-LD
-import seoConfig from "../seo/next-seo.config"; // Імпорт SEO-конфігурації
+import seoConfig from "../../../next-seo.config"; // Імпорт SEO-конфігурації
 
 export default function Offerspage() {
     // Масив пропозицій
