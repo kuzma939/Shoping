@@ -3,10 +3,11 @@ import Layout from "../components/Layout";
 import Head from "next/head";
 import generateProductsJsonLd from "../seo/all-products-jsonld";
 import seoConfig from "../../../next-seo.config";
+import products from "../data/products";
 
 export default function Products() {
-    const jsonLd = generateProductsJsonLd([]); // Передайте масив продуктів, якщо доступний
-
+    const jsonLd = generateProductsJsonLd(products); // Передайте масив продуктів, якщо доступний
+    console.log("Generated JSON-LD:", JSON.stringify(jsonLd, null, 2));
     const seo = seoConfig.allProducts; // Отримуємо SEO-налаштування для сторінки продуктів
    
 
@@ -24,6 +25,7 @@ export default function Products() {
                 <link rel="canonical" href={seo.canonical} />
                 <meta name="robots" content={seo.robots} />
                 {/* JSON-LD */}
+           
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -3,6 +3,7 @@ import Conditions from "../components/Conditions/Conditions";
 import Head from "next/head";
 import generateConditionsJsonLd from "../seo/conditions-jsonld";
 import seoConfig from "../../../next-seo.config";
+import Script from "next/script";
 
 export default function ConditionPage() {
   const jsonLd = generateConditionsJsonLd(); // Генерація JSON-LD
@@ -20,11 +21,12 @@ export default function ConditionPage() {
         <meta property="og:image" content={seo.openGraph.images[0].url} />
         <link rel="canonical" href={seo.canonical} />
         <meta name="robots" content={seo.robots} />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
       </Head>
+      <Script
+        id="condition-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Layout>
         <Conditions />
       </Layout>

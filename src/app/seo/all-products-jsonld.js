@@ -1,5 +1,5 @@
 const generateProductsJsonLd = (products) => {
-
+  console.log(products);
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
