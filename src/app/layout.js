@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
                 />
                 <meta
                     property="og:image"
-                    content="https://shoping-tdfr.vercel.app/Darklogo.avif"
+                    content="https://shoping-tdfr.vercel.app/avicon-latore.ico"
                 />
                 <meta property="og:url" content="https://shoping-tdfr.vercel.app" />
                 <meta property="og:type" content="website" />
