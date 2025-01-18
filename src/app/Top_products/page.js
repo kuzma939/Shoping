@@ -1,6 +1,7 @@
 import TopProductsInfo from "../components/TopProductsInfo/TopProductsInfo";
 import Layout from "../components/Layout";
 import Head from "next/head";
+import Script from "next/script";
 import topProductsJsonLd from "../seo/top-products-jsonld";
 import seoConfig from "../../../next-seo.config";
 
@@ -35,11 +36,12 @@ export default function TopProductspage() {
                 <meta property="og:image" content={seo.openGraph.images[0].url} />
                 <link rel="canonical" href={seo.canonical} />
                 <meta name="robots" content={seo.robots} />
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-                />
             </Head>
+            <Script
+                id="top-products-jsonld"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <Layout>
                 <TopProductsInfo />
             </Layout>
