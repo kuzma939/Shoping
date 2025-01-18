@@ -47,9 +47,30 @@ export default function RootLayout({ children }) {
                     property="og:image"
                     content="https://shoping-tdfr.vercel.app/Darklogo.avif"
                 />
+                <meta property="og:url" content="https://shoping-tdfr.vercel.app" />
+                <meta property="og:type" content="website" />
                 <link rel="icon" href="/favicon-latore.ico" type="image/x-icon" />
                 <link rel="canonical" href="https://shoping-tdfr.vercel.app" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+                {/* JSON-LD для організації */}
+                <Script
+                    id="organization-jsonld"
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "Organization",
+                            name: "Latore Atelier",
+                            url: "https://shoping-tdfr.vercel.app",
+                            logo: "https://shoping-tdfr.vercel.app/favicon-latore.ico",
+                            sameAs: [
+                                "https://www.facebook.com/latoreatelier",
+                                "https://www.instagram.com/latoreatelier"
+                            ]
+                        }),
+                    }}
+                />
             </head>
             <body className="transition-colors min-h-screen">
                 {/* Google Analytics 
@@ -66,23 +87,22 @@ export default function RootLayout({ children }) {
                     `}
                 </Script>
 */}
-                {/* JSON-LD через next/script */}
+                {/* JSON-LD через next/script*/}
                 <Script
                     id="website-jsonld"
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
                 />
+                
                 <ThemeProvider>{children}</ThemeProvider>
             </body>
         </html>
     );
 }
-
 {/*"use client";
 
 import { ThemeProvider } from "./contexts/ThemeContext";
 import "./globals.css";
-import Head from "next/head";
 import Script from "next/script";
 
 export default function RootLayout({ children }) {
@@ -93,7 +113,7 @@ export default function RootLayout({ children }) {
         url: "https://shoping-tdfr.vercel.app",
         description:
             "Latore Atelier пропонує стильний та ексклюзивний жіночий одяг для кожного сезону.",
-        image: "https://shoping-tdfr.vercel.app/Darklogo.avif",
+        image: "https://shoping-tdfr.vercel.app/favicon-latore.ico",
         potentialAction: {
             "@type": "SearchAction",
             target: "https://shoping-tdfr.vercel.app/search?q={search_term_string}",
@@ -101,9 +121,10 @@ export default function RootLayout({ children }) {
         },
     };
 
+
     return (
         <html lang="uk">
-            <Head>
+            <head>
                 <title>
                     Ексклюзивний жіночий одяг від Latore Atelier | Створено для кожного сезону
                 </title>
@@ -128,20 +149,52 @@ export default function RootLayout({ children }) {
                     property="og:image"
                     content="https://shoping-tdfr.vercel.app/Darklogo.avif"
                 />
-                <link rel="icon" href="/Darklogo.avif" type="image/avif" />
+                <link rel="icon" href="/favicon-latore.ico" type="image/x-icon" />
                 <link rel="canonical" href="https://shoping-tdfr.vercel.app" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-            </Head>
+            </head>
             <body className="transition-colors min-h-screen">
-                {/* JSON-LD через next/script 
+                {/* Google Analytics 
+                <Script
+                    src="https://www.googletagmanager.com/gtag/js?id=G-0PPLZGLX20"
+                    strategy="afterInteractive"
+                />
+                <Script id="google-analytics" strategy="afterInteractive">
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-0PPLZGLX20');
+                    `}
+                </Script>
+*/}
+                {/* JSON-LD через next/script
                 <Script
                     id="website-jsonld"
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
                 />
+                
                 <ThemeProvider>{children}</ThemeProvider>
             </body>
         </html>
     );
-}
-*/}
+}*/}
+ {/*
+                <Script
+    id="organization-jsonld"
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Latore Atelier",
+            url: "https://shoping-tdfr.vercel.app",
+            logo: "https://shoping-tdfr.vercel.app/favicon-latore.ico",
+            sameAs: [
+                "https://www.facebook.com/latoreatelier",
+                "https://www.instagram.com/latoreatelier"
+            ]
+        }),
+    }}
+/>*/}
