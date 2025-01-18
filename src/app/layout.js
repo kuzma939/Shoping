@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
                     property="og:image"
                     content="https://shoping-tdfr.vercel.app/Darklogo.avif"
                 />
-                <link rel="icon" href="/Darklogo.avif" type="image/avif" />
+                <link rel="icon" href="/public/light-logo.avif" type="image/avif" />
                 <link rel="canonical" href="https://shoping-tdfr.vercel.app" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </head>
