@@ -1,3 +1,4 @@
+import Script from "next/script";
 import AllProducts from "../components/AllProducts/AllProducts";
 import Layout from "../components/Layout";
 import Head from "next/head";
@@ -6,10 +7,10 @@ import seoConfig from "../../../next-seo.config";
 import products from "../data/products";
 
 export default function Products() {
-    const jsonLd = generateProductsJsonLd(products); // Передайте масив продуктів, якщо доступний
+    const jsonLd = generateProductsJsonLd(products); // Генерація JSON-LD
     console.log("Generated JSON-LD:", JSON.stringify(jsonLd, null, 2));
-    const seo = seoConfig.allProducts; // Отримуємо SEO-налаштування для сторінки продуктів
-   
+
+    const seo = seoConfig.allProducts; // SEO-конфігурація для сторінки
 
     return (
         <div className="transition-colors">
@@ -24,13 +25,15 @@ export default function Products() {
                 <meta property="og:image" content={seo.openGraph.images[0].url} />
                 <link rel="canonical" href={seo.canonical} />
                 <meta name="robots" content={seo.robots} />
-                {/* JSON-LD */}
-           
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-                />
             </Head>
+
+            {/* JSON-LD через Script */}
+            <Script
+                id="products-jsonld"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+
             <Layout>
                 <AllProducts />
             </Layout>
