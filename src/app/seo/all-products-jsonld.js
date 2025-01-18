@@ -1,13 +1,4 @@
-const generateProductsJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Latore Atelier",
-  "url": "https://shoping-tdfr.vercel.app",
-  "description": "Latore Atelier пропонує стильний та ексклюзивний жіночий одяг для кожного сезону."
-};
-export default generateProductsJsonLd
-{/*const generateProductsJsonLd = (products) => {
-  console.log(JSON.stringify(jsonLd, null, 2));
+const generateProductsJsonLd = (products) => {
 
   return {
     "@context": "https://schema.org",
@@ -37,4 +28,3 @@ export default generateProductsJsonLd
 
 export default generateProductsJsonLd;
 
-  */}

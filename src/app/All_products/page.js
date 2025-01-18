@@ -3,13 +3,12 @@ import Layout from "../components/Layout";
 import Head from "next/head";
 import generateProductsJsonLd from "../seo/all-products-jsonld";
 import seoConfig from "../../../next-seo.config";
-import products from "../data/products";
 
 export default function Products() {
-    const jsonLd = generateProductsJsonLd(products); // Передайте масив продуктів, якщо доступний
-    console.log(jsonLd);
+    const jsonLd = generateProductsJsonLd([]); // Передайте масив продуктів, якщо доступний
+
     const seo = seoConfig.allProducts; // Отримуємо SEO-налаштування для сторінки продуктів
-    console.log(JSON.stringify(jsonLd, null, 2));
+   
 
     return (
         <div className="transition-colors">
