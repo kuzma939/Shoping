@@ -2,7 +2,6 @@
 
 import { ThemeProvider } from "./contexts/ThemeContext";
 import "./globals.css";
-import Head from "next/head";
 import Script from "next/script";
 
 export default function RootLayout({ children }) {
@@ -23,7 +22,7 @@ export default function RootLayout({ children }) {
 
     return (
         <html lang="uk">
-            <Head>
+            <head>
                 <title>
                     Ексклюзивний жіночий одяг від Latore Atelier | Створено для кожного сезону
                 </title>
@@ -51,7 +50,7 @@ export default function RootLayout({ children }) {
                 <link rel="icon" href="/Darklogo.avif" type="image/avif" />
                 <link rel="canonical" href="https://shoping-tdfr.vercel.app" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-            </Head>
+            </head>
             <body className="transition-colors min-h-screen">
                 {/* Google Analytics */}
                 <Script
