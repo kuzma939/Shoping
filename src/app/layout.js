@@ -47,6 +47,8 @@ export default function RootLayout({ children }) {
                     property="og:image"
                     content="https://shoping-tdfr.vercel.app/logo-social.jpg?v=1"
                 />
+                <meta property="og:image" content="https://shoping-tdfr.vercel.app/logo-social.jpg?v=2" />
+
                 <meta property="og:url" content="https://shoping-tdfr.vercel.app" />
                 <meta property="og:type" content="website" />
                 <link rel="icon" href="/favicon-latore.ico" type="image/x-icon" />
