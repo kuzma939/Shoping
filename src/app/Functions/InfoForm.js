@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { handleContactButtonClick } from "../utils/products";
 import { useLanguage } from "./useLanguage";
-
+import SizeChart from "../components/SizeChart/SizeChart"
 export default function InfoForm({ product, showDiscount = false }) {
   const router = useRouter();
   const [selectedColor, setSelectedColor] = useState("");
@@ -12,7 +12,7 @@ export default function InfoForm({ product, showDiscount = false }) {
   const [colorError, setColorError] = useState("");
   const [sizeError, setSizeError] = useState("");
   const [quantityError, setQuantityError] = useState("");
-
+  const [showSizeChart, setShowSizeChart] = useState(false);
   const { language } = useLanguage();
   const translatedName = product.translations?.[language]?.name || product.name;
   const translatedDescription = product.translations?.[language]?.description || product.description;
@@ -166,6 +166,7 @@ export default function InfoForm({ product, showDiscount = false }) {
       >
         Contact Us
       </button>
+
       <div className="mb-6 md:mb-2 mt-4">
   {/* Розмірна сітка */}
   <button
