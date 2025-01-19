@@ -41,7 +41,8 @@ export default function SortMenu({
       {/* Dropdown menu for sorting options */}
       {isSortMenuOpen && (
         <div
-          className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-[#4a3825]  dark:bg-gray-800 ring-1 ring-black ring-opacity-5 focus:outline-none"
+       
+          className="position:fixed origin-top-right sm:absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-[#4a3825]  dark:bg-gray-800 ring-1 ring-black ring-opacity-5 focus:outline-none"
           role="menu"
           aria-orientation="vertical"
           tabIndex="-1"
@@ -52,7 +53,11 @@ export default function SortMenu({
               className="block px-4 py-2 text-sm text-gray-200 hover:bg-[#3a2719] dark:hover:bg-gray-700"
               role="menuitem"
               tabIndex="-1"
-              onClick={() => setSortOrder('recommended')}
+              onClick={() => {
+                setSortOrder('recommended');
+                toggleSortMenu(); 
+              }}
+              
             >
               Recommended
             </button>
@@ -61,7 +66,11 @@ export default function SortMenu({
               className="block px-4 py-2 text-sm text-gray-200 hover:bg-[#3a2719] dark:hover:bg-gray-700"
               role="menuitem"
               tabIndex="-1"
-              onClick={() => setSortOrder('priceAsc')}
+              onClick={() => {
+                setSortOrder('priceAsc');
+                toggleSortMenu(); 
+              }}
+            
             >
               Price: Low to High
             </button>
@@ -70,7 +79,11 @@ export default function SortMenu({
               className="block px-4 py-2 text-sm text-gray-200 hover:bg-[#3a2719] dark:hover:bg-gray-700"
               role="menuitem"
               tabIndex="-1"
-              onClick={() => setSortOrder('priceDesc')}
+              onClick={() => {
+                setSortOrder('priceAsc');
+                toggleSortMenu();
+              }}
+             
             >
               Price: High to Low
             </button>
