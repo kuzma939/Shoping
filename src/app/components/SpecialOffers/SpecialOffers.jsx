@@ -31,8 +31,6 @@ export default function SpecialOffers() {
               priority
             />
           </div>
-
-          {/* Текст */}
           <div
             className={`
               absolute bottom-[5%] sm:bottom-[10%] md:bottom-[15%] lg:bottom-[10%] xl:bottom-[15%]
