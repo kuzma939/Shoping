@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { useLanguage } from '../../Functions/useLanguage';
 import { FaTag, FaMoneyBillWave, FaPalette, FaRulerVertical, FaBoxes, FaBarcode, FaInfoCircle } from "react-icons/fa";
