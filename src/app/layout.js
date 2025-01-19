@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
         url: "https://shoping-tdfr.vercel.app",
         description:
             "Latore Atelier пропонує стильний та ексклюзивний жіночий одяг для кожного сезону.",
-        image: "https://shoping-tdfr.vercel.app/favicon-latore.ico",
+        image: "https://shoping-tdfr.vercel.app/logo-social.webp",
         potentialAction: {
             "@type": "SearchAction",
             target: "https://shoping-tdfr.vercel.app/search?q={search_term_string}",
@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
                 />
                 <meta
                     property="og:image"
-                    content="https://shoping-tdfr.vercel.app/favicon-latore.ico"
+                    content="https://shoping-tdfr.vercel.app/logo-social.webp"
                 />
                 <meta property="og:url" content="https://shoping-tdfr.vercel.app" />
                 <meta property="og:type" content="website" />
@@ -63,7 +63,7 @@ export default function RootLayout({ children }) {
                             "@type": "Organization",
                             name: "Latore Atelier",
                             url: "https://shoping-tdfr.vercel.app",
-                            logo: "https://shoping-tdfr.vercel.app/logo-social.webp",
+                            logo: "https://shoping-tdfr.vercel.app/favicon-latore.ico",
                             sameAs: [
                                 "https://www.facebook.com/latoreatelier",
                                 "https://www.instagram.com/latoreatelier"
@@ -73,7 +73,7 @@ export default function RootLayout({ children }) {
                 />
             </head>
             <body className="transition-colors min-h-screen">
-                {/* Google Analytics 
+                {/* Google Analytics  
                 <Script
                     src="https://www.googletagmanager.com/gtag/js?id=G-0PPLZGLX20"
                     strategy="afterInteractive"
@@ -99,6 +99,7 @@ export default function RootLayout({ children }) {
         </html>
     );
 }
+
 {/*"use client";
 
 import { ThemeProvider } from "./contexts/ThemeContext";
