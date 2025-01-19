@@ -166,6 +166,17 @@ export default function InfoForm({ product, showDiscount = false }) {
       >
         Contact Us
       </button>
+      <div className="mb-6 md:mb-2 mt-4">
+  {/* Розмірна сітка */}
+  <button
+    onClick={() => setShowSizeChart(true)}
+    className="text-xl text-black dark:text-white underline transition-colors duration-300 hover:text-blue-500 focus-visible:text-blue-500 dark:hover:text-blue-300 dark:focus-visible:text-blue-300 focus-visible:outline-none"
+  >
+    Розмірна сітка
+  </button>
+
+  {showSizeChart && <SizeChart onClose={() => setShowSizeChart(false)} />}
+</div>
 
       {/* Product Info */}
       <div className="mt-10">
