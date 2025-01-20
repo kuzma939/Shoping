@@ -26,7 +26,7 @@ export default function TopProducts() {
     5 
   );
     const {  translateList } = useLanguage(); // Use the hook
-    const menuItems = translateList("home", "top-products");
+    const menuItems = translateList("home", "top_products");
     
     useKeyboardNavigation(handlePrev, handleNext);
   return (
