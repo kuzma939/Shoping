@@ -9,7 +9,7 @@ export default function SpecialOffers() {
   const menuItems = translateList("home", "special_offers");
   const router = useRouter();
   const handleClick = () => {
-    router.push("/offers");
+    router.push("/special-offers");
   };
 
   return (
