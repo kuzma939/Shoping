@@ -9,7 +9,7 @@ const seoConfig = {
       type: "website",
       images: [
         { 
-          url: "https://shoping-tdfr.vercel.app/4.jpg", // Додаємо повний шлях до зображення
+          url: "https://shoping-tdfr.vercel.app/logo-social.jpg", // Додаємо повний шлях до зображення
           width: 1200, // Рекомендовані розміри
           height: 628,
           alt: "Contact Page Image" // Альтернативний текст

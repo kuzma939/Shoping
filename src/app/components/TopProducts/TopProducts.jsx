@@ -8,16 +8,16 @@ import useKeyboardNavigation from "../../hooks/useKeyboardNavigation";
 export default function TopProducts() {
   
   const images = [
-    { src: "/Costumes/Woolen suit with skirt/1.avif", link: "/Top_products" },
-    { src: "/Costumes/Wool suit with trousers/8.avif", link: "/Top_products" },
-    { src: "/Costumes/Wool suit with vest/1.avif", link: "Top_products" },
-    { src: "/Dress/Woolen trapeze dress/1.avif", link: "Top_products" },
-    { src: "/Dress/Wool A-line dress/2.avif", link: "/Top_products" },
-    { src: "/6.jpg", link: "/Top_products" },
-    { src: "/7.jpg", link: "/Top_products" },
-    { src: "/8.jpg", link: "/Top_products" },
-    { src: "/9.jpg", link: "/Top_products" },
-    { src: "/10.jpg", link: "/Top_products" },
+    { src: "/Costumes/Woolen suit with skirt/1.avif", link: "/Top-products" },
+    { src: "/Costumes/Wool suit with trousers/8.avif", link: "/Top-products" },
+    { src: "/Costumes/Wool suit with vest/1.avif", link: "Top-products" },
+    { src: "/Dress/Woolen trapeze dress/1.avif", link: "Top-products" },
+    { src: "/Dress/Wool A-line dress/2.avif", link: "/Top-products" },
+    { src: "/6.jpg", link: "/Top-products" },
+    { src: "/7.jpg", link: "/Top-products" },
+    { src: "/8.jpg", link: "/Top-products" },
+    { src: "/9.jpg", link: "/Top-products" },
+    { src: "/10.jpg", link: "/Top-products" },
 
   ];
 
@@ -26,7 +26,7 @@ export default function TopProducts() {
     5 
   );
     const {  translateList } = useLanguage(); // Use the hook
-    const menuItems = translateList("home", "top_products");
+    const menuItems = translateList("home", "top-products");
     
     useKeyboardNavigation(handlePrev, handleNext);
   return (
@@ -57,19 +57,20 @@ export default function TopProducts() {
       rel="noopener noreferrer"
       className="flex-shrink-0 group"
     >
+      
       <Image
-        src={images[imageIndex].src}
-        alt={`Image ${imageIndex + 1}`}
-        width={150} 
-        height={150}
-        quality={100} 
-        className="rounded-lg object-cover shadow-lg transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:opacity-90
-          w-[calc(39vw-16px)]
-        sm:w-[150px] sm:h-[150px]
-          md:w-[200px] md:h-[300px]
-          lg:w-[250px] lg:h-[350px]
-          xl:w-[300px] xl:h-[350px]"
-      />
+            src={images[imageIndex].src}
+            alt={`Image ${imageIndex + 1}`}
+            width={150} 
+            height={150}
+            quality={100} 
+            className="rounded-lg object-cover shadow-lg transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:opacity-90
+              w-[calc(39vw-16px)]
+            sm:w-[150px] sm:h-[150px]
+              md:w-[200px] md:h-[300px]
+              lg:w-[250px] lg:h-[350px]
+              xl:w-[300px] xl:h-[350px]"
+          />
     </Link>
   ))}
 </div>

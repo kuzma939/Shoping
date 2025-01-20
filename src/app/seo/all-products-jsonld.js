@@ -6,7 +6,7 @@ const generateProductsJsonLd = (products) => {
     itemListElement: products.map((product, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      url: `https://shoping-tdfr.vercel.app/All_products/${product.id}`, // Коректний URL для продукту
+      url: `https://shoping-tdfr.vercel.app/All-products/${product.id}`, // Коректний URL для продукту
       name: product.translations?.EN?.name || "Unnamed Product", // Назва продукту
       image: {
         "@type": "ImageObject",

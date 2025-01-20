@@ -52,7 +52,7 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
             </Link>
           </li>
           <li className="min-w-[80px] text-center" role="none">
-            <Link href="/All_products">
+            <Link href="/All-products">
               {menuItems[1]}
             </Link>
           </li>
@@ -141,7 +141,7 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
             </Link>
           </li>
           <li className="text-center">
-            <Link href="/All_products">
+            <Link href="/All-products">
               {menuItems[1]}
             </Link>
           </li>

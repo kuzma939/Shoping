@@ -56,12 +56,15 @@ export default function TopProductsInfo() {
                   onClick={() => handleProductClick(product)}
                 >
                   <div className="w-full h-[300px] sm:h-[350px] overflow-hidden rounded-t">
-  <Image
-    src={product.image}
-    alt={`Preview of ${translatedName}`}
-    className="w-full h-full object-cover"
-    priority
-  />
+                  <Image
+  src={product.image}
+  alt={`Preview of ${translatedName}`}
+  width={300} 
+  height={400} 
+  className="w-full h-full object-cover block"
+  priority
+/>
+
 </div>
 
                   <div className="p-2 sm:p-4 dark:bg-[#f5e8d6]">

@@ -8,18 +8,18 @@ import useKeyboardNavigation from "../../hooks/useKeyboardNavigation";
 export default function OurProducts() {
   const {  translateList } = useLanguage(); 
   
-  const menuItems = translateList("home", "Our_Products");
+  const menuItems = translateList("home", "Our-Products");
   const images = [
-    { src: "/1.jpg", link: "/All_products" },
-    { src: "/2.jpg", link: "/All_products" },
-    { src: "/3.jpg", link: "/All_products" },
-    { src: "/4.jpg", link: "/All_products" },
-    { src: "/5.jpg", link: "/All_products" },
-    { src: "/6.jpg", link: "/All_products" },
-    { src: "/7.jpg", link: "/All_products" },
-    { src: "/8.jpg", link: "/All_products" },
-    { src: "/9.jpg", link: "/All_products" },
-    { src: "/10.jpg", link: "/All_products" },
+    { src: "/1.jpg", link: "/All-products" },
+    { src: "/2.jpg", link: "/All-products" },
+    { src: "/3.jpg", link: "/All-products" },
+    { src: "/4.jpg", link: "/All-products" },
+    { src: "/5.jpg", link: "/All-products" },
+    { src: "/6.jpg", link: "/All-products" },
+    { src: "/7.jpg", link: "/All-products" },
+    { src: "/8.jpg", link: "/All-products" },
+    { src: "/9.jpg", link: "/All-products" },
+    { src: "/10.jpg", link: "/All-products" },
   ];
 
   const { displayedImages, handleNext, handlePrev } = useImageFollow(
