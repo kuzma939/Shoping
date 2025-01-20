@@ -4,7 +4,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import "./globals.css";
 import Script from "next/script";
 import { siteJsonLd, organizationJsonLd } from "./seo/loyout-jsonld"; // Імпорт SEO-даних
-
+import ErrorBoundary from "../app/components/ErrorBoundary/ErrorBoundary";
 export default function RootLayout({ children }) {
     return (
         <html lang="uk">
@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
                 <link rel="icon" href="/favicon-latore.png" type="image/png" />
                 <link rel="canonical" href="https://shoping-tdfr.vercel.app" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-       {/* Google Analytics  
+       {/* Google Analytics  */}
                 <Script
                     src="https://www.googletagmanager.com/gtag/js?id=G-0PPLZGLX20"
                     strategy="afterInteractive"
@@ -51,7 +51,7 @@ export default function RootLayout({ children }) {
                         gtag('config', 'G-0PPLZGLX20');
                     `}
                 </Script>
-*/}
+
                 {/* JSON-LD через next/script */}
                 <Script
                     id="organization-jsonld"
@@ -69,7 +69,11 @@ export default function RootLayout({ children }) {
                 />
             </head>
             <body className="transition-colors min-h-screen">
-                <ThemeProvider>{children}</ThemeProvider>
+                <ThemeProvider>
+                <ErrorBoundary>
+                    {children}
+                    </ErrorBoundary>
+                    </ThemeProvider>
             </body>
         </html>
     );
