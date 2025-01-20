@@ -13,24 +13,25 @@ export default function About() {
       </h1>
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center relative">
         <div className="space-y-4">
-          <figure className="relative mb-6 sm:mb-8 group px-8 lg:px-8  xl:ml-16 mt-4">
-            <Image
-              src="/2.jpg"
-              alt="Main Image"
-              width={250}
-              height={350}
-              className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400 transition-transform duration-300 ease-in-out group-hover:scale-105 w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px]"
-            />
-          </figure>
-          <figure className="relative mt-4 flex justify-center lg:justify-end group">
-            <Image
-              src="/3.jpg"
-              alt="Secondary Image"
-              width={150}
-              height={200}
-              className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400 transition-transform duration-300 ease-in-out group-hover:scale-105 w-full max-w-[100px] sm:max-w-[180px] md:max-w-[200px]"
-            />
-          </figure>
+        <figure className="relative mb-6 sm:mb-8 group px-8 lg:px-8 xl:ml-16 mt-4">
+  <Image
+    src="/2.jpg"
+    alt="Main Image"
+    width={250}
+    height={350}
+    className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400 transition-transform duration-300 ease-in-out group-hover:scale-105 w-full max-w-[350px]"
+  />
+</figure>
+<figure className="relative mt-4 flex justify-center lg:justify-end group">
+  <Image
+    src="/3.jpg"
+    alt="Secondary Image"
+    width={150}
+    height={200}
+    className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400 transition-transform duration-300 ease-in-out group-hover:scale-105 w-full max-w-[200px]"
+  />
+</figure>
+
         </div>
 
         <article className="text-center md:text-left -mt-16 sm:-mt-24 flex-col items-center md:items-start hidden lg:flex">

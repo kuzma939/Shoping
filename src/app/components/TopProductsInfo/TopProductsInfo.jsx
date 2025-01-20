@@ -56,15 +56,14 @@ export default function TopProductsInfo() {
                   onClick={() => handleProductClick(product)}
                 >
                   <div className="w-full h-[300px] sm:h-[350px] overflow-hidden rounded-t">
-                    <Image
-                      src={product.image}
-                      alt={`Preview of ${translatedName}`}
-                      width={300}
-                      height={350}
-                      className="w-full h-full object-cover"
-                      priority
-                    />
-                  </div>
+  <Image
+    src={product.image}
+    alt={`Preview of ${translatedName}`}
+    className="w-full h-full object-cover"
+    priority
+  />
+</div>
+
                   <div className="p-2 sm:p-4 dark:bg-[#f5e8d6]">
                     <h3 className="font-semibold text-sm sm:text-lg">{translatedName}</h3>
                     <p className="text-black dark:text-gray-600 text-xs sm:text-base">{product.price} UAH</p>
@@ -81,13 +80,14 @@ export default function TopProductsInfo() {
         className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 pt-8"
         ref={descriptionRef}
       >
+       
         <div className="flex flex-col items-center">
           <Image
             src={selectedProduct.image}
             alt={`Full image of ${selectedProduct.title}`}
             width={400}
             height={400}
-            className="w-full max-w-xs md:max-w-md object-cover rounded-lg shadow-lg"
+            className="w-full max-w-xs md:max-w-md object-cover rounded-lg shadow-lg aspect-[3/4]"
             priority
           />
           <div className="flex mt-4 sm:mt-8 gap-2 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-200">

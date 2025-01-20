@@ -47,6 +47,7 @@ const ProductBanner = ({
           src="/4.jpg"
           alt="Category Banner"
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
           style={{
             objectFit: "cover", 
             objectPosition: "center 50%", 

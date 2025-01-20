@@ -68,15 +68,19 @@ const ContactUs = () => {
           {menuItems[1]}
         </p>
         <section className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-12 md:gap-16 lg:gap-28 bg-[#f5e7da] dark:bg-[#111827] p-4 sm:p-6 md:p-8 rounded-lg shadow-lg">
-          <div className="w-full sm:w-1/2 lg:w-[56%] h-[400px] sm:h-[900px] lg:h-[900px] dark:shadow-[0_0_20px_10px_rgba(59,130,246,0.4)]">
-            <Image
-              src={productData.image || "/default-image.jpg"}
-              alt={productData.name || "Default Image"}
-              width={400}
-              height={600}
-              className="w-full h-full object-cover rounded-lg shadow-lg"
-            />
-          </div>
+        <div className="w-full sm:w-1/2 lg:w-[56%] h-[400px] sm:h-[900px] lg:h-[900px] dark:shadow-[0_0_20px_10px_rgba(59,130,246,0.4)]">
+  <Image
+    src={productData.image || "/default-image.jpg"}
+    alt={productData.name || "Default Image"}
+    width={400}
+    height={600}
+    className="w-full h-full object-cover rounded-lg shadow-lg"
+    style={{
+      aspectRatio: "2 / 3", // Співвідношення сторін 400x600
+    }}
+  />
+</div>
+
 
           <article className="w-full sm:w-1/2 lg:w-1/3 space-y-4 sm:space-y-6">
             <address className="text-base sm:text-lg md:text-xl not-italic">

@@ -24,19 +24,19 @@ const seoConfig = {
     title: "Спеціальні пропозиції | Магазин жіночого одягу",
     description: "Спеціальні пропозиції та акції для покупців.",
     openGraph: {
-      url: "https://shoping-tdfr.vercel.app/offers",
+      url: "https://shoping-tdfr.vercel.app/special-offers",
       title: "Спеціальні пропозиції | Магазин жіночого одягу",
       description: "Дізнайтеся про наші акції та спеціальні знижки.",
       images: [
         { 
-          url: "https://shoping-tdfr.vercel.app/offers-preview.jpg",
+          url: "https://shoping-tdfr.vercel.app/special-offers-preview.jpg",
           width: 1200,
           height: 628,
           alt: "Offers Page Image"
         }
       ]
     },
-    canonical: "https://shoping-tdfr.vercel.app/offers",
+    canonical: "https://shoping-tdfr.vercel.app/special-offers",
     robots: "index, follow"
   },
 

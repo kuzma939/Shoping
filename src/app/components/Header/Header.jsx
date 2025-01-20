@@ -23,14 +23,17 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
       <div className="flex-shrink-0 ml-0 sm:ml-8">
         <Link href="/" aria-label="Home">
         <h1 className="sr-only">Latore Atelier</h1>
-          <Image
-            src="/light-logo.avif"
-            alt="Latore Atelier Logo – High-Quality Clothing"
-            width={180}
-            height={160}
-            quality={100}
-            className={`${isDarkMode ? "filter invert" : ""} w-[80px] h-[60px] sm:w-[80px] sm:h-[60px] md:w-[80px] md:h-[60px] lg:w-[120px] lg:h-[80px]`}
-          />
+        <Image
+  src="/light-logo.avif"
+  alt="Latore Atelier Logo – High-Quality Clothing"
+  width={180}
+  height={160}
+  quality={100}
+  className={`w-[80px] h-[60px] sm:w-[80px] sm:h-[60px] md:w-[80px] md:h-[60px] lg:w-[120px] lg:h-[80px] ${
+    isDarkMode ? "filter invert" : ""
+  }`}
+/>
+
         </Link>
       </div>
 

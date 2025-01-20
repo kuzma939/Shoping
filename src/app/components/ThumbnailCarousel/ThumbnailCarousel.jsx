@@ -34,27 +34,29 @@ const ThumbnailCarousel = ({ images = [], onImageSelect }) => {
       {/* Мініатюри */}
       <div className="flex gap-2 overflow-hidden px-8">
         <div
-          className="flex gap-2 transition-transform duration-300"
+          className="flex gap-4 transition-transform duration-300"
           style={{
             transform: `translateX(-${thumbnailIndex * 60}px)`,
           }}
         >
           {images.map((image, index) => (
-            <div key={index} className="w-24 h-24 relative">
-              <Image
-                src={image}
-                alt={`Thumbnail ${index + 1}`}
-                layout="fill"
-                objectFit="cover"
-                className={`border rounded cursor-pointer hover:brightness-150 hover:scale-105 ${
-                  index === thumbnailIndex ? "border-black dark:border-white" : "border-gray-500"
-                }`}
-                onClick={() => {
-                  setThumbnailIndex(index);
-                  onImageSelect(image); // Передає вибране зображення
-                }}
-              />
-            </div>
+            <div key={index} className="w-24 h-36 relative">
+            <Image
+              src={image}
+              alt={`Thumbnail ${index + 1}`}
+              width={96} // 24 * 4 (розраховано з класу w-24 Tailwind)
+              height={96} // 24 * 4
+              style={{ objectFit: "cover" }}
+              className={`border rounded cursor-pointer hover:brightness-150 hover:scale-105 ${
+                index === thumbnailIndex ? "border-black dark:border-white" : "border-gray-500"
+              }`}
+              onClick={() => {
+                setThumbnailIndex(index);
+                onImageSelect(image); // Передає вибране зображення
+              }}
+            />
+          </div>
+          
           ))}
         </div>
       </div>

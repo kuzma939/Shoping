@@ -8,7 +8,10 @@ export default function Hero() {
   return (
     <section className="section-container relative" aria-labelledby="hero-heading">
       <h2 id="hero-heading" className="sr-only">Our Atelier Highlights</h2>
+
+      {/* Showcase Images */}
       <div className="grid grid-cols-1 sm:grid-cols-3 sm:gap-4 relative">
+        {/* Left Image */}
         <div className="w-48 sm:w-[200px] -mb-4 md:w-[300px] lg:w-[400px] relative flex flex-row items-center ml-8 sm:ml-24 mg:ml-36 mobile-320">
           <Image
             src="/1.jpg"
@@ -21,6 +24,7 @@ export default function Hero() {
           />
         </div>
 
+        {/* Hero Text */}
         <div className="relative col-span-1 sm:col-span-3 flex justify-center items-center z-10 h-[100px] sm:h-[150px] mobile-320">
           <h1 className="text-2xl sm:text-4xl md:text-6xl xl:text-7xl font-bold tracking-wide whitespace-nowrap text-center inline-block relative text-gray-900 dark:text-gray-100">
             LATORE A
@@ -39,7 +43,9 @@ export default function Hero() {
         </div>
       </div>
 
+      {/* Bottom Section */}
       <div className="grid grid-cols-2 gap-4 sm:mt-4 mobile-320">
+        {/* Bottom Left Image */}
         <div className="relative flex justify-center items-center">
           <Image
             src="/5.jpg"
@@ -51,6 +57,7 @@ export default function Hero() {
           />
         </div>
 
+        {/* Bottom Text */}
         <header className="flex flex-col justify-center text-center space-y-2">
           <p className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320">
             {menuItems[0] || "Experience the Difference"}

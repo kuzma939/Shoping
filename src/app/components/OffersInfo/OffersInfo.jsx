@@ -62,7 +62,7 @@ export default function OffersInfo() {
                   aria-labelledby={`product-title-${product.id}`}
                   role="listitem"
                 >
-                  <div className="w-full h-[300px] sm:h-[350px] overflow-hidden rounded-t">
+                  <div className="w-full h-[300px] sm:h-[350px] overflow-hidden rounded-t aspect-[3/4]">
                     <Image
                       src={product.image}
                       alt={`Preview of ${translatedName}`}
