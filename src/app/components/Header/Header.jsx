@@ -1,4 +1,5 @@
 "use client"; 
+import Head from "next/head";
 import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,73 +18,70 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
   };
 
   const { isMenuOpen, toggleMenu, closeMenu } = useHeaderState();
-{/*// Додавання класу для фіксації хедера при скролі
- const [isScrolled, setIsScrolled] = useState(false);
-
- useEffect(() => {
-   const handleScroll = () => {
-     setIsScrolled(window.scrollY > 0);
-   };
-   window.addEventListener("scroll", handleScroll);
-   return () => window.removeEventListener("scroll", handleScroll);
- }, []);
-
- */}
+ 
   return (
-    <header className={`flex items-center justify-between px-4 py-1 shadow-md ${isDarkMode ? "bg-black text-white" : "bg-white text-black"}`} role="banner">
+    <header className={`flex items-center justify-between px-4 py-1 shadow-md
+   ${isDarkMode ? "bg-black text-white shadow-gray-800" : "bg-white text-black shadow-gray-300"}`} role="banner">
       <div className="flex-shrink-0 ml-0 sm:ml-8">
-        <Link href="/" aria-label="Home">
-        <h1 className="sr-only">Latore Atelier</h1>
-        <Image
-  src="/light-logo.avif"
-  alt="Latore Atelier Logo – High-Quality Clothing"
-  width={180}
-  height={160}
-  quality={100}
-  className={`w-[80px] h-[60px] sm:w-[80px] sm:h-[60px] md:w-[80px] md:h-[60px] lg:w-[120px] lg:h-[80px] ${
+      <Head>
+  {/* Попереднє завантаження зображення */}
+  <link rel="preload" as="image" href="/light-logo.avif" type="image/avif" media="(max-width: 480px)"/>
+</Head>
+<Link href="/" aria-label="Home">
+  <h1 className="sr-only">Latore Atelier</h1>
+  <Image
+    src="/light-logo.avif"
+    alt="Latore Atelier Logo – High-Quality Clothing"
+    layout="intrinsic"
+    width={128} // Зберігає співвідношення ширини
+    height={69} // Зберігає співвідношення висоти
+    quality={90}
+    sizes="(max-width: 480px) 50px, (max-width: 768px) 80px, (max-width: 1200px) 100px, 128px"
+    className={`w-16 h-auto sm:w-24 md:w-32 lg:w-40 ${
     isDarkMode ? "filter invert" : ""
   }`}
-/>
-
-        </Link>
+    priority
+  />
+</Link>
       </div>
-
       <nav aria-label="Main Navigation" className="flex items-center space-x-4 lg:space-x-6">
-        <button
-          onClick={toggleMenu}
-          aria-label="Open Menu"
-          className="lg:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
-        >
-          <FaBars className="sm:xl md:text-2xl lg:text-3xl" />
-        </button>
-        <ul className="hidden lg:flex space-x-4 text-xs sm:text-sm md:text-base lg:text-lg" role="menubar">
-          <li className="min-w-[80px] text-center" role="none">
-            <Link href="/">
-              {menuItems[0]}
-            </Link>
-          </li>
-          <li className="min-w-[80px] text-center" role="none">
-            <Link href="/All-products">
-              {menuItems[1]}
-            </Link>
-          </li>
-          <li className="min-w-[80px] text-center" role="none">
-            <Link href="/#about">
-              {menuItems[2]}
-            </Link>
-          </li>
-          <li className="min-w-[80px] text-center" role="none">
-            <Link href="/contact">
-              {menuItems[3]}
-            </Link>
-          </li>
-          <li className="min-w-[80px] text-center" role="none">
-            <Link href="/Conditions">
-              {menuItems[4]}
-            </Link>
-          </li>
-        </ul>
-      </nav>
+  <button
+    onClick={toggleMenu}
+    aria-label="Open Menu"
+    aria-expanded={isMenuOpen ? "true" : "false"}
+    className="lg:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
+  >
+    <FaBars className="sm:xl md:text-2xl lg:text-3xl" />
+  </button>
+
+  <ul className="hidden lg:flex space-x-4 text-xs sm:text-sm md:text-base lg:text-lg" role="menubar">
+    <li className="min-w-[80px] text-center" role="menuitem">
+      <Link href="/" aria-label={`Go to ${menuItems[0]} page`}>
+        {menuItems[0]}
+      </Link>
+    </li>
+    <li className="min-w-[80px] text-center" role="menuitem">
+      <Link href="/All-products" aria-label={`Go to ${menuItems[1]} page`}>
+        {menuItems[1]}
+      </Link>
+    </li>
+    <li className="min-w-[80px] text-center" role="menuitem">
+      <Link href="/#about" aria-label={`Learn more ${menuItems[2]}`}>
+        {menuItems[2]}
+      </Link>
+    </li>
+    <li className="min-w-[80px] text-center" role="menuitem">
+      <Link href="/contact" aria-label={`Go to ${menuItems[3]} page`}>
+        {menuItems[3]}
+      </Link>
+    </li>
+    <li className="min-w-[80px] text-center" role="menuitem">
+      <Link href="/Conditions" aria-label={`View ${menuItems[4]}`}>
+        {menuItems[4]}
+      </Link>
+    </li>
+  </ul>
+</nav>
 
       <div className="hidden lg:flex items-center space-x-2">
         <button
@@ -128,7 +126,8 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
         <div className="flex items-center justify-start space-x-4 px-6 py-4 border-b border-gray-300 dark:border-gray-600">
           <button
             onClick={toggleLanguage}
-            aria-label="Toggle Language"
+           // aria-label="Toggle Language"
+            aria-label={`Switch language, current language is ${language}`}
             className="p-1 sm:p-2 rounded-full border border-gray-300 hover:bg-gray-200 dark:border-gray-700 dark:hover:bg-gray-600 transition duration-300 text-xs sm:text-sm md:text-base lg:text-lg flex items-center justify-center"
           >
             {language === "EN" ? "🇬🇧 EN" : language === "FR" ? "🇫🇷 FR" : "🇺🇦 UA"}
@@ -146,37 +145,32 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
           </button>
         </div>
         <ul className="flex flex-col items-start space-y-4 p-6 text-xs sm:text-sm md:text-base lg:text-lg" role="menubar">
-          <li className="text-center">
-            <Link href="/">
-              {menuItems[0]}
-            </Link>
-          </li>
-          <li className="text-center">
-            <Link href="/All-products">
-              {menuItems[1]}
-            </Link>
-          </li>
-          <li className="text-center">
-            <Link href="/#about">
-              {menuItems[2]}
-            </Link>
-          </li>
-          <li className="text-center">
-            <Link href="/contact">
-              {menuItems[3]}
-            </Link>
-          </li>
-          <li className="text-center">
-            <Link href="/Conditions">
-              {menuItems[4]}
-            </Link>
-          </li>
-          <li className="text-center">
-            <Link href="/">
-              {menuItems[5]}
-            </Link>
-          </li>
-        </ul>
+  <li className="text-center" role="menuitem">
+    <Link href="/" aria-label={`Navigate to ${menuItems[0]} page`}>
+      {menuItems[0]}
+    </Link>
+  </li>
+  <li className="text-center" role="menuitem">
+    <Link href="/All-products" aria-label={`Navigate to ${menuItems[1]} page`}>
+      {menuItems[1]}
+    </Link>
+  </li>
+  <li className="text-center" role="menuitem">
+    <Link href="/#about" aria-label={`Learn more about ${menuItems[2]}`}>
+      {menuItems[2]}
+    </Link>
+  </li>
+  <li className="text-center" role="menuitem">
+    <Link href="/contact" aria-label={`Navigate to ${menuItems[3]} page`}>
+      {menuItems[3]}
+    </Link>
+  </li>
+  <li className="text-center" role="menuitem">
+    <Link href="/Conditions" aria-label={`View terms and conditions on the ${menuItems[4]} page`}>
+      {menuItems[4]}
+    </Link>
+  </li>
+</ul>
       </nav>
     </header>
   );
