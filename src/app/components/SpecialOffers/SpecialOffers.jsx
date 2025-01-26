@@ -8,6 +8,7 @@ export default function SpecialOffers() {
   const { translateList } = useLanguage();
   const menuItems = translateList("home", "special_offers");
   const router = useRouter();
+
   const handleClick = () => {
     router.push("/special-offers");
   };
@@ -31,10 +32,11 @@ export default function SpecialOffers() {
               priority
             />
           </div>
+          {/* Текст */}
           <div
             className={`
               absolute bottom-[5%] sm:bottom-[10%] md:bottom-[15%] lg:bottom-[10%] xl:bottom-[15%]
-              left-1/2  lg:left-[20%] transform -translate-x-1/2 
+              left-1/2 lg:left-[20%] transform -translate-x-1/2 
               dark:bg-[rgba(58,42,32,0.8)] bg-white/45
               p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 rounded-lg shadow-lg 
               w-full max-w-none sm:w-[75%] md:w-[75%] lg:w-[75%] xl:w-[90%] text-center md:text-left
@@ -43,8 +45,7 @@ export default function SpecialOffers() {
           >
             <h2
               className={`text-base sm:text-3xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold mb-4
-                dark:text-[#f5e8d6] text-black
-              `}
+                dark:text-[#f5e8d6] text-black`}
             >
               {menuItems[0] || "Special Offers"}
             </h2>
