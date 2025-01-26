@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
                 <link rel="icon" href="/favicon-latore.png" type="image/png" />
                 <link rel="canonical" href="https://shoping-tdfr.vercel.app" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name="google-site-verification" content="" />
+                <meta name="google-site-verification" content="cEPkdQQw_dVOxzbi7iLzOjHyYw9kx6u7lGboqRczRa8" />
        {/* Google Analytics  */}
        {
   process.env.NODE_ENV === "production" && (
