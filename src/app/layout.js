@@ -38,7 +38,11 @@ export default function RootLayout({ children }) {
                 <link rel="icon" href="/favicon-latore.png" type="image/png" />
                 <link rel="canonical" href="https://shoping-tdfr.vercel.app" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta name="google-site-verification" content="" />
        {/* Google Analytics  */}
+       {
+  process.env.NODE_ENV === "production" && (
+    <>
                 <Script
                     src="https://www.googletagmanager.com/gtag/js?id=G-0PPLZGLX20"
                     strategy="afterInteractive"
@@ -51,7 +55,9 @@ export default function RootLayout({ children }) {
                         gtag('config', 'G-0PPLZGLX20');
                     `}
                 </Script>
-
+                </>
+  )
+} 
                 {/* JSON-LD через next/script */}
                 <Script
                     id="organization-jsonld"
