@@ -17,7 +17,18 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
   };
 
   const { isMenuOpen, toggleMenu, closeMenu } = useHeaderState();
+{/*// Додавання класу для фіксації хедера при скролі
+ const [isScrolled, setIsScrolled] = useState(false);
 
+ useEffect(() => {
+   const handleScroll = () => {
+     setIsScrolled(window.scrollY > 0);
+   };
+   window.addEventListener("scroll", handleScroll);
+   return () => window.removeEventListener("scroll", handleScroll);
+ }, []);
+
+ */}
   return (
     <header className={`flex items-center justify-between px-4 py-1 shadow-md ${isDarkMode ? "bg-black text-white" : "bg-white text-black"}`} role="banner">
       <div className="flex-shrink-0 ml-0 sm:ml-8">

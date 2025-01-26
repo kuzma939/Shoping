@@ -10,7 +10,7 @@ const generateProductsJsonLd = (products) => {
       name: product.translations?.EN?.name || "Unnamed Product", // Назва продукту
       image: {
         "@type": "ImageObject",
-        url: product.image || "https://shoping-tdfr.vercel.app/default-image.jpg", // Зображення продукту
+        url: product.image || "https://shoping-tdfr.vercel.app/logo-social.jpg", // Зображення продукту
         width: 1200, // Рекомендована ширина
         height: 628, // Рекомендована висота
         caption: product.translations?.EN?.name || "Unnamed Product", // Альтернативний текст
