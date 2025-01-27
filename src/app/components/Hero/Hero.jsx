@@ -37,7 +37,7 @@ export default function Hero() {
                   width={300} // Adjusted width
                   height={300} // Adjusted height
                   sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 300px"
-                  className="w-32 h-32 sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px] lg:w-[300px] lg:h-[300px] xl:w-[300px] xl:h-[300px] object-cover shadow-lg shadow-gray-800 dark:shadow-gray-400 transition-transform duration-300 ease-in-out focus:scale-110 hover:scale-110 group-hover:scale-110"
+                  className="w-32 h-32 sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px] lg:w-[300px] lg:h-[300px] xl:w-[400px] xl:h-[400px] object-cover shadow-lg shadow-gray-800 dark:shadow-gray-400 transition-transform duration-300 ease-in-out focus:scale-110 hover:scale-110 group-hover:scale-110"
                 />
               </span>
             </h1>
