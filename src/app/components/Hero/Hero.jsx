@@ -69,7 +69,7 @@ role="banner"
   </div>
 </div>
 
-<div className="text-center mt-8 px-4" style={{ minHeight: "100px" }}>
+<div className="text-center mt-2 px-4" style={{ minHeight: "60px" }}>
   <p className="text-base text-gray-700 dark:text-gray-300">
     {menuItems[0] || "Experience the Unique Touch of Latore Atelier"}
   </p>
