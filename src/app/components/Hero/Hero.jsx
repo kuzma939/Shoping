@@ -21,8 +21,8 @@ export default function Hero() {
               width={200} // Adjusted width
               height={250} // Adjusted height
               priority
-              sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1200px) 50vw, 400px"
-             className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400 transition-transform duration-300 ease-in-out focus:scale-110 hover:scale-110 group-hover:scale-110 cursor-pointer w-32 sm:w-[200px] md:w-[300px] lg:w-[300px]"
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1200px) 50vw, 200px"
+             className="rounded-none object-cover shadow-lg shadow-gray-800 dark:shadow-gray-400 transition-transform duration-300 ease-in-out focus:scale-110 hover:scale-110 group-hover:scale-110 cursor-pointer w-32 sm:w-[200px] md:w-[300px] lg:w-[300px]"
             />
           </div>
 
@@ -36,9 +36,8 @@ export default function Hero() {
                   alt="Showcase of Atelier design – Right"
                   width={300} // Adjusted width
                   height={300} // Adjusted height
-                  priority
                   sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 300px"
-                  className="w-32 h-32 sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px] lg:w-[300px] lg:h-[300px] xl:w-[300px] xl:h-[300px] object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400 transition-transform duration-300 ease-in-out focus:scale-110 hover:scale-110 group-hover:scale-110"
+                  className="w-32 h-32 sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px] lg:w-[300px] lg:h-[300px] xl:w-[300px] xl:h-[300px] object-cover shadow-lg shadow-gray-800 dark:shadow-gray-400 transition-transform duration-300 ease-in-out focus:scale-110 hover:scale-110 group-hover:scale-110"
                 />
               </span>
             </h1>
@@ -53,7 +52,7 @@ export default function Hero() {
               width={300} // Adjusted width
               height={450} // Adjusted height
               sizes="(max-width: 768px) 90vw, (max-width: 1200px) 45vw, 300px"
-              className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400 transition-transform duration-300 ease-in-out focus:scale-110 hover:scale-110 group-hover:scale-110 w-32 sm:w-[200px] md:w-[300px] lg:w-[300px] ml-8 sm:ml-36 h-auto"
+              className="rounded-none object-cover shadow-lg shadow-gray-800 dark:shadow-gray-400 transition-transform duration-300 ease-in-out focus:scale-110 hover:scale-110 group-hover:scale-110 w-32 sm:w-[200px] md:w-[300px] lg:w-[300px] ml-8 sm:ml-36 h-auto"
             />
           </div>
 
