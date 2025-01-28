@@ -67,14 +67,14 @@ export default function Hero() {
               </h2>
             </div>
           </div>
-          <div className="text-center mt-8">
-        <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300">
-          {menuItems[0] || "Experience Latore Atelier's Unique Fashion Touch"}
-        </p>
-        <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300">
-          {menuItems[1] || "Discover Our Signature Collections"}
-        </p>
-      </div>
+          <header className="flex flex-col justify-center mt-8 text-center space-y-2">
+            <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320">
+              {menuItems[0] || "Experience the Difference"}
+            </p>
+            <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320">
+              {menuItems[1] || "Explore Our Signature Collections"}
+            </p>
+          </header>
         </section>
       </>
     );
@@ -148,14 +148,14 @@ export default function Hero() {
     />
   </div>
 </div>
-<div className="text-center mt-8">
-        <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300">
-          {menuItems[0] || "Experience Latore Atelier's Unique Fashion Touch"}
-        </p>
-        <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300">
-          {menuItems[1] || "Discover Our Signature Collections"}
-        </p>
-      </div>
+<header className="flex flex-col justify-center text-center space-y-2">
+            <p className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320">
+              {menuItems[0] || "Experience the Difference"}
+            </p>
+            <p className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320">
+              {menuItems[1] || "Explore Our Signature Collections"}
+            </p>
+          </header>
       </section>
       </>
     );
@@ -227,15 +227,14 @@ export default function Hero() {
           </div>
       
       </div>
-
-      <div className="text-center mt-8">
-        <p className="text-sm sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300">
-          {menuItems[0] || "Experience Latore Atelier's Unique Fashion Touch"}
-        </p>
-        <p className="text-sm sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300">
-          {menuItems[1] || "Discover Our Signature Collections"}
-        </p>
-      </div>
+      <header className="flex flex-col justify-center text-center space-y-2">
+            <p className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320">
+              {menuItems[0] || "Experience the Difference"}
+            </p>
+            <p className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320">
+              {menuItems[1] || "Explore Our Signature Collections"}
+            </p>
+          </header>
       </section>
     </>
   );
