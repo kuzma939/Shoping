@@ -71,7 +71,8 @@ export default function Hero() {
       alt="Latore Atelier Left Design Showcase"
       width={200}
       height={300}
-      sizes="(max-width: 640px) 200px, (max-width: 1200px) 300px, 300px"
+      sizes="(max-width: 640px) 40vw, (max-width: 1200px) 20vw, 200px"
+      
       className="rounded-lg object-cover shadow-soft dark:shadow-soft"
       loading="lazy" // Зображення завантажується ліниво, якщо не є пріоритетним
       decoding="async" // Асинхронне декодування для кращої продуктивності
@@ -82,7 +83,7 @@ export default function Hero() {
       alt="Latore Atelier Signature Collection"
       width={200}
       height={300}
-      sizes="(max-width: 640px) 200px, (max-width: 1200px) 300px, 300px"
+      sizes="(max-width: 640px) 40vw, (max-width: 1200px) 20vw, 200px"
       className="rounded-lg object-cover shadow-soft dark:shadow-soft"
       loading="lazy"
       decoding="async"
