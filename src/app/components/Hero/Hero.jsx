@@ -191,52 +191,56 @@ export default function Hero() {
       <h1 id="hero-heading" className="sr-only">
         Explore Latore Atelier – Signature Fashion and Design
       </h1>
-
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 relative">
-        <div className="relative flex justify-end items-center px-4">
-          <Image
-            src="/Dress/Dress Grace/1.avif"
-            alt="Left showcase of Latore Atelier's exclusive fashion design"
-            width={400}
-            height={600}
-            sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 400px"
-            className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400 w-[200px] sm:w-[300px] md:w-[400px]"
-            priority
-          />
-        </div>
-        <div className="relative flex flex-col items-center justify-center">
-  {/* Зображення */}
-  <div className="relative">
+  {/* Ліва частина */}
+  <div className="relative flex justify-end items-center px-4">
     <Image
-      src="/Dress/Dress Grace/2.avif"
-      alt="Center showcase of Latore Atelier's elegant design"
+      src="/Dress/Dress Grace/1.avif"
+      alt="Left showcase of Latore Atelier's exclusive fashion design"
       width={400}
-      height={400}
-      sizes="(max-width: 640px) 200px, (max-width: 1200px) 300px, 400px"
-      className="w-[150px] h-[150px] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+      height={600}
+      sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 400px"
+      className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
       priority
     />
-    {/* Заголовок, накладений поверх зображення */}
-    <div className="absolute inset-0 flex flex-col items-center justify-center text-5xl font-bold text-white bg-black bg-opacity-50 rounded-full">
-      <span className="block self-start ml-4">LATORE</span>
-      <span className="block text-5xl font-bold self-end mr-8 mt-2">ATELIER</span>
+  </div>
+
+  {/* Центр */}
+  <div className="relative flex flex-col items-center justify-center">
+    <div className="relative">
+      <Image
+        src="/Dress/Dress Grace/2.avif"
+        alt="Center showcase of Latore Atelier's elegant design"
+        width={400}
+        height={400} // Пропорції збережено
+        sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 400px"
+        className="rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+        priority
+      />
+      {/* Текст поверх зображення */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-5xl font-bold text-white bg-black bg-opacity-50 rounded-full">
+        <span className="block self-start ml-4">LATORE</span>
+        <span className="block text-5xl font-bold self-end mr-8 mt-2">
+          ATELIER
+        </span>
+      </div>
     </div>
+  </div>
+
+  {/* Права частина */}
+  <div className="relative flex justify-start items-center px-4">
+    <Image
+      src="/Dress/Dress Grace/4.avif"
+      alt="Showcase of Latore Atelier's signature collection"
+      width={400}
+      height={600}
+      sizes="(max-width: 1200px) 50vw, 400px"
+      className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+      loading="lazy"
+    />
   </div>
 </div>
 
-          <div className="relative flex justify-start items-center px-4">
-            <Image
-              src="/Dress/Dress Grace/4.avif"
-              alt="Showcase of Latore Atelier's signature collection"
-              width={400}
-              height={600}
-              sizes="(max-width: 1200px) 50vw, 400px"
-              className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400 w-[200px] sm:w-[300px] md:w-[400px]"
-              loading="lazy"
-            />
-          </div>
-      
-      </div>
       <header
   className="flex flex-col justify-center text-center space-y-2"
   style={{ minHeight: "150px" }} // Резервування простору для заголовка
