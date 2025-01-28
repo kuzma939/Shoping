@@ -10,78 +10,73 @@ export default function Hero() {
 
   // Визначення, чи мобільний розмір екрану
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 640); // Мобільний екран <= 640px
-    };
-    handleResize(); // Викликати на початку
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    const handleResize = () => setIsMobile(window.innerWidth <= 640); // Правильно
+    window.addEventListener("resize", handleResize); // Додаємо обробник події
+    handleResize(); // Викликаємо один раз для встановлення початкового стану
+    return () => window.removeEventListener("resize", handleResize); // Прибираємо обробник при демонтажі компонента
   }, []);
+  
 
   // **Мобільний дизайн**
   if (isMobile) {
     return (
-   
-<section
-className="section-container relative"
-aria-labelledby="hero-heading"
-role="banner"
->
-<div className="flex flex-col gap-6 items-center">
-  {/* Центр зображення */}
-  <div className="relative">
-    <Image
-      src="/Dress/Dress Grace/1.avif"
-      alt="Center showcase of Latore Atelier's elegant design"
-      width={300}
-      height={300}
-       sizes="(max-width: 640px) 80vw, (max-width: 1200px) 40vw, 300px"
-      className="w-[200px] h-[200px] rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
-      priority
-    />
-    <h2
-      className="absolute bottom-[-20px] left-[50%] translate-x-[-50%] text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-3 px-6 rounded-2xl whitespace-nowrap"
-      role="heading"
-      aria-level="2"
-    >
-      LATORE ATELIER
-    </h2>
-  </div>
+      <section
+        className="section-container relative"
+        aria-labelledby="hero-heading"
+        role="banner"
+      >
+        <div className="flex flex-col gap-6 items-center">
+          {/* Центр зображення */}
+          <div className="relative">
+            <Image
+              src="/Dress/Dress Grace/1.avif"
+              alt="Center showcase of Latore Atelier's elegant design"
+              width={300}
+              height={300}
+              sizes="(max-width: 640px) 80vw, (max-width: 1200px) 40vw, 300px"
+              className="w-[200px] h-[200px] rounded-full object-cover shadow-soft dark:shadow-soft"
+              priority
+            />
+            <h2
+              className="absolute bottom-[-20px] left-[50%] translate-x-[-50%] text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-3 px-6 rounded-2xl whitespace-nowrap"
+              role="heading"
+              aria-level="2"
+            >
+              LATORE ATELIER
+            </h2>
+          </div>
 
-  {/* Зображення з боків */}
-  <div className="flex gap-4 justify-between w-full px-4">
-    <Image
-      src="/Dress/Dress Grace/2.avif"
-      alt="Left showcase of Latore Atelier's exclusive fashion design"
-      width={200}
-      height={300}
-      sizes="(max-width: 640px) 50vw, (max-width: 1200px) 30vw, 200px"
-      
-      className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
-    />
-    <Image
-      src="/Dress/Dress Grace/4.avif"
-      alt="Showcase of Latore Atelier's signature collection"
-      width={200}
-      height={300}
-      sizes="(max-width: 640px) 50vw, (max-width: 1200px) 30vw, 200px"
-      className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
-    />
-  </div>
-</div>
-<div
-className="text-center mt-2 px-4 min-h-[70px]"
-
->
-  <p className="text-base text-gray-700 dark:text-gray-300">
-    {menuItems[0] || "Experience the Unique Touch of Latore Atelier"}
-  </p>
-  <p className="text-base text-gray-700 dark:text-gray-300 mt-2">
-    {menuItems[1] || "Explore Our Signature Collections"}
-  </p>
-</div>
-
-</section>
+          {/* Зображення з боків */}
+          <div className="flex gap-4 justify-between w-full px-4">
+            <Image
+              src="/Dress/Dress Grace/2.avif"
+              alt="Left showcase of Latore Atelier's exclusive fashion design"
+              width={200}
+              height={300}
+              sizes="(max-width: 640px) 50vw, (max-width: 1200px) 30vw, 200px"
+              className="rounded-lg object-cover shadow-soft dark:shadow-soft"
+              loading="lazy"
+            />
+            <Image
+              src="/Dress/Dress Grace/4.avif"
+              alt="Showcase of Latore Atelier's signature collection"
+              width={200}
+              height={300}
+              sizes="(max-width: 640px) 50vw, (max-width: 1200px) 30vw, 200px"
+              className="rounded-lg object-cover shadow-soft dark:shadow-soft"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div className="text-center mt-2 px-4 min-h-[70px]">
+          <p className="text-base text-gray-700 dark:text-gray-300">
+            {menuItems[0] || "Experience the Unique Touch of Latore Atelier"}
+          </p>
+          <p className="text-base text-gray-700 dark:text-gray-300 mt-2">
+            {menuItems[1] || "Explore Our Signature Collections"}
+          </p>
+        </div>
+      </section>
     );
   }
 
@@ -104,7 +99,7 @@ className="text-center mt-2 px-4 min-h-[70px]"
             width={400}
             height={600}
             sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 400px"
-            className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400 w-[200px] sm:w-[300px] md:w-[400px]"
+            className="rounded-none object-cover shadow-soft dark:shadow-soft w-[200px] sm:w-[300px] md:w-[400px]"
             priority
           />
         </div>
@@ -115,7 +110,7 @@ className="text-center mt-2 px-4 min-h-[70px]"
             role="heading"
             aria-level="2"
           >
-            LATORE 
+            LATORE
             <span className="block">ATELIER</span>
           </h2>
           <div className="absolute top-[50%] translate-y-[-50%]">
@@ -125,7 +120,7 @@ className="text-center mt-2 px-4 min-h-[70px]"
               width={400}
               height={400}
               sizes="(max-width: 640px) 200px, (max-width: 1200px) 300px, 400px"
-              className="w-[150px] h-[150px] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+              className="w-[150px] h-[150px] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] rounded-full object-cover shadow-soft dark:shadow-soft"
               priority
             />
           </div>
@@ -138,7 +133,8 @@ className="text-center mt-2 px-4 min-h-[70px]"
             width={400}
             height={600}
             sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 400px"
-            className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400 w-[200px] sm:w-[300px] md:w-[400px]"
+            className="rounded-none object-cover shadow-soft dark:shadow-soft w-[200px] sm:w-[300px] md:w-[400px]"
+            loading="lazy"
           />
         </div>
       </div>
