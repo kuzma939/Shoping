@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useLanguage } from "../../Functions/useLanguage";
 import { useEffect, useState } from "react";
-
+import Head from "next/head";
 export default function Hero() {
   const { translateList } = useLanguage();
   const menuItems = translateList("home", "hero");
@@ -20,6 +20,15 @@ export default function Hero() {
   // **Мобільний дизайн**
   if (isMobile) {
     return (
+      <>
+      <Head>
+        <link
+          rel="preload"
+          as="image"
+          href="/Dress/Dress Grace/1.avif"
+          type="image/avif"
+        />
+      </Head>
       <section
         className="section-container relative"
         aria-labelledby="hero-heading"
@@ -85,8 +94,9 @@ export default function Hero() {
           </p>
         </div>
       </section>
+      </>
     );
-    
+   
   }
 
   // **Дизайн для планшетів та десктопів**
@@ -157,7 +167,8 @@ export default function Hero() {
         </p>
       </div>
     </section>
+    
   );
-  
+ 
 }
 
