@@ -31,12 +31,7 @@ input, textarea {
       @apply flex flex-col relative mx-0  w-full max-w-full overflow-hidden pt-8 pb-8 sm:pt-12 sm:pb-12;
     }
   }
-  .text-center {
-    min-height: 70px; 
-  }
-  .min-height {
-    min-height: 70px;
-  }
+  
   .content-wrapper {
     @apply max-w-7xl mx-auto;
   }
@@ -46,5 +41,9 @@ input, textarea {
     .mobile-320 {
       @apply  text-xs leading-tight p-1;
     }
+    .text-center {
+      min-height: 70px; 
+    }
+   
   }
 }
