@@ -115,7 +115,7 @@ export default function Hero() {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 relative">
         <div className="relative flex justify-end items-center px-4">
           <Image
-            src="/1.jpg"
+            src="/Dress/Dress Grace/1.avif"
             alt="Left showcase of Latore Atelier's exclusive fashion design"
             width={400}
             height={600}
@@ -136,7 +136,7 @@ export default function Hero() {
           </h2>
           <div className="absolute top-[50%] translate-y-[-50%]">
             <Image
-              src="/10.jpg"
+              src="/Dress/Dress Grace/2.avif"
               alt="Center showcase of Latore Atelier's elegant design"
               width={400}
               height={400}
@@ -149,7 +149,7 @@ export default function Hero() {
 
         <div className="relative flex justify-start items-center px-4">
           <Image
-            src="/5.jpg"
+            src="/Dress/Dress Grace/4.avif"
             alt="Showcase of Latore Atelier's signature collection"
             width={400}
             height={600}
