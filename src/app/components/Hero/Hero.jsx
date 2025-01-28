@@ -28,49 +28,53 @@ export default function Hero() {
         <h1 id="hero-heading" className="sr-only">
           Experience the Unique Touch of Latore Atelier – Exclusive Fashion
         </h1>
-
         <div className="flex flex-col gap-6 items-center">
-          {/* Центр зображення */}
-          <div className="relative">
-            <Image
-              src="/Dress/Dress Grace/1.avif"
-              alt="Elegant design by Latore Atelier – Centerpiece"
-              width={300}
-              height={300}
-              sizes="(max-width: 640px) 80vw, (max-width: 1200px) 40vw, 300px"
-              className="w-[200px] h-[200px] rounded-full object-cover shadow-soft dark:shadow-soft"
-              priority
-            />
-            <h2
-              className="absolute bottom-[-20px] left-[50%] translate-x-[-50%] text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-3 px-6 rounded-2xl whitespace-nowrap"
-              aria-label="LATORE ATELIER Centerpiece"
-            >
-              LATORE ATELIER
-            </h2>
-          </div>
+  {/* Центр зображення */}
+  <div className="relative">
+    <Image
+      src="/Dress/Dress Grace/1.avif"
+      alt="Elegant design by Latore Atelier – Centerpiece"
+      width={300}
+      height={300}
+      sizes="(max-width: 640px) 80vw, (max-width: 1200px) 40vw, 300px"
+      className="w-[200px] h-[200px] rounded-full object-cover shadow-soft dark:shadow-soft"
+      priority
+      decoding="async" // Додано асинхронне декодування для швидшого рендерингу
+    />
+    <h2
+      className="absolute bottom-[-20px] left-[50%] translate-x-[-50%] text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-3 px-6 rounded-2xl whitespace-nowrap"
+      aria-label="LATORE ATELIER Centerpiece"
+    >
+      LATORE ATELIER
+    </h2>
+  </div>
 
-          {/* Зображення з боків */}
-          <div className="flex gap-4 justify-between w-full px-4">
-            <Image
-              src="/Dress/Dress Grace/2.avif"
-              alt="Latore Atelier Left Design Showcase"
-              width={200}
-              height={300}
-              sizes="(max-width: 640px) 50vw, (max-width: 1200px) 30vw, 200px"
-              className="rounded-lg object-cover shadow-soft dark:shadow-soft"
-              loading="lazy"
-            />
-            <Image
-              src="/Dress/Dress Grace/4.avif"
-              alt="Latore Atelier Signature Collection"
-              width={200}
-              height={300}
-              sizes="(max-width: 640px) 50vw, (max-width: 1200px) 30vw, 200px"
-              className="rounded-lg object-cover shadow-soft dark:shadow-soft"
-              loading="lazy"
-            />
-          </div>
-        </div>
+  {/* Зображення з боків */}
+  <div className="flex gap-4 justify-between w-full px-4">
+    {/* Ліве зображення */}
+    <Image
+      src="/Dress/Dress Grace/2.avif"
+      alt="Latore Atelier Left Design Showcase"
+      width={200}
+      height={300}
+      sizes="(max-width: 640px) 50vw, (max-width: 1200px) 30vw, 200px"
+      className="rounded-lg object-cover shadow-soft dark:shadow-soft"
+      loading="lazy" // Зображення завантажується ліниво, якщо не є пріоритетним
+      decoding="async" // Асинхронне декодування для кращої продуктивності
+    />
+    {/* Праве зображення */}
+    <Image
+      src="/Dress/Dress Grace/4.avif"
+      alt="Latore Atelier Signature Collection"
+      width={200}
+      height={300}
+      sizes="(max-width: 640px) 50vw, (max-width: 1200px) 30vw, 200px"
+      className="rounded-lg object-cover shadow-soft dark:shadow-soft"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+</div>
 
         <div className="text-center mt-2 px-4 min-h-[70px]">
           <p className="text-base text-gray-700 dark:text-gray-300">
@@ -82,6 +86,7 @@ export default function Hero() {
         </div>
       </section>
     );
+    
   }
 
   // **Дизайн для планшетів та десктопів**
@@ -153,4 +158,6 @@ export default function Hero() {
       </div>
     </section>
   );
+  
 }
+
