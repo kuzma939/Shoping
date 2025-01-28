@@ -33,6 +33,7 @@ export default function TopProducts() {
     <section
       id="top-products"
       className="bg-[#fcf8f3] dark:bg-[#2e1f14] text-black dark:text-gray-100 section-container py-12"
+      style={{ minHeight: "400px" }}
     >
       <div className="space-y-4">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center">
@@ -59,17 +60,17 @@ export default function TopProducts() {
               rel="noopener noreferrer"
               className="flex-shrink-0 group"
             >
-
-              <Image
+               <Image
                 src={images[imageIndex].src}
                 alt={`Топ продукт ${imageIndex + 1}`}
-                width={200} // Зменшений розмір для мобільних
-                height={250} // Пропорційна висота
-                sizes="(max-width: 768px) 45vw, (max-width: 1024px) 20vw, 300px"
-                style={{ width: "auto", height: "auto" }}
-                quality={100}
+                width={200}
+                height={250}
+                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 30vw, 300px"
+                quality={80} // Оптимізація якості
+                priority={imageIndex < 3} // Пріоритет для перших трьох зображень
                 className="rounded-lg object-cover shadow-lg transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:opacity-90"
               />
+            
             </Link>
           ))}
         </div>
