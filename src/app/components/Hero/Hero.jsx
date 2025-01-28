@@ -70,8 +70,8 @@ role="banner"
   </div>
 </div>
 <div
-  className="text-center mt-2 px-4"
-  style={{ minHeight: "70px" }} // Зарезервовано місце для тексту
+className="text-center mt-2 px-4 min-h-[70px]"
+
 >
   <p className="text-base text-gray-700 dark:text-gray-300">
     {menuItems[0] || "Experience the Unique Touch of Latore Atelier"}

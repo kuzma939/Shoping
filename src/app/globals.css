@@ -6,13 +6,7 @@
   --background: #ffffff;
   --foreground: #171717;
 }
-/*
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}*/
+
 .dark {
   background-color: black;
   color: white;
@@ -22,12 +16,10 @@
   background-color: white;
   color: black;
 }
-/*
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}*/
+  font-family: 'Roboto', sans-serif;
+}
+
 input, textarea {
   background: transparent;
   border: none; 
@@ -35,16 +27,22 @@ input, textarea {
   color: var(--foreground); 
   outline: none; 
 }
-@layer base {
+
   @layer base {
     .section-container {
-      @apply flex flex-col relative mx-0 w-full max-w-full overflow-hidden pt-8 pb-8 sm:pt-12 sm:pb-12;
+      @apply flex flex-col relative mx-0  w-full max-w-full overflow-hidden pt-8 pb-8 sm:pt-12 sm:pb-12;
     }
+  }
+  .text-center {
+    min-height: 70px; 
+  }
+  .min-height {
+    min-height: 70px;
   }
   .content-wrapper {
     @apply max-w-7xl mx-auto;
   }
-}
+
 @layer utilities {
   @media (max-width: 320px) {
     .mobile-320 {
