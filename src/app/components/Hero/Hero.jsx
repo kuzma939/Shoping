@@ -25,12 +25,16 @@ export default function Hero() {
         aria-labelledby="hero-heading"
         role="banner"
       >
+        <h1 id="hero-heading" className="sr-only">
+          Experience the Unique Touch of Latore Atelier – Exclusive Fashion
+        </h1>
+
         <div className="flex flex-col gap-6 items-center">
           {/* Центр зображення */}
           <div className="relative">
             <Image
               src="/Dress/Dress Grace/1.avif"
-              alt="Center showcase of Latore Atelier's elegant design"
+              alt="Elegant design by Latore Atelier – Centerpiece"
               width={300}
               height={300}
               sizes="(max-width: 640px) 80vw, (max-width: 1200px) 40vw, 300px"
@@ -39,8 +43,7 @@ export default function Hero() {
             />
             <h2
               className="absolute bottom-[-20px] left-[50%] translate-x-[-50%] text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-3 px-6 rounded-2xl whitespace-nowrap"
-              role="heading"
-              aria-level="2"
+              aria-label="LATORE ATELIER Centerpiece"
             >
               LATORE ATELIER
             </h2>
@@ -50,7 +53,7 @@ export default function Hero() {
           <div className="flex gap-4 justify-between w-full px-4">
             <Image
               src="/Dress/Dress Grace/2.avif"
-              alt="Left showcase of Latore Atelier's exclusive fashion design"
+              alt="Latore Atelier Left Design Showcase"
               width={200}
               height={300}
               sizes="(max-width: 640px) 50vw, (max-width: 1200px) 30vw, 200px"
@@ -59,7 +62,7 @@ export default function Hero() {
             />
             <Image
               src="/Dress/Dress Grace/4.avif"
-              alt="Showcase of Latore Atelier's signature collection"
+              alt="Latore Atelier Signature Collection"
               width={200}
               height={300}
               sizes="(max-width: 640px) 50vw, (max-width: 1200px) 30vw, 200px"
@@ -68,14 +71,15 @@ export default function Hero() {
             />
           </div>
         </div>
+
         <div className="text-center mt-2 px-4 min-h-[70px]">
-  <p className="text-base text-gray-700 dark:text-gray-300">
-    {menuItems[0] || "Experience the Unique Touch of Latore Atelier"}
-  </p>
-  <p className="text-base text-gray-700 dark:text-gray-300 mt-2">
-    {menuItems[1] || "Explore Our Signature Collections"}
-  </p>
-</div>
+          <p className="text-base text-gray-700 dark:text-gray-300">
+            {menuItems[0] || "Experience the Unique Touch of Latore Atelier"}
+          </p>
+          <p className="text-base text-gray-700 dark:text-gray-300 mt-2">
+            {menuItems[1] || "Explore Our Signature Collections"}
+          </p>
+        </div>
       </section>
     );
   }
