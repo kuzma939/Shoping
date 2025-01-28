@@ -69,13 +69,13 @@ export default function Hero() {
           </div>
         </div>
         <div className="text-center mt-2 px-4 min-h-[70px]">
-          <p className="text-base text-gray-700 dark:text-gray-300">
-            {menuItems[0] || "Experience the Unique Touch of Latore Atelier"}
-          </p>
-          <p className="text-base text-gray-700 dark:text-gray-300 mt-2">
-            {menuItems[1] || "Explore Our Signature Collections"}
-          </p>
-        </div>
+  <p className="text-base text-gray-700 dark:text-gray-300">
+    {menuItems[0] || "Experience the Unique Touch of Latore Atelier"}
+  </p>
+  <p className="text-base text-gray-700 dark:text-gray-300 mt-2">
+    {menuItems[1] || "Explore Our Signature Collections"}
+  </p>
+</div>
       </section>
     );
   }
