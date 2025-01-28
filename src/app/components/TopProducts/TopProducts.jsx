@@ -60,16 +60,15 @@ export default function TopProducts() {
               className="flex-shrink-0 group"
             >
               <Image
-  src={images[imageIndex].src}
-  alt={`Топ продукт ${imageIndex + 1}`}
-  width={200} // Розмір для мобільних
-  height={250}
-  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 30vw, 300px"
-  quality={80} // Зменшена якість для швидшого завантаження
-  priority={imageIndex < 3} // Попереднє завантаження перших трьох зображень
-  className="rounded-lg object-cover shadow-lg transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:opacity-90"
-/>
-
+                src={images[imageIndex].src}
+                alt={`Топ продукт ${imageIndex + 1}`}
+                width={200} // Зменшений розмір для мобільних
+                height={250} // Пропорційна висота
+                sizes="(max-width: 768px) 45vw, (max-width: 1024px) 20vw, 300px"
+                style={{ width: "auto", height: "auto" }}
+                quality={100}
+                className="rounded-lg object-cover shadow-lg transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:opacity-90"
+              />
             </Link>
           ))}
         </div>
