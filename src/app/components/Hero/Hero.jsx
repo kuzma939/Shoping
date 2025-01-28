@@ -28,11 +28,7 @@ export default function Hero() {
           href="/Dress/Dress Grace/1.avif"
           type="image/avif"
         />
-         <link
-          rel="preload"
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-          as="style"
-        />
+        
       </Head>
       <section
         className="section-container relative"
@@ -51,7 +47,7 @@ export default function Hero() {
       width={300}
       height={300}
       sizes="(max-width: 640px) 80vw, (max-width: 1200px) 40vw, 300px"
-      className="w-[200px] h-[200px] rounded-full object-cover shadow-soft dark:shadow-soft"
+      className="w-[200px] h-[200px] rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
       priority
       decoding="async" // Додано асинхронне декодування для швидшого рендерингу
     />
@@ -73,7 +69,7 @@ export default function Hero() {
       height={300}
       sizes="(max-width: 640px) 50vw, (max-width: 1200px) 30vw, 200px"
       
-      className="rounded-lg object-cover shadow-soft dark:shadow-soft"
+      className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
       loading="lazy" // Зображення завантажується ліниво, якщо не є пріоритетним
       decoding="async" // Асинхронне декодування для кращої продуктивності
     />
@@ -84,7 +80,7 @@ export default function Hero() {
       width={200}
       height={300}
       sizes="(max-width: 640px) 50vw, (max-width: 1200px) 30vw, 200px"
-      className="rounded-lg object-cover shadow-soft dark:shadow-soft"
+      className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
       loading="lazy"
       decoding="async"
     />
@@ -124,7 +120,7 @@ export default function Hero() {
             width={400}
             height={600}
             sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 400px"
-            className="rounded-none object-cover shadow-soft dark:shadow-soft w-[200px] sm:w-[300px] md:w-[400px]"
+            className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400 w-[200px] sm:w-[300px] md:w-[400px]"
             priority
           />
         </div>
@@ -145,7 +141,7 @@ export default function Hero() {
               width={400}
               height={400}
               sizes="(max-width: 640px) 200px, (max-width: 1200px) 300px, 400px"
-              className="w-[150px] h-[150px] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] rounded-full object-cover shadow-soft dark:shadow-soft"
+              className="w-[150px] h-[150px] sm:w-[250px] sm:h-[250px] md:w-[300px] md:h-[300px] lg:w-[400px] lg:h-[400px] rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
               priority
             />
           </div>
@@ -158,7 +154,7 @@ export default function Hero() {
             width={400}
             height={600}
             sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 400px"
-            className="rounded-none object-cover shadow-soft dark:shadow-soft w-[200px] sm:w-[300px] md:w-[400px]"
+            className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400 w-[200px] sm:w-[300px] md:w-[400px]"
             loading="lazy"
           />
         </div>
