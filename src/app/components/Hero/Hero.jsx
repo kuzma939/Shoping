@@ -31,7 +31,7 @@ role="banner"
   {/* Центр зображення */}
   <div className="relative">
     <Image
-      src="/10.jpg"
+      src="/Dress/Dress Grace/1.avif"
       alt="Center showcase of Latore Atelier's elegant design"
       width={300}
       height={300}
@@ -51,7 +51,7 @@ role="banner"
   {/* Зображення з боків */}
   <div className="flex gap-4 justify-between w-full px-4">
     <Image
-      src="/1.jpg"
+      src="/Dress/Dress Grace/2.avif"
       alt="Left showcase of Latore Atelier's exclusive fashion design"
       width={200}
       height={300}
@@ -60,7 +60,7 @@ role="banner"
       className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
     />
     <Image
-      src="/5.jpg"
+      src="/Dress/Dress Grace/4.avif"
       alt="Showcase of Latore Atelier's signature collection"
       width={200}
       height={300}
