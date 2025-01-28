@@ -68,7 +68,7 @@ export default function OurProducts() {
                 height={250} // Пропорційна висота
                 sizes="(max-width: 768px) 45vw, (max-width: 1024px) 20vw, 300px"
                 style={{ width: "auto", height: "auto" }}
-                quality={100}
+                quality={80}
                 className="rounded-lg object-cover shadow-lg transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:opacity-90"
               />
             </Link>
