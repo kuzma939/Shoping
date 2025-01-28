@@ -38,7 +38,7 @@ export default function TopProducts() {
         {/* Заголовок з мінімальною висотою для запобігання зсувам */}
         <h2
           className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center"
-          style={{ minHeight: "40px" }}
+          style={{ minHeight: "50px" }}
         >
           {menuItems[0]}
         </h2>
@@ -57,7 +57,7 @@ export default function TopProducts() {
         {/* Карусель */}
         <div
           className="flex overflow-x-auto gap-4 w-full px-4 sm:gap-6 md:gap-8"
-          style={{ minHeight: "250px" }} // Резервує простір для зображень
+          style={{ minHeight: "300px" }} // Резервування висоти для зображень
         >
           {displayedImages.map((imageIndex) => (
             <Link
@@ -66,16 +66,16 @@ export default function TopProducts() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex-shrink-0 group"
+              style={{ minWidth: "200px", minHeight: "250px" }} // Резервування місця під картку
             >
-              {/* Зображення з визначеними розмірами */}
               <Image
                 src={images[imageIndex].src}
                 alt={`Топ продукт ${imageIndex + 1}`}
-                width={200} // Ширина для мобільних
-                height={250} // Фіксована висота
+                width={200}
+                height={250}
                 sizes="(max-width: 768px) 50vw, (max-width: 1024px) 30vw, 300px"
-                quality={80} // Зменшена якість для швидшого завантаження
-                priority={imageIndex < 3} // Попереднє завантаження перших трьох зображень
+                quality={80} // Оптимізація якості
+                priority={imageIndex < 3} // Пріоритет для перших трьох зображень
                 className="rounded-lg object-cover shadow-lg transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:opacity-90"
               />
             </Link>
@@ -94,3 +94,4 @@ export default function TopProducts() {
     </section>
   );
 }
+
