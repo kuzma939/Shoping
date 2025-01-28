@@ -148,14 +148,24 @@ export default function Hero() {
     />
   </div>
 </div>
-<header className="flex flex-col justify-center text-center space-y-2">
-            <p className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320">
-              {menuItems[0] || "Experience the Difference"}
-            </p>
-            <p className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320">
-              {menuItems[1] || "Explore Our Signature Collections"}
-            </p>
-          </header>
+<header
+  className="flex flex-col justify-center text-center space-y-2"
+  style={{ minHeight: "150px" }} // Резервування простору для заголовка
+>
+  <p
+    className="text-xl sm:text-2xl  md:text-4xl text-gray-700 dark:text-gray-300 mobile-320"
+    style={{ minHeight: "40px" }} // Резервування для першого рядка
+  >
+    {menuItems[0] || "Experience the Difference"}
+  </p>
+  <p
+    className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320"
+    style={{ minHeight: "40px" }} // Резервування для другого рядка
+  >
+    {menuItems[1] || "Explore Our Signature Collections"}
+  </p>
+</header>
+
       </section>
       </>
     );
@@ -227,14 +237,24 @@ export default function Hero() {
           </div>
       
       </div>
-      <header className="flex flex-col justify-center text-center space-y-2">
-            <p className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320">
-              {menuItems[0] || "Experience the Difference"}
-            </p>
-            <p className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320">
-              {menuItems[1] || "Explore Our Signature Collections"}
-            </p>
-          </header>
+      <header
+  className="flex flex-col justify-center text-center space-y-2"
+  style={{ minHeight: "150px" }} // Резервування простору для заголовка
+>
+  <p
+    className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320"
+    style={{ minHeight: "40px" }} // Резервування для першого рядка
+  >
+    {menuItems[0] || "Experience the Difference"}
+  </p>
+  <p
+    className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320"
+    style={{ minHeight: "40px" }} // Резервування для другого рядка
+  >
+    {menuItems[1] || "Explore Our Signature Collections"}
+  </p>
+</header>
+
       </section>
     </>
   );
