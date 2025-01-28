@@ -35,7 +35,7 @@ role="banner"
       alt="Center showcase of Latore Atelier's elegant design"
       width={300}
       height={300}
-      sizes="(max-width: 640px) 80vw, 300px"
+       sizes="(max-width: 640px) 80vw, (max-width: 1200px) 40vw, 300px"
       className="w-[200px] h-[200px] rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
       priority
     />
@@ -55,7 +55,8 @@ role="banner"
       alt="Left showcase of Latore Atelier's exclusive fashion design"
       width={200}
       height={300}
-      sizes="(max-width: 640px) 45vw, 200px"
+      sizes="(max-width: 640px) 50vw, (max-width: 1200px) 30vw, 200px"
+      
       className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
     />
     <Image
@@ -63,7 +64,7 @@ role="banner"
       alt="Showcase of Latore Atelier's signature collection"
       width={200}
       height={300}
-      sizes="(max-width: 640px) 45vw, 200px"
+      sizes="(max-width: 640px) 50vw, (max-width: 1200px) 30vw, 200px"
       className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
     />
   </div>
