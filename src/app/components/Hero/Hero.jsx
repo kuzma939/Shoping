@@ -68,8 +68,10 @@ role="banner"
     />
   </div>
 </div>
-
-<div className="text-center mt-2 px-4" style={{ minHeight: "60px" }}>
+<div
+  className="text-center mt-2 px-4"
+  style={{ minHeight: "100px" }} // Зарезервовано місце для тексту
+>
   <p className="text-base text-gray-700 dark:text-gray-300">
     {menuItems[0] || "Experience the Unique Touch of Latore Atelier"}
   </p>
@@ -77,6 +79,7 @@ role="banner"
     {menuItems[1] || "Explore Our Signature Collections"}
   </p>
 </div>
+
 </section>
     );
   }
