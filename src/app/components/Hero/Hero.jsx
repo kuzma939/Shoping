@@ -1,7 +1,9 @@
+
 import Image from "next/image";
 import { useLanguage } from "../../Functions/useLanguage";
-import Head from "next/head";
 import { useViewportSize } from "../../hooks/useViewportSizeHero";
+import Head from "next/head";
+
 export default function Hero() {
   const { translateList } = useLanguage();
   const menuItems = translateList("home", "hero");
@@ -38,7 +40,6 @@ export default function Hero() {
                 sizes="(max-width: 450px) 100vw, 300px"
                 className="w-[200px] h-[200px] rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
                 priority
-                decoding="async"
                 style={{ aspectRatio: "1 / 1" }}
               />
               <h2
@@ -92,7 +93,6 @@ export default function Hero() {
                 sizes="(max-width: 640px) 100vw, 300px"
                 className="w-[200px] h-[200px] rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
                 priority
-                decoding="async"
                 style={{ aspectRatio: "1 / 1" }}
               />
               <h2
@@ -112,7 +112,6 @@ export default function Hero() {
                 sizes="(max-width: 640px) 50vw, 200px"
                 className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
                 loading="lazy"
-                decoding="async"
                 style={{ aspectRatio: "2 / 3" }}
               />
               <Image
@@ -123,7 +122,6 @@ export default function Hero() {
                 sizes="(max-width: 640px) 50vw, 200px"
                 className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
                 loading="lazy"
-                decoding="async"
                 style={{ aspectRatio: "2 / 3" }}
               />
             </div>
@@ -212,7 +210,7 @@ export default function Hero() {
               height={600}
               sizes="(max-width: 1200px) 50vw, 400px"
               className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
-              loading="lazy"
+              priority
               style={{ aspectRatio: "2 / 3" }}
             />
           </div>
