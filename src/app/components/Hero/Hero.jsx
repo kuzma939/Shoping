@@ -23,6 +23,7 @@ const Hero = () => {
             priority
             decoding="async"
             fetchPriority="high"
+            style={{ aspectRatio: "1 / 1" }}
           />
           <div className="w-full flex justify-center relative -mt-8">
             <h2 className="text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-2 px-6 rounded-lg">
@@ -47,6 +48,7 @@ const Hero = () => {
               priority
               decoding="async"
               fetchPriority="high"
+              style={{ aspectRatio: "1 / 1" }}
             />
             <h2 className="absolute bottom-[-20px] left-[50%] translate-x-[-50%] text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-3 px-6 rounded-2xl whitespace-nowrap">
               LATORE ATELIER
@@ -62,6 +64,7 @@ const Hero = () => {
               className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
               loading="lazy"
               decoding="async"
+              style={{ aspectRatio: "2 / 3" }}
             />
             <Image
               src="/Dress/Dress Grace/4.avif"
@@ -72,6 +75,7 @@ const Hero = () => {
               className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
               loading="lazy"
               decoding="async"
+              style={{ aspectRatio: "2 / 3" }}
             />
           </div>
         </div>
@@ -88,8 +92,9 @@ const Hero = () => {
             height={600}
             sizes="(min-width: 1024px) 33vw, 400px"
             className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
-            loading="lazy"
+            priority
             decoding="async"
+            style={{ aspectRatio: "2 / 3" }}
           />
         </div>
         <div className="relative flex flex-col items-center justify-center">
@@ -104,6 +109,7 @@ const Hero = () => {
               priority
               decoding="async"
               fetchPriority="high"
+              style={{ aspectRatio: "1 / 1" }}
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-5xl font-bold text-white bg-black bg-opacity-50 rounded-full">
               <span className="block self-start ml-4">LATORE</span>
@@ -121,6 +127,7 @@ const Hero = () => {
             className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
             loading="lazy"
             decoding="async"
+            style={{ aspectRatio: "2 / 3" }}
           />
         </div>
       </div>
@@ -153,6 +160,7 @@ const Hero = () => {
 };
 
 export default Hero;
+
 
 {/*
 import Image from "next/image";
