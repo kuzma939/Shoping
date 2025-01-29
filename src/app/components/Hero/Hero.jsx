@@ -54,7 +54,7 @@ export default function Hero() {
                 alt="Elegant design by Latore Atelier – Centerpiece"
                 width={300}
                 height={300}
-                sizes="(max-width: 450px) 80vw, 300px"
+                sizes="(max-width: 450px) 100vw, 300px"
                 className="w-[200px] h-[200px] rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
                 priority
                 decoding="async"
@@ -69,10 +69,10 @@ export default function Hero() {
             </div>
           </div>
           <header className="flex flex-col justify-center mt-8 text-center space-y-2">
-            <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320" style={{ minHeight: "1.5em" }}>
+            <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320" style={{ minHeight: "2em" }}>
               {menuItems[0] || "Experience the Difference"}
             </p>
-            <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320" style={{ minHeight: "1.5em" }}>
+            <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320" style={{ minHeight: "2em" }}>
               {menuItems[1] || "Explore Our Signature Collections"}
             </p>
           </header>
@@ -108,7 +108,7 @@ export default function Hero() {
                 alt="Elegant design by Latore Atelier – Centerpiece"
                 width={300}
                 height={300}
-                sizes="(max-width: 640px) 80vw, (max-width: 1200px) 40vw, 300px"
+                sizes="(max-width: 640px) 100vw, 300px"
                 className="w-[200px] h-[200px] rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
                 priority
                 decoding="async"
@@ -128,7 +128,7 @@ export default function Hero() {
                 alt="Latore Atelier Left Design Showcase"
                 width={200}
                 height={300}
-                sizes="(max-width: 640px) 50vw, (max-width: 1200px) 30vw, 200px"
+                sizes="(max-width: 640px) 50vw, 200px"
                 className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
                 loading="lazy"
                 decoding="async"
@@ -139,7 +139,7 @@ export default function Hero() {
                 alt="Latore Atelier Signature Collection"
                 width={200}
                 height={300}
-                sizes="(max-width: 640px) 50vw, (max-width: 1200px) 30vw, 200px"
+                sizes="(max-width: 640px) 50vw, 200px"
                 className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
                 loading="lazy"
                 decoding="async"
@@ -153,13 +153,13 @@ export default function Hero() {
           >
             <p
               className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320"
-              style={{ minHeight: "1.5em" }}
+              style={{ minHeight: "2em" }}
             >
               {menuItems[0] || "Experience the Difference"}
             </p>
             <p
               className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320"
-              style={{ minHeight: "1.5em" }}
+              style={{ minHeight: "2em" }}
             >
               {menuItems[1] || "Explore Our Signature Collections"}
             </p>
@@ -195,7 +195,7 @@ export default function Hero() {
               alt="Left showcase of Latore Atelier's exclusive fashion design"
               width={400}
               height={600}
-              sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 400px"
+              sizes="(max-width: 640px) 100vw, 400px"
               className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
               priority
               style={{ aspectRatio: "2 / 3" }}
@@ -209,7 +209,7 @@ export default function Hero() {
                 alt="Center showcase of Latore Atelier's elegant design"
                 width={400}
                 height={400}
-                sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 400px"
+                sizes="(max-width: 640px) 100vw, 400px"
                 className="rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
                 priority
                 style={{ aspectRatio: "1 / 1" }}
@@ -243,13 +243,13 @@ export default function Hero() {
         >
           <p
             className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320"
-            style={{ minHeight: "1.5em" }}
+            style={{ minHeight: "2em" }}
           >
             {menuItems[0] || "Experience the Difference"}
           </p>
           <p
             className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320"
-            style={{ minHeight: "1.5em" }}
+            style={{ minHeight: "2em" }}
           >
             {menuItems[1] || "Explore Our Signature Collections"}
           </p>
