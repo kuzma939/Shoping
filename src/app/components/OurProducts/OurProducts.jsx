@@ -50,9 +50,12 @@ export default function OurProducts() {
         >
           <FaChevronLeft />
         </div>
-
-        {/* Карусель */}
-        <div className="flex overflow-x-auto gap-4 w-full px-4 sm:gap-6 md:gap-8">
+ {/* Carousel */}
+ <div
+          className="flex overflow-x-auto gap-4 w-full px-4 sm:gap-6 md:gap-8"
+          style={{ height: "auto" }} 
+          // Fixed height to prevent layout shifts
+        >
           {displayedImages.map((imageIndex) => (
             <Link
               key={imageIndex}
@@ -63,18 +66,20 @@ export default function OurProducts() {
             >
               <Image
                 src={images[imageIndex].src}
-                alt={`Топ продукт ${imageIndex + 1}`}
-                width={200} // Зменшений розмір для мобільних
-                height={250} // Пропорційна висота
+                alt={`Our Product ${imageIndex + 1}`}
+                width={300} // Defined width
+                height={400} // Defined height
+                style={{
+                  aspectRatio: "3/4", // Maintain 3:4 aspect ratio
+                  objectFit: "cover", // Ensure full image visibility
+                }}
                 sizes="(max-width: 768px) 45vw, (max-width: 1024px) 20vw, 300px"
-                style={{ width: "auto", height: "auto" }}
-                quality={80}
+                quality={100}
                 className="rounded-lg object-cover shadow-lg transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:opacity-90"
               />
             </Link>
           ))}
         </div>
-
         {/* Права кнопка */}
         <div
           onClick={handleNext}
