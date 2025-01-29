@@ -21,6 +21,8 @@ const Hero = () => {
             sizes="(max-width: 450px) 100vw, 200px"
             className="w-[200px] h-[200px] rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
             priority
+            decoding="async"
+            fetchPriority="high"
           />
           <div className="w-full flex justify-center relative -mt-8">
             <h2 className="text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-2 px-6 rounded-lg">
@@ -43,6 +45,8 @@ const Hero = () => {
               sizes="(max-width: 640px) 100vw, 300px"
               className="w-[300px] h-[300px] rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
               priority
+              decoding="async"
+              fetchPriority="high"
             />
             <h2 className="absolute bottom-[-20px] left-[50%] translate-x-[-50%] text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-3 px-6 rounded-2xl whitespace-nowrap">
               LATORE ATELIER
@@ -57,6 +61,7 @@ const Hero = () => {
               sizes="(max-width: 640px) 50vw, 200px"
               className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
               loading="lazy"
+              decoding="async"
             />
             <Image
               src="/Dress/Dress Grace/4.avif"
@@ -66,6 +71,7 @@ const Hero = () => {
               sizes="(max-width: 640px) 50vw, 200px"
               className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
               loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
@@ -83,6 +89,7 @@ const Hero = () => {
             sizes="(min-width: 1024px) 33vw, 400px"
             className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
             loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="relative flex flex-col items-center justify-center">
@@ -95,6 +102,8 @@ const Hero = () => {
               sizes="(min-width: 1024px) 33vw, 400px"
               className="rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
               priority
+              decoding="async"
+              fetchPriority="high"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-5xl font-bold text-white bg-black bg-opacity-50 rounded-full">
               <span className="block self-start ml-4">LATORE</span>
@@ -111,6 +120,7 @@ const Hero = () => {
             sizes="(min-width: 1024px) 33vw, 400px"
             className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
             loading="lazy"
+            decoding="async"
           />
         </div>
       </div>
@@ -143,6 +153,7 @@ const Hero = () => {
 };
 
 export default Hero;
+
 {/*
 import Image from "next/image";
 import { useLanguage } from "../../Functions/useLanguage";
