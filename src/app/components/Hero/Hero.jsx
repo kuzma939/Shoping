@@ -69,10 +69,10 @@ export default function Hero() {
             </div>
           </div>
           <header className="flex flex-col justify-center mt-8 text-center space-y-2">
-            <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320">
+            <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320" style={{ minHeight: "1.5em" }}>
               {menuItems[0] || "Experience the Difference"}
             </p>
-            <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320">
+            <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320" style={{ minHeight: "1.5em" }}>
               {menuItems[1] || "Explore Our Signature Collections"}
             </p>
           </header>
@@ -153,13 +153,13 @@ export default function Hero() {
           >
             <p
               className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320"
-              style={{ minHeight: "40px" }}
+              style={{ minHeight: "1.5em" }}
             >
               {menuItems[0] || "Experience the Difference"}
             </p>
             <p
               className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320"
-              style={{ minHeight: "40px" }}
+              style={{ minHeight: "1.5em" }}
             >
               {menuItems[1] || "Explore Our Signature Collections"}
             </p>
@@ -243,13 +243,13 @@ export default function Hero() {
         >
           <p
             className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320"
-            style={{ minHeight: "40px" }}
+            style={{ minHeight: "1.5em" }}
           >
             {menuItems[0] || "Experience the Difference"}
           </p>
           <p
             className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320"
-            style={{ minHeight: "40px" }}
+            style={{ minHeight: "1.5em" }}
           >
             {menuItems[1] || "Explore Our Signature Collections"}
           </p>
