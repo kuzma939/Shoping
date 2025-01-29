@@ -59,6 +59,46 @@ const Hero = () => {
               </h2>
             </div>
           </div>
+        ) : viewportSize === "tablet" ? (
+          <div className="flex flex-col gap-6 items-center">
+            <div className="relative">
+              <Image
+                src="/Dress/Dress Grace/1.avif"
+                alt="Elegant design by Latore Atelier – Centerpiece"
+                width={300}
+                height={300}
+                sizes="(max-width: 768px) 100vw, 300px"
+                className="w-[300px] h-[300px] rounded-full object-cover shadow-lg"
+                priority
+                style={{ aspectRatio: "1 / 1" }}
+              />
+              <h2 className="absolute bottom-[-20px] left-[50%] translate-x-[-50%] text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-3 px-6 rounded-2xl whitespace-nowrap">
+                LATORE ATELIER
+              </h2>
+            </div>
+            <div className="flex gap-4 justify-between w-full px-4">
+              <Image
+                src="/Dress/Dress Grace/2.avif"
+                alt="Latore Atelier Left Design Showcase"
+                width={200}
+                height={300}
+                sizes="(max-width: 768px) 50vw, 200px"
+                className="rounded-lg object-cover shadow-lg"
+                loading="lazy"
+                style={{ aspectRatio: "2 / 3" }}
+              />
+              <Image
+                src="/Dress/Dress Grace/4.avif"
+                alt="Latore Atelier Signature Collection"
+                width={200}
+                height={300}
+                sizes="(max-width: 768px) 50vw, 200px"
+                className="rounded-lg object-cover shadow-lg"
+                loading="lazy"
+                style={{ aspectRatio: "2 / 3" }}
+              />
+            </div>
+          </div>
         ) : (
           <div className="grid grid-cols-3 gap-4 relative">
             <div className="flex justify-end items-center px-4">
@@ -131,8 +171,6 @@ const Hero = () => {
 };
 
 export default Hero;
-
-
 {/*import Image from "next/image";
 import { useLanguage } from "../../Functions/useLanguage";
 import { useViewportSize } from "../../hooks/useViewportSizeHero";
