@@ -1,30 +1,11 @@
 import Image from "next/image";
 import { useLanguage } from "../../Functions/useLanguage";
-import { useEffect, useState } from "react";
 import Head from "next/head";
-
+import { useViewportSize } from "../../hooks/useViewportSizeHero";
 export default function Hero() {
   const { translateList } = useLanguage();
   const menuItems = translateList("home", "hero");
-
-  const [viewportSize, setViewportSize] = useState("mobile"); // 'mobile', 'tablet', 'desktop'
-
-  // Визначаємо ширину екрану
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 450) {
-        setViewportSize("mobile");
-      } else if (window.innerWidth <= 620) {
-        setViewportSize("tablet");
-      } else {
-        setViewportSize("desktop");
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize(); // Викликаємо під час першого рендерингу
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const viewportSize = useViewportSize(); // Використовуємо хук
 
   // **Мобільний вигляд (до 450px)**
   if (viewportSize === "mobile") {
