@@ -41,7 +41,7 @@ export default function TopProducts() {
         <div className="border-t border-gray-300 dark:border-gray-700"></div>
       </div>
       <div className="flex items-center justify-center space-x-4 mt-8">
-        {/* Ліва кнопка */}
+        {/* Left Button */}
         <div
           onClick={handlePrev}
           className="text-black dark:text-gray-300 text-2xl sm:text-3xl cursor-pointer mx-2 sm:mx-4 hover:text-gray-500 dark:hover:text-gray-400 transition-all duration-300"
@@ -49,8 +49,12 @@ export default function TopProducts() {
           <FaChevronLeft />
         </div>
 
-        {/* Карусель */}
-        <div className="flex overflow-x-auto gap-4 w-full px-4 sm:gap-6 md:gap-8">
+        {/* Carousel */}
+        <div
+          className="flex overflow-x-auto gap-4 w-full px-4 sm:gap-6 md:gap-8"
+          style={{ height: "auto" }} 
+          // Fixed height to prevent layout shifts
+        >
           {displayedImages.map((imageIndex) => (
             <Link
               key={imageIndex}
@@ -62,10 +66,13 @@ export default function TopProducts() {
               <Image
                 src={images[imageIndex].src}
                 alt={`Топ продукт ${imageIndex + 1}`}
-                width={200} // Зменшений розмір для мобільних
-                height={250} // Пропорційна висота
+                width={300} // Defined width
+                height={400} // Defined height
+                style={{
+                  aspectRatio: "3/4", // Maintain 3:4 aspect ratio
+                  objectFit: "cover", // Ensure full image visibility
+                }}
                 sizes="(max-width: 768px) 45vw, (max-width: 1024px) 20vw, 300px"
-                style={{ width: "auto", height: "auto" }}
                 quality={100}
                 className="rounded-lg object-cover shadow-lg transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:opacity-90"
               />
@@ -73,7 +80,7 @@ export default function TopProducts() {
           ))}
         </div>
 
-        {/* Права кнопка */}
+        {/* Right Button */}
         <div
           onClick={handleNext}
           className="text-black dark:text-gray-300 text-2xl sm:text-3xl cursor-pointer mx-2 sm:mx-4 hover:text-gray-500 dark:hover:text-gray-400 transition-all duration-300"
