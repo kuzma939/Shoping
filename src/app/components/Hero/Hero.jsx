@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import { useLanguage } from "../../Functions/useLanguage";
 import { useViewportSize } from "../../hooks/useViewportSizeHero";
@@ -19,6 +18,7 @@ const Hero = () => {
           type="image/avif"
         />
       </Head>
+
       <section className="section-container relative" aria-labelledby="hero-heading" role="banner" style={{ minHeight: "400px" }}>
         <h1 id="hero-heading" className="sr-only">
           Explore Latore Atelier – Signature Fashion and Design
@@ -36,7 +36,6 @@ const Hero = () => {
               priority
               style={{ aspectRatio: "1 / 1" }}
             />
-   
             <div className="w-full flex justify-center relative -mt-8">
               <h2 className="text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-2 px-6 rounded-lg">
                 LATORE ATELIER
