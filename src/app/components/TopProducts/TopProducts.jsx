@@ -6,6 +6,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Link from "next/link";
 import { useLanguage } from "../../Functions/useLanguage";
 import useKeyboardNavigation from "../../hooks/useKeyboardNavigation";
+import Head from "next/head";
 
 export default function TopProducts() {
   const images = [
@@ -31,74 +32,86 @@ export default function TopProducts() {
   useKeyboardNavigation(handlePrev, handleNext);
 
   return (
-    <section
-      id="top-products"
-      className="bg-[#fcf8f3] dark:bg-[#2e1f14] text-black dark:text-gray-100 section-container py-12"
-    >
-      {/* Заголовок секції */}
-      <div className="space-y-4">
-        <h2
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center"
-          style={{
-            minHeight: "3em", // Резервуємо простір для заголовка
-            lineHeight: "1.5", // Забезпечуємо однакову висоту рядка
-            margin: "0", // Видаляємо можливі зміщення через margin
-          }}
-        >
-          {menuItems[0]}
-        </h2>
-        <div className="border-t border-gray-300 dark:border-gray-700"></div>
-      </div>
-
-      {/* Карусель */}
-      <div className="flex items-center justify-center space-x-4 mt-8">
-        {/* Ліва кнопка */}
-        <div
-          onClick={handlePrev}
-          className="text-black dark:text-gray-300 text-2xl sm:text-3xl cursor-pointer mx-2 sm:mx-4 hover:text-gray-500 dark:hover:text-gray-400 transition-all duration-300"
-        >
-          <FaChevronLeft />
+    <>
+      <Head>
+        {/* Preload основного зображення */}
+        <link
+          rel="preload"
+          as="image"
+          href="/Costumes/Woolen suit with skirt/1.avif"
+          type="image/avif"
+        />
+      </Head>
+      <section
+        id="top-products"
+        className="bg-[#fcf8f3] dark:bg-[#2e1f14] text-black dark:text-gray-100 section-container py-12"
+      >
+        {/* Заголовок секції */}
+        <div className="space-y-4">
+          <h2
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center"
+            style={{
+              minHeight: "3em",
+              lineHeight: "1.5",
+              margin: "0",
+            }}
+          >
+            {menuItems[0]}
+          </h2>
+          <div className="border-t border-gray-300 dark:border-gray-700"></div>
         </div>
 
-        {/* Слайдер */}
-        <div
-          className="flex overflow-x-auto gap-4 w-full px-4 sm:gap-6 md:gap-8"
-          style={{
-            height: "400px", // Фіксована висота для контейнера
-          }}
-        >
-          {displayedImages.map((imageIndex) => (
-            <Link
-              key={imageIndex}
-              href={images[imageIndex].link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-shrink-0 group"
-            >
-              <Image
-                src={images[imageIndex].src}
-                alt={`Топ продукт ${imageIndex + 1}`}
-                width={300} // Фіксована ширина
-                height={400} // Фіксована висота
-                style={{
-                  objectFit: "cover", // Забезпечення коректного відображення
-                }}
-                sizes="(max-width: 768px) 45vw, (max-width: 1024px) 20vw, 300px"
-                quality={85} // Оптимізація якості
-                className="rounded-lg object-cover shadow-lg transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:opacity-90"
-              />
-            </Link>
-          ))}
-        </div>
+        {/* Карусель */}
+        <div className="flex items-center justify-center space-x-4 mt-8">
+          {/* Ліва кнопка */}
+          <div
+            onClick={handlePrev}
+            className="text-black dark:text-gray-300 text-2xl sm:text-3xl cursor-pointer mx-2 sm:mx-4 hover:text-gray-500 dark:hover:text-gray-400 transition-all duration-300"
+          >
+            <FaChevronLeft />
+          </div>
 
-        {/* Права кнопка */}
-        <div
-          onClick={handleNext}
-          className="text-black dark:text-gray-300 text-2xl sm:text-3xl cursor-pointer mx-2 sm:mx-4 hover:text-gray-500 dark:hover:text-gray-400 transition-all duration-300"
-        >
-          <FaChevronRight />
+          {/* Слайдер */}
+          <div
+            className="flex overflow-x-auto gap-4 w-full px-4 sm:gap-6 md:gap-8"
+            style={{
+              height: "400px",
+            }}
+          >
+            {displayedImages.map((imageIndex) => (
+              <Link
+                key={imageIndex}
+                href={images[imageIndex].link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-shrink-0 group"
+              >
+                <Image
+                  src={images[imageIndex].src}
+                  alt={`Топ продукт ${imageIndex + 1}`}
+                  width={250}
+                  height={300}
+                  priority={imageIndex === 0} // Пріоритетне завантаження для першого зображення
+                  style={{
+                    objectFit: "cover",
+                  }}
+                  sizes="(max-width: 768px) 45vw, (max-width: 1024px) 20vw, 300px"
+                  quality={85}
+                  className="rounded-lg object-cover shadow-lg transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:opacity-90"
+                />
+              </Link>
+            ))}
+          </div>
+
+          {/* Права кнопка */}
+          <div
+            onClick={handleNext}
+            className="text-black dark:text-gray-300 text-2xl sm:text-3xl cursor-pointer mx-2 sm:mx-4 hover:text-gray-500 dark:hover:text-gray-400 transition-all duration-300"
+          >
+            <FaChevronRight />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
