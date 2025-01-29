@@ -7,60 +7,59 @@ const Hero = () => {
   const { translateList } = useLanguage();
   const menuItems = translateList("home", "hero");
   const viewportSize = useViewportSize();
-
-  // **Мобільний вигляд (до 450px)**
-  if (viewportSize === "mobile") {
-    return (
-      <>
-        <Head>
-          <link
-            rel="preload"
-            as="image"
-            href="/Dress/Dress Grace/1.avif"
-            type="image/avif"
-          />
-        </Head>
-        <section
-          className="section-container relative"
-          aria-labelledby="hero-heading"
-          role="banner"
-        >
-          <h1 id="hero-heading" className="sr-only">
-            Experience the Unique Touch of Latore Atelier – Exclusive Fashion
-          </h1>
-          <div className="flex flex-col gap-6 items-center">
-            <div className="relative">
-              <Image
-                src="/Dress/Dress Grace/1.avif"
-                alt="Elegant design by Latore Atelier – Centerpiece"
-                width={300}
-                height={300}
-                sizes="(max-width: 450px) 100vw, 300px"
-                className="w-[200px] h-[200px] rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
-                priority
-                style={{ aspectRatio: "1 / 1" }}
-              />
-              <h2
-                className="absolute bottom-[-20px] left-[50%] translate-x-[-50%] text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-3 px-6 rounded-2xl whitespace-nowrap"
-                aria-label="LATORE ATELIER Centerpiece"
-              >
-                LATORE ATELIER
-              </h2>
-            </div>
+// **Мобільний вигляд (до 450px)**
+if (viewportSize === "mobile") {
+  return (
+    <>
+      <Head>
+        <link
+          rel="preload"
+          as="image"
+          href="/Dress/Dress Grace/1.avif"
+          type="image/avif"
+        />
+      </Head>
+      <section
+        className="section-container relative"
+        aria-labelledby="hero-heading"
+        role="banner"
+      >
+        <h1 id="hero-heading" className="sr-only">
+          Experience the Unique Touch of Latore Atelier – Exclusive Fashion
+        </h1>
+        <div className="flex flex-col gap-6 items-center">
+          {/* Центральне зображення */}
+          <div className="relative">
+            <Image
+              src="/Dress/Dress Grace/1.avif"
+              alt="Elegant design by Latore Atelier – Centerpiece"
+              width={300}
+              height={300}
+              sizes="(max-width: 450px) 100vw, 300px"
+              className="w-[200px] h-[200px] rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+              priority
+              style={{ aspectRatio: "1 / 1" }}
+            />
+            <h2
+              className="absolute bottom-[-20px] left-[50%] translate-x-[-50%] text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-3 px-6 rounded-2xl whitespace-nowrap"
+              aria-label="LATORE ATELIER Centerpiece"
+            >
+              LATORE ATELIER
+            </h2>
           </div>
-          <header className="flex flex-col justify-center mt-8 text-center space-y-2">
-            <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300" style={{ minHeight: "2em" }}>
-              {menuItems[0] || "Experience the Difference"}
-            </p>
-            <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300" style={{ minHeight: "2em" }}>
-              {menuItems[1] || "Explore Our Signature Collections"}
-            </p>
-          </header>
-        </section>
-      </>
-    );
-  }
-
+        </div>
+        <header className="flex flex-col justify-center mt-8 text-center space-y-2">
+          <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320" style={{ minHeight: "2em" }}>
+            {menuItems[0] || "Experience the Difference"}
+          </p>
+          <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320" style={{ minHeight: "2em" }}>
+            {menuItems[1] || "Explore Our Signature Collections"}
+          </p>
+        </header>
+      </section>
+    </>
+  );
+}
   // **Планшетний вигляд (451px - 620px)**
   if (viewportSize === "tablet") {
     return (
