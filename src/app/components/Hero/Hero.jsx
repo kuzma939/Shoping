@@ -1,5 +1,3 @@
-
-
 import Image from "next/image";
 import { useLanguage } from "../../Functions/useLanguage";
 import { useViewportSize } from "../../hooks/useViewportSizeHero";
@@ -19,9 +17,26 @@ const Hero = () => {
           href="/Dress/Dress Grace/1.avif"
           type="image/avif"
         />
+        <link
+          rel="preload"
+          as="image"
+          href="/Dress/Dress Grace/2.avif"
+          type="image/avif"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/Dress/Dress Grace/4.avif"
+          type="image/avif"
+        />
       </Head>
 
-      <section className="section-container relative" aria-labelledby="hero-heading" role="banner" style={{ minHeight: "400px" }}>
+      <section
+        className="section-container relative"
+        aria-labelledby="hero-heading"
+        role="banner"
+        style={{ minHeight: "400px" }}
+      >
         <h1 id="hero-heading" className="sr-only">
           Explore Latore Atelier – Signature Fashion and Design
         </h1>
@@ -34,7 +49,7 @@ const Hero = () => {
               width={200}
               height={200}
               sizes="(max-width: 450px) 100vw, 200px"
-              className="w-[200px] h-[200px] rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+              className="w-[200px] h-[200px] rounded-full object-cover shadow-lg"
               priority
               style={{ aspectRatio: "1 / 1" }}
             />
@@ -52,8 +67,8 @@ const Hero = () => {
                 alt="Elegant design by Latore Atelier – Centerpiece"
                 width={300}
                 height={300}
-                sizes="(max-width: 640px) 100vw, 300px"
-                className="w-[300px] h-[300px] rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+                sizes="(max-width: 768px) 100vw, 300px"
+                className="w-[300px] h-[300px] rounded-full object-cover shadow-lg"
                 priority
                 style={{ aspectRatio: "1 / 1" }}
               />
@@ -67,8 +82,8 @@ const Hero = () => {
                 alt="Latore Atelier Left Design Showcase"
                 width={200}
                 height={300}
-                sizes="(max-width: 640px) 50vw, 200px"
-                className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+                sizes="(max-width: 768px) 50vw, 200px"
+                className="rounded-lg object-cover shadow-lg"
                 loading="lazy"
                 style={{ aspectRatio: "2 / 3" }}
               />
@@ -77,64 +92,76 @@ const Hero = () => {
                 alt="Latore Atelier Signature Collection"
                 width={200}
                 height={300}
-                sizes="(max-width: 640px) 50vw, 200px"
-                className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+                sizes="(max-width: 768px) 50vw, 200px"
+                className="rounded-lg object-cover shadow-lg"
+                loading="lazy"
                 style={{ aspectRatio: "2 / 3" }}
               />
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 relative">
-            <div className="relative flex justify-end items-center px-4">
+          <div className="grid grid-cols-3 gap-4 relative">
+            <div className="flex justify-end items-center px-4">
               <Image
                 src="/Dress/Dress Grace/1.avif"
                 alt="Left showcase of Latore Atelier's exclusive fashion design"
                 width={400}
                 height={600}
-                sizes="(min-width: 1024px) 33vw, 400px"
-                className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
-                loading="lazy"
-                style={{ aspectRatio: "2 / 3", display: "block" }}
+                sizes="(min-width: 1024px) 33vw"
+                className="rounded-lg object-cover shadow-lg"
+                priority
+                style={{ aspectRatio: "2 / 3" }}
               />
             </div>
-            <div className="relative flex flex-col items-center justify-center">
+            <div className="flex flex-col items-center justify-center relative">
               <div className="relative">
                 <Image
                   src="/Dress/Dress Grace/2.avif"
                   alt="Center showcase of Latore Atelier's elegant design"
                   width={400}
                   height={400}
-                  sizes="(min-width: 1024px) 33vw, 400px"
-                  className="rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+                  sizes="(min-width: 1024px) 33vw"
+                  className="rounded-full object-cover shadow-lg"
                   priority
-                  style={{ aspectRatio: "1 / 1", display: "block" }}
+                  style={{ aspectRatio: "1 / 1" }}
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-5xl font-bold text-white bg-black bg-opacity-50 rounded-full">
                   <span className="block self-start ml-4">LATORE</span>
-                  <span className="block text-5xl font-bold self-end mr-8 mt-2">ATELIER</span>
+                  <span className="block text-5xl font-bold self-end mr-8 mt-2">
+                    ATELIER
+                  </span>
                 </div>
               </div>
             </div>
-            <div className="relative flex justify-start items-center px-4">
+            <div className="flex justify-start items-center px-4">
               <Image
                 src="/Dress/Dress Grace/4.avif"
                 alt="Showcase of Latore Atelier's signature collection"
                 width={400}
                 height={600}
-                sizes="(min-width: 1024px) 33vw, 400px"
-                className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+                sizes="(min-width: 1024px) 33vw"
+                className="rounded-lg object-cover shadow-lg"
                 loading="lazy"
-                style={{ aspectRatio: "2 / 3", display: "block" }}
+                style={{ aspectRatio: "2 / 3" }}
               />
             </div>
           </div>
         )}
 
-        <header className="flex flex-col justify-center text-center space-y-2 min-h-[150px]">
-          <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300" style={{ minHeight: "2em" }}>
+        <header
+          className="flex flex-col justify-center text-center space-y-2 min-h-[150px]"
+          style={{ marginTop: "20px" }}
+        >
+          <p
+            className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
+            style={{ minHeight: "2em" }}
+          >
             {menuItems[0] || "Experience the Difference"}
           </p>
-          <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300" style={{ minHeight: "2em" }}>
+          <p
+            className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
+            style={{ minHeight: "2em" }}
+          >
             {menuItems[1] || "Explore Our Signature Collections"}
           </p>
         </header>
@@ -144,6 +171,7 @@ const Hero = () => {
 };
 
 export default Hero;
+
 {/*import Image from "next/image";
 import { useLanguage } from "../../Functions/useLanguage";
 import { useViewportSize } from "../../hooks/useViewportSizeHero";
