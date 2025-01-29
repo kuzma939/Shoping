@@ -3,10 +3,10 @@ import { useLanguage } from "../../Functions/useLanguage";
 import { useViewportSize } from "../../hooks/useViewportSizeHero";
 import Head from "next/head";
 
-export default function Hero() {
+const Hero = () => {
   const { translateList } = useLanguage();
   const menuItems = translateList("home", "hero");
-  const viewportSize = useViewportSize(); // Використовуємо хук
+  const viewportSize = useViewportSize();
 
   // **Мобільний вигляд (до 450px)**
   if (viewportSize === "mobile") {
@@ -29,7 +29,6 @@ export default function Hero() {
             Experience the Unique Touch of Latore Atelier – Exclusive Fashion
           </h1>
           <div className="flex flex-col gap-6 items-center">
-            {/* Центральне зображення */}
             <div className="relative">
               <Image
                 src="/Dress/Dress Grace/1.avif"
@@ -50,10 +49,10 @@ export default function Hero() {
             </div>
           </div>
           <header className="flex flex-col justify-center mt-8 text-center space-y-2">
-            <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320" style={{ minHeight: "2em" }}>
+            <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300" style={{ minHeight: "2em" }}>
               {menuItems[0] || "Experience the Difference"}
             </p>
-            <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320" style={{ minHeight: "2em" }}>
+            <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300" style={{ minHeight: "2em" }}>
               {menuItems[1] || "Explore Our Signature Collections"}
             </p>
           </header>
@@ -61,89 +60,90 @@ export default function Hero() {
       </>
     );
   }
-// **Планшетний вигляд (451px - 620px)**
-if (viewportSize === "tablet") {
-  return (
-    <>
-      <Head>
-        <link
-          rel="preload"
-          as="image"
-          href="/Dress/Dress Grace/1.avif"
-          type="image/avif"
-        />
-      </Head>
-      <section
-        className="section-container relative"
-        aria-labelledby="hero-heading"
-        role="banner"
-      >
-        <h1 id="hero-heading" className="sr-only">
-          Explore Latore Atelier – Signature Fashion and Design
-        </h1>
-        <div className="flex flex-col gap-6 items-center">
-          <div className="relative">
-            <Image
-              src="/Dress/Dress Grace/1.avif"
-              alt="Elegant design by Latore Atelier – Centerpiece"
-              width={300}
-              height={300}
-              sizes="(max-width: 640px) 100vw, 300px"
-              className="w-[200px] h-[200px] rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
-              priority
-              style={{ aspectRatio: "1 / 1" }}
-            />
-            <h2
-              className="absolute bottom-[-20px] left-[50%] translate-x-[-50%] text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-3 px-6 rounded-2xl whitespace-nowrap"
-              aria-label="LATORE ATELIER Centerpiece"
-            >
-              LATORE ATELIER
-            </h2>
-          </div>
 
-          <div className="flex gap-4 justify-between w-full px-4">
-            <Image
-              src="/Dress/Dress Grace/2.avif"
-              alt="Latore Atelier Left Design Showcase"
-              width={200}
-              height={300}
-              sizes="(max-width: 640px) 50vw, 200px"
-              className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
-              loading="lazy"
-              style={{ aspectRatio: "2 / 3"}}
-            />
-            <Image
-              src="/Dress/Dress Grace/4.avif"
-              alt="Latore Atelier Signature Collection"
-              width={200}
-              height={300}
-              sizes="(max-width: 640px) 50vw, 200px"
-              className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
-              style={{ aspectRatio: "2 / 3"}}
-            />
-          </div>
-        </div>
-        <header
-          className="flex flex-col justify-center text-center space-y-2"
-          style={{ minHeight: "150px" }}
+  // **Планшетний вигляд (451px - 620px)**
+  if (viewportSize === "tablet") {
+    return (
+      <>
+        <Head>
+          <link
+            rel="preload"
+            as="image"
+            href="/Dress/Dress Grace/1.avif"
+            type="image/avif"
+          />
+        </Head>
+        <section
+          className="section-container relative"
+          aria-labelledby="hero-heading"
+          role="banner"
         >
-          <p
-            className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320"
-            style={{ minHeight: "2em" }}
+          <h1 id="hero-heading" className="sr-only">
+            Explore Latore Atelier – Signature Fashion and Design
+          </h1>
+          <div className="flex flex-col gap-6 items-center">
+            <div className="relative">
+              <Image
+                src="/Dress/Dress Grace/1.avif"
+                alt="Elegant design by Latore Atelier – Centerpiece"
+                width={300}
+                height={300}
+                sizes="(max-width: 640px) 100vw, 300px"
+                className="w-[200px] h-[200px] rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+                priority
+                style={{ aspectRatio: "1 / 1" }}
+              />
+              <h2
+                className="absolute bottom-[-20px] left-[50%] translate-x-[-50%] text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-3 px-6 rounded-2xl whitespace-nowrap"
+                aria-label="LATORE ATELIER Centerpiece"
+              >
+                LATORE ATELIER
+              </h2>
+            </div>
+
+            <div className="flex gap-4 justify-between w-full px-4">
+              <Image
+                src="/Dress/Dress Grace/2.avif"
+                alt="Latore Atelier Left Design Showcase"
+                width={200}
+                height={300}
+                sizes="(max-width: 640px) 50vw, 200px"
+                className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+                loading="lazy"
+                style={{ aspectRatio: "2 / 3" }}
+              />
+              <Image
+                src="/Dress/Dress Grace/4.avif"
+                alt="Latore Atelier Signature Collection"
+                width={200}
+                height={300}
+                sizes="(max-width: 640px) 50vw, 200px"
+                className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+                style={{ aspectRatio: "2 / 3" }}
+              />
+            </div>
+          </div>
+          <header
+            className="flex flex-col justify-center text-center space-y-2 min-h-[150px]"
           >
-            {menuItems[0] || "Experience the Difference"}
-          </p>
-          <p
-            className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320"
-            style={{ minHeight: "2em" }}
-          >
-            {menuItems[1] || "Explore Our Signature Collections"}
-          </p>
-        </header>
-      </section>
-    </>
-  );
-}
+            <p
+              className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
+              style={{ minHeight: "2em" }}
+            >
+              {menuItems[0] || "Experience the Difference"}
+            </p>
+            <p
+              className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
+              style={{ minHeight: "2em" }}
+            >
+              {menuItems[1] || "Explore Our Signature Collections"}
+            </p>
+          </header>
+        </section>
+      </>
+    );
+  }
+
   // **Десктопний вигляд (від 620px)**
   return (
     <>
@@ -170,7 +170,7 @@ if (viewportSize === "tablet") {
               alt="Left showcase of Latore Atelier's exclusive fashion design"
               width={400}
               height={600}
-              sizes="(max-width: 640px) 100vw, 400px"
+              sizes="(min-width: 1024px) 33vw, 400px"
               className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
               priority
               style={{ aspectRatio: "2 / 3" }}
@@ -184,7 +184,7 @@ if (viewportSize === "tablet") {
                 alt="Center showcase of Latore Atelier's elegant design"
                 width={400}
                 height={400}
-                sizes="(max-width: 640px) 100vw, 400px"
+                sizes="(min-width: 1024px) 33vw, 400px"
                 className="rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
                 priority
                 style={{ aspectRatio: "1 / 1" }}
@@ -204,7 +204,7 @@ if (viewportSize === "tablet") {
               alt="Showcase of Latore Atelier's signature collection"
               width={400}
               height={600}
-              sizes="(max-width: 1200px) 50vw, 400px"
+              sizes="(min-width: 1024px) 33vw, 400px"
               className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
               priority
               style={{ aspectRatio: "2 / 3" }}
@@ -213,17 +213,16 @@ if (viewportSize === "tablet") {
         </div>
 
         <header
-          className="flex flex-col justify-center text-center space-y-2"
-          style={{ minHeight: "150px" }}
+          className="flex flex-col justify-center text-center space-y-2 min-h-[150px]"
         >
           <p
-            className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320"
+            className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
             style={{ minHeight: "2em" }}
           >
             {menuItems[0] || "Experience the Difference"}
           </p>
           <p
-            className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 mobile-320"
+            className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
             style={{ minHeight: "2em" }}
           >
             {menuItems[1] || "Explore Our Signature Collections"}
@@ -232,4 +231,6 @@ if (viewportSize === "tablet") {
       </section>
     </>
   );
-}
+};
+
+export default Hero;
