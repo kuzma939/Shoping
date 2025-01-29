@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { useLanguage } from "../../Functions/useLanguage";
 import { useViewportSize } from "../../hooks/useViewportSizeHero";
