@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import useImageFollow from "../../hooks/useImageFollow";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
@@ -34,14 +35,24 @@ export default function TopProducts() {
       id="top-products"
       className="bg-[#fcf8f3] dark:bg-[#2e1f14] text-black dark:text-gray-100 section-container py-12"
     >
+      {/* Заголовок секції */}
       <div className="space-y-4">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center">
+        <h2
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-center"
+          style={{
+            minHeight: "3em", // Резервуємо простір для заголовка
+            lineHeight: "1.5", // Забезпечуємо однакову висоту рядка
+            margin: "0", // Видаляємо можливі зміщення через margin
+          }}
+        >
           {menuItems[0]}
         </h2>
         <div className="border-t border-gray-300 dark:border-gray-700"></div>
       </div>
+
+      {/* Карусель */}
       <div className="flex items-center justify-center space-x-4 mt-8">
-        {/* Left Button */}
+        {/* Ліва кнопка */}
         <div
           onClick={handlePrev}
           className="text-black dark:text-gray-300 text-2xl sm:text-3xl cursor-pointer mx-2 sm:mx-4 hover:text-gray-500 dark:hover:text-gray-400 transition-all duration-300"
@@ -49,11 +60,12 @@ export default function TopProducts() {
           <FaChevronLeft />
         </div>
 
-        {/* Carousel */}
+        {/* Слайдер */}
         <div
           className="flex overflow-x-auto gap-4 w-full px-4 sm:gap-6 md:gap-8"
-          style={{ height: "auto" }} 
-          // Fixed height to prevent layout shifts
+          style={{
+            height: "400px", // Фіксована висота для контейнера
+          }}
         >
           {displayedImages.map((imageIndex) => (
             <Link
@@ -66,21 +78,20 @@ export default function TopProducts() {
               <Image
                 src={images[imageIndex].src}
                 alt={`Топ продукт ${imageIndex + 1}`}
-                width={300} // Defined width
-                height={400} // Defined height
+                width={300} // Фіксована ширина
+                height={400} // Фіксована висота
                 style={{
-                  aspectRatio: "3/4", // Maintain 3:4 aspect ratio
-                  objectFit: "cover", // Ensure full image visibility
+                  objectFit: "cover", // Забезпечення коректного відображення
                 }}
                 sizes="(max-width: 768px) 45vw, (max-width: 1024px) 20vw, 300px"
-                quality={100}
+                quality={85} // Оптимізація якості
                 className="rounded-lg object-cover shadow-lg transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:opacity-90"
               />
             </Link>
           ))}
         </div>
 
-        {/* Right Button */}
+        {/* Права кнопка */}
         <div
           onClick={handleNext}
           className="text-black dark:text-gray-300 text-2xl sm:text-3xl cursor-pointer mx-2 sm:mx-4 hover:text-gray-500 dark:hover:text-gray-400 transition-all duration-300"
