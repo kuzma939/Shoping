@@ -23,6 +23,7 @@ if (viewportSize === "mobile") {
         className="section-container relative"
         aria-labelledby="hero-heading"
         role="banner"
+        style={{ minHeight: "400px" }}
       >
         <h1 id="hero-heading" className="sr-only">
           Experience the Unique Touch of Latore Atelier – Exclusive Fashion
@@ -172,7 +173,7 @@ if (viewportSize === "mobile") {
               sizes="(min-width: 1024px) 33vw, 400px"
               className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
               priority
-              style={{ aspectRatio: "2 / 3" }}
+              style={{ aspectRatio: "2 / 3", display: "block" }}
             />
           </div>
 
@@ -186,7 +187,7 @@ if (viewportSize === "mobile") {
                 sizes="(min-width: 1024px) 33vw, 400px"
                 className="rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
                 priority
-                style={{ aspectRatio: "1 / 1" }}
+                style={{ aspectRatio: "1 / 1", display: "block" }}
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center text-5xl font-bold text-white bg-black bg-opacity-50 rounded-full">
                 <span className="block self-start ml-4">LATORE</span>
@@ -206,7 +207,7 @@ if (viewportSize === "mobile") {
               sizes="(min-width: 1024px) 33vw, 400px"
               className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
               priority
-              style={{ aspectRatio: "2 / 3" }}
+              style={{ aspectRatio: "2 / 3", display: "block", }}
             />
           </div>
         </div>
