@@ -159,13 +159,23 @@ const Hero = () => {
         <header className="flex flex-col mt-12 justify-center text-center space-y-2">
           <p
             className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
-            style={{ minHeight: "2em" }}
+            style={{
+              minHeight: "3em", // Встановлюємо таку ж висоту для другого блоку тексту
+              lineHeight: "1.5",
+              margin: "0",
+            }}
+            
           >
             {menuItems[0] || "Experience the Difference"}
           </p>
           <p
             className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
-            style={{ minHeight: "2em" }}
+            style={{
+              minHeight: "3em", // Встановлюємо таку ж висоту для другого блоку тексту
+              lineHeight: "1.5",
+              margin: "0",
+            }}
+           
           >
             {menuItems[1] || "Explore Our Signature Collections"}
           </p>
