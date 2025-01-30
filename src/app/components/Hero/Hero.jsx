@@ -48,7 +48,7 @@ const Hero = () => {
             <div className="w-full flex justify-center relative" style={{ marginTop: "-40px" }}>
               <h2
                 className="text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-2 px-6 rounded-lg"
-                style={{ minHeight: "3em" }}
+                style={{ minHeight: "2em" }}
               >
                 LATORE ATELIER
               </h2>
@@ -69,7 +69,7 @@ const Hero = () => {
               />
               <h2
                 className="absolute bottom-[-20px] left-[50%] translate-x-[-50%] text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-3 px-6 rounded-2xl whitespace-nowrap"
-                style={{ minHeight: "3em" }}
+                style={{ minHeight: "2em" }}
               >
                 LATORE ATELIER
               </h2>
@@ -117,12 +117,12 @@ const Hero = () => {
               className="flex flex-col items-center justify-center relative"
               style={{ minHeight: "600px" }}
             >
-              <div className="relative" style={{ width: "400px", height: "400px" }}>
+              <div className="relative" style={{ width: "350px", height: "350px" }}>
                 <Image
                   src="/Dress/Dress Grace/2.avif"
                   alt="Center showcase of Latore Atelier's elegant design"
-                  width={400}
-                  height={400}
+                  width={350}
+                  height={350}
                   sizes="(min-width: 1024px) 33vw"
                   className="rounded-full object-cover shadow-lg block"
                   priority
