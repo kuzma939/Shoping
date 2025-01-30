@@ -101,53 +101,54 @@ const Hero = () => {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-3 gap-4" style={{ width: "100%" }}>
-            <div className="flex justify-end items-center px-4" style={{ minHeight: "600px" }}>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 relative">
+          <div className="relative flex justify-end items-center px-4">
+            <Image
+              src="/Dress/Dress Grace/1.avif"
+              alt="Left showcase of Latore Atelier's exclusive fashion design"
+              width={400}
+              height={600}
+              sizes="(min-width: 1024px) 33vw, 400px"
+              className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+              priority
+              style={{ aspectRatio: "2 / 3", display: "block" }}
+            />
+          </div>
+
+          <div className="relative flex flex-col items-center justify-center">
+            <div className="relative">
               <Image
-                src="/Dress/Dress Grace/1.avif"
-                alt="Left showcase of Latore Atelier's exclusive fashion design"
+                src="/Dress/Dress Grace/2.avif"
+                alt="Center showcase of Latore Atelier's elegant design"
                 width={400}
-                height={600}
-                sizes="(min-width: 1024px) 33vw"
-                className="rounded-lg object-cover shadow-lg block"
+                height={400}
+                sizes="(min-width: 1024px) 33vw, 400px"
+                className="rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
                 priority
-                style={{ aspectRatio: "2 / 3" }}
+                style={{ aspectRatio: "1 / 1", display: "block" }}
               />
-            </div>
-            <div className="flex flex-col items-center justify-center relative" style={{ minHeight: "600px" }}>
-              <div className="relative" style={{ width: "350px", height: "350px" }}>
-                <Image
-                  src="/Dress/Dress Grace/2.avif"
-                  alt="Center showcase of Latore Atelier's elegant design"
-                  width={350}
-                  height={350}
-                  sizes="(min-width: 1024px) 33vw"
-                  className="rounded-full object-cover shadow-lg block"
-                  priority
-                  style={{ aspectRatio: "1 / 1" }}
-                />
-                <div
-                  className="absolute inset-0 flex flex-col items-center justify-center text-5xl font-bold text-white bg-black bg-opacity-50 rounded-full"
-                  style={{ padding: "1rem" }}
-                >
-                  <span className="block self-start ml-4">LATORE</span>
-                  <span className="block self-end mr-8 mt-2">ATELIER</span>
-                </div>
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-5xl font-bold text-white bg-black bg-opacity-50 rounded-full">
+                <span className="block self-start ml-4">LATORE</span>
+                <span className="block text-5xl font-bold self-end mr-8 mt-2">
+                  ATELIER
+                </span>
               </div>
             </div>
-            <div className="flex justify-start items-center px-4" style={{ minHeight: "600px" }}>
-              <Image
-                src="/Dress/Dress Grace/4.avif"
-                alt="Showcase of Latore Atelier's signature collection"
-                width={400}
-                height={600}
-                sizes="(min-width: 1024px) 33vw"
-                className="rounded-lg object-cover shadow-lg block"
-                loading="lazy"
-                style={{ aspectRatio: "2 / 3" }}
-              />
-            </div>
           </div>
+<div className="relative flex justify-start items-center px-4">
+            <Image
+              src="/Dress/Dress Grace/4.avif"
+              alt="Showcase of Latore Atelier's signature collection"
+              width={400}
+              height={600}
+              sizes="(min-width: 1024px) 33vw, 400px"
+              className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+              priority
+              style={{ aspectRatio: "2 / 3", display: "block", }}
+            />
+          </div>
+        </div>
         )}
 
         <header
