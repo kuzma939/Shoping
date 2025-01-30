@@ -108,7 +108,7 @@ const Hero = () => {
               <Image
                 src="/Dress/Dress Grace/1.avif"
                 alt="Left showcase of Latore Atelier's exclusive fashion design"
-                width={400}
+                width={300}
                 height={500}
                 sizes="(min-width: 1600px) 50vw, (min-width: 1024px) 33vw, 300px"
                 className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
@@ -119,12 +119,12 @@ const Hero = () => {
 
             {/* Center Image with Text */}
             <div className="relative flex flex-col items-center justify-center">
-              <div className="relative w-[250px] sm:w-[350px] lg:w-[300px]">
+              <div className="relative w-[250px] sm:w-[350px] lg:w-[280px]">
                 <Image
                   src="/Dress/Dress Grace/2.avif"
                   alt="Center showcase of Latore Atelier's elegant design"
-                  width={300}
-                  height={300}
+                  width={280}
+                  height={280}
                   sizes="(min-width: 1024px) 33vw, 250px"
                   className="rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
                   priority
@@ -144,7 +144,7 @@ const Hero = () => {
               <Image
                 src="/Dress/Dress Grace/4.avif"
                 alt="Showcase of Latore Atelier's signature collection"
-                width={400}
+                width={300}
                 height={500}
                 sizes="(min-width: 1600px) 50vw, (min-width: 1024px) 33vw, 300px"
                 className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
