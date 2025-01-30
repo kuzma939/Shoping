@@ -156,11 +156,30 @@ const Hero = () => {
             </div>
           </div>
         )}
-        <header className="flex flex-col justify-center text-center space-y-2 mt-5 min-h-[200px]">
-  <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 min-h-[3em] leading-[1.5] overflow-hidden whitespace-nowrap m-0">
+        <header
+  className="flex flex-col justify-center text-center space-y-2 mt-5 min-h-[200px]"
+  style={{
+    height: "auto",
+    alignItems: "center",
+   
+  }}
+>
+  <p
+    className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 leading-[1.5] overflow-hidden whitespace-nowrap m-0"
+    style={{
+      minHeight: "3em",
+      padding: "0.5em 1em",
+    }}
+  >
     {menuItems[0] || "Experience the Difference"}
   </p>
-  <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 min-h-[3em] leading-[1.5] overflow-hidden whitespace-nowrap m-0">
+  <p
+    className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 leading-[1.5] overflow-hidden whitespace-nowrap m-0"
+    style={{
+      minHeight: "3em",
+      padding: "0.5em 1em",
+    }}
+  >
     {menuItems[1] || "Explore Our Signature Collections"}
   </p>
 </header>
