@@ -113,7 +113,7 @@ const Hero = () => {
                 sizes="(min-width: 1600px) 50vw, (min-width: 1024px) 33vw, 300px"
                 className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
                 priority
-                style={{ aspectRatio: "2 / 3" }}
+                style={{ aspectRatio: "3 / 4" }}
               />
             </div>
 
@@ -149,7 +149,7 @@ const Hero = () => {
                 sizes="(min-width: 1600px) 50vw, (min-width: 1024px) 33vw, 300px"
                 className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
                 priority
-                style={{ aspectRatio: "2 / 3" }}
+                style={{ aspectRatio: "3 / 4" }}
               />
             </div>
           </div>
