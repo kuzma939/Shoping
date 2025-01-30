@@ -18,7 +18,7 @@ const Hero = () => {
       </Head>
 
       <section
-        className="mt-4 relative"
+        className="mt-8 relative"
         aria-labelledby="hero-heading"
         role="banner"
         style={{
@@ -112,7 +112,7 @@ const Hero = () => {
               sizes="(min-width: 1600px) 50vw, (min-width: 1024px) 33vw, 300px"
               className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
               priority
-              style={{ aspectRatio: "2 / 3", display: "block" }}
+              style={{ aspectRatio: "2 / 3"}}
             />
           </div>
 
@@ -126,7 +126,7 @@ const Hero = () => {
                 sizes="(min-width: 1024px) 33vw, 350px"
                 className="rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
                 priority
-                style={{ aspectRatio: "1 / 1", display: "block" }}
+                style={{ aspectRatio: "1 / 1"}}
               />
               <div className="absolute inset-0 flex flex-col items-center justify-center text-5xl font-bold text-white bg-black bg-opacity-50 rounded-full">
                 <span className="block self-start ml-4">LATORE</span>
@@ -145,7 +145,7 @@ const Hero = () => {
               sizes="(min-width: 1600px) 50vw, (min-width: 1024px) 33vw, 300px"
               className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
               priority
-              style={{ aspectRatio: "2 / 3", display: "block", }}
+              style={{ aspectRatio: "2 / 3"}}
             />
           </div>
         </div>
