@@ -35,7 +35,13 @@ const Hero = () => {
         className="section-container relative"
         aria-labelledby="hero-heading"
         role="banner"
-        style={{ minHeight: "400px" }}
+        style={{
+          minHeight: "400px", // Резервуємо простір
+          display: "flex",    // Використовуємо гнучке розміщення
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
         <h1 id="hero-heading" className="sr-only">
           Explore Latore Atelier – Signature Fashion and Design
@@ -154,22 +160,28 @@ const Hero = () => {
     minHeight: "150px", // Фіксована мінімальна висота для контейнера
   }}
 >
+<p
+  className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
+  style={{
+    minHeight: "2.5em",  // Фіксуємо простір для тексту
+    lineHeight: "1.5",   // Контролюємо висоту рядка
+   
+    margin: "0",         // Прибираємо відступи
+    textAlign: "center", // Центруємо текст
+  }}
+>
+  {menuItems[0] || "Experience the Difference"}
+</p>
+
   <p
     className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
     style={{
       minHeight: "2.5em", // Резервуємо простір для тексту
       lineHeight: "1.5",  // Фіксована висота рядка
+    
       margin: "0",        // Уникнення зміщень через відступи
-    }}
-  >
-    {menuItems[0] || "Experience the Difference"}
-  </p>
-  <p
-    className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
-    style={{
-      minHeight: "2.5em", // Резервуємо простір для тексту
-      lineHeight: "1.5",  // Фіксована висота рядка
-      margin: "0",        // Уникнення зміщень через відступи
+      margin: "0",         // Прибираємо відступи
+      textAlign: "center", 
     }}
   >
     {menuItems[1] || "Explore Our Signature Collections"}
