@@ -11,7 +11,7 @@ const Hero = () => {
   return (
     <>
       <Head>
-        {/* Попереднє завантаження зображень */}
+        {/* Preload images */}
         <link rel="preload" as="image" href="/Dress/Dress Grace/1.avif" type="image/avif" />
         <link rel="preload" as="image" href="/Dress/Dress Grace/2.avif" type="image/avif" />
         <link rel="preload" as="image" href="/Dress/Dress Grace/4.avif" type="image/avif" />
@@ -22,7 +22,7 @@ const Hero = () => {
         aria-labelledby="hero-heading"
         role="banner"
         style={{
-          minHeight: "400px",
+          minHeight: "600px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -33,7 +33,6 @@ const Hero = () => {
           Explore Latore Atelier – Signature Fashion and Design
         </h1>
 
-        {/* Для мобільних пристроїв */}
         {viewportSize === "mobile" ? (
           <div className="flex flex-col items-center gap-4">
             <Image
@@ -42,14 +41,11 @@ const Hero = () => {
               width={200}
               height={200}
               sizes="(max-width: 450px) 100vw, 200px"
-              className="rounded-full object-cover shadow-lg block" // Додаємо display: block
+              className="rounded-full object-cover shadow-lg block"
               priority
               style={{ aspectRatio: "1 / 1" }}
             />
-            <div
-              className="w-full flex justify-center relative"
-              style={{ marginTop: "-40px" }} // Фіксуємо зміщення тексту
-            >
+            <div className="w-full flex justify-center relative" style={{ marginTop: "-40px" }}>
               <h2
                 className="text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-2 px-6 rounded-lg"
                 style={{ minHeight: "3em" }}
@@ -102,8 +98,9 @@ const Hero = () => {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-3 gap-4 relative">
-            <div className="flex justify-end items-center px-4 min-h-[600px]">
+          <div className="grid grid-cols-3 gap-4" style={{ width: "100%" }}>
+            {/* Left image */}
+            <div className="flex justify-end items-center px-4" style={{ minHeight: "600px" }}>
               <Image
                 src="/Dress/Dress Grace/1.avif"
                 alt="Left showcase of Latore Atelier's exclusive fashion design"
@@ -115,8 +112,12 @@ const Hero = () => {
                 style={{ aspectRatio: "2 / 3" }}
               />
             </div>
-            <div className="flex flex-col items-center justify-center relative min-h-[600px]">
-              <div className="relative">
+            {/* Center section */}
+            <div
+              className="flex flex-col items-center justify-center relative"
+              style={{ minHeight: "600px" }}
+            >
+              <div className="relative" style={{ width: "400px", height: "400px" }}>
                 <Image
                   src="/Dress/Dress Grace/2.avif"
                   alt="Center showcase of Latore Atelier's elegant design"
@@ -136,7 +137,8 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-            <div className="flex justify-start items-center px-4 min-h-[600px]">
+            {/* Right image */}
+            <div className="flex justify-start items-center px-4" style={{ minHeight: "600px" }}>
               <Image
                 src="/Dress/Dress Grace/4.avif"
                 alt="Showcase of Latore Atelier's signature collection"
@@ -151,9 +153,14 @@ const Hero = () => {
           </div>
         )}
 
+        {/* Text section */}
         <header
           className="flex flex-col justify-center text-center space-y-2"
-          style={{ marginTop: "20px", minHeight: "150px" }}
+          style={{
+            marginTop: "20px",
+            minHeight: "150px",
+            width: "100%",
+          }}
         >
           <p
             className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
@@ -161,6 +168,7 @@ const Hero = () => {
               minHeight: "2.5em",
               lineHeight: "1.5",
               margin: "0",
+              textAlign: "center",
             }}
           >
             {menuItems[0] || "Experience the Difference"}
@@ -171,6 +179,7 @@ const Hero = () => {
               minHeight: "2.5em",
               lineHeight: "1.5",
               margin: "0",
+              textAlign: "center",
             }}
           >
             {menuItems[1] || "Explore Our Signature Collections"}
