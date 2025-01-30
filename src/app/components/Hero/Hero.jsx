@@ -109,7 +109,7 @@ const Hero = () => {
                 src="/Dress/Dress Grace/1.avif"
                 alt="Left showcase of Latore Atelier's exclusive fashion design"
                 width={300}
-                height={500}
+                height={400}
                 sizes="(min-width: 1600px) 50vw, (min-width: 1024px) 33vw, 300px"
                 className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
                 priority
@@ -145,7 +145,7 @@ const Hero = () => {
                 src="/Dress/Dress Grace/4.avif"
                 alt="Showcase of Latore Atelier's signature collection"
                 width={300}
-                height={500}
+                height={400}
                 sizes="(min-width: 1600px) 50vw, (min-width: 1024px) 33vw, 300px"
                 className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
                 priority
