@@ -45,7 +45,10 @@ const Hero = () => {
               priority
               style={{ aspectRatio: "1 / 1" }}
             />
-            <div className="w-full flex justify-center relative" style={{ marginTop: "-40px" }}>
+            <div
+              className="w-full flex justify-center relative"
+              style={{ marginTop: "-40px", minHeight: "3em" }}
+            >
               <h2
                 className="text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-2 px-6 rounded-lg"
                 style={{ minHeight: "2em" }}
@@ -99,7 +102,6 @@ const Hero = () => {
           </div>
         ) : (
           <div className="grid grid-cols-3 gap-4" style={{ width: "100%" }}>
-            {/* Left image */}
             <div className="flex justify-end items-center px-4" style={{ minHeight: "600px" }}>
               <Image
                 src="/Dress/Dress Grace/1.avif"
@@ -112,11 +114,7 @@ const Hero = () => {
                 style={{ aspectRatio: "2 / 3" }}
               />
             </div>
-            {/* Center section */}
-            <div
-              className="flex flex-col items-center justify-center relative"
-              style={{ minHeight: "600px" }}
-            >
+            <div className="flex flex-col items-center justify-center relative" style={{ minHeight: "600px" }}>
               <div className="relative" style={{ width: "350px", height: "350px" }}>
                 <Image
                   src="/Dress/Dress Grace/2.avif"
@@ -137,7 +135,6 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-            {/* Right image */}
             <div className="flex justify-start items-center px-4" style={{ minHeight: "600px" }}>
               <Image
                 src="/Dress/Dress Grace/4.avif"
@@ -153,7 +150,6 @@ const Hero = () => {
           </div>
         )}
 
-        {/* Text section */}
         <header
           className="flex flex-col justify-center text-center space-y-2"
           style={{
@@ -191,7 +187,6 @@ const Hero = () => {
 };
 
 export default Hero;
-
 
 {/*import Image from "next/image";
 import { useLanguage } from "../../Functions/useLanguage";
