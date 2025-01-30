@@ -119,20 +119,20 @@ const Hero = () => {
 
             {/* Center Image with Text */}
             <div className="relative flex flex-col items-center justify-center">
-              <div className="relative w-[250px] sm:w-[350px] lg:w-[400px]">
+              <div className="relative w-[250px] sm:w-[350px] lg:w-[300px]">
                 <Image
                   src="/Dress/Dress Grace/2.avif"
                   alt="Center showcase of Latore Atelier's elegant design"
-                  width={400}
-                  height={400}
-                  sizes="(min-width: 1024px) 33vw, 350px"
+                  width={300}
+                  height={300}
+                  sizes="(min-width: 1024px) 33vw, 250px"
                   className="rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
                   priority
                   style={{ aspectRatio: "1 / 1" }}
                 />
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-5xl font-bold text-white bg-black bg-opacity-50 rounded-full">
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-4xl font-bold text-white bg-black bg-opacity-50 rounded-full">
                   <span className="block self-start ml-4">LATORE</span>
-                  <span className="block text-5xl font-bold self-end mr-8 mt-2">
+                  <span className="block text-4xl font-bold self-end mr-8 mt-2">
                     ATELIER
                   </span>
                 </div>
