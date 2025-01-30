@@ -37,9 +37,9 @@ export default function RootLayout({ children }) {
                 <link rel="icon" href="/favicon-latore.avif" type="image/x-icon" />
                 <link rel="canonical" href="https://shoping-tdfr.vercel.app" />
               
-                <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+                <link rel="preload" href="https://fonts.googleapis.com"/>
+<link rel="preload" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 
                 <meta name="google-site-verification" content="cEPkdQQw_dVOxzbi7iLzOjHyYw9kx6u7lGboqRczRa8" />
