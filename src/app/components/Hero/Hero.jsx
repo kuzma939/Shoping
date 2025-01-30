@@ -37,8 +37,8 @@ const Hero = () => {
             <Image
               src="/Dress/Dress Grace/1.avif"
               alt="Elegant design by Latore Atelier – Centerpiece"
-              width={200}
-              height={200}
+              width={250}
+              height={250}
               sizes="(max-width: 450px) 100vw, 200px"
               className="rounded-full object-cover shadow-lg block"
               priority
@@ -104,54 +104,60 @@ const Hero = () => {
           // Desktop Version
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 relative">
             {/* Left Image */}
-            <div className="relative flex justify-end items-center px-4">
-              <Image
-                src="/Dress/Dress Grace/1.avif"
-                alt="Left showcase of Latore Atelier's exclusive fashion design"
-                width={300}
-                height={500}
-                sizes="(min-width: 1600px) 50vw, (min-width: 1024px) 33vw, 300px"
-                className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
-                priority
-                style={{ aspectRatio: "3 / 4" }}
-              />
-            </div>
-
+            <div className="relative flex justify-start items-center px-8">
+  <Image
+    src="/Dress/Dress Grace/1.avif"
+    alt="Showcase of Latore Atelier's signature collection"
+    width={300} // Збільшена ширина
+    height={400} // Збільшена висота
+    sizes="(min-width: 1600px) 50vw, (min-width: 1024px) 33vw, 400px"
+    className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+    priority
+    style={{
+      width: "100%", // Масштабування відповідно до контейнера
+      height: "auto", // Збереження пропорцій
+    }}
+  />
+</div>
             {/* Center Image with Text */}
             <div className="relative flex flex-col items-center justify-center">
-              <div className="relative w-[250px] sm:w-[350px] lg:w-[280px]">
-                <Image
-                  src="/Dress/Dress Grace/2.avif"
-                  alt="Center showcase of Latore Atelier's elegant design"
-                  width={280}
-                  height={280}
-                  sizes="(min-width: 1024px) 33vw, 250px"
-                  className="rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
-                  priority
-                  style={{ aspectRatio: "1 / 1" }}
-                />
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-4xl font-bold text-white bg-black bg-opacity-50 rounded-full">
-                  <span className="block self-start ml-4">LATORE</span>
-                  <span className="block text-4xl font-bold self-end mr-8 mt-2">
-                    ATELIER
-                  </span>
-                </div>
-              </div>
-            </div>
-
+  <div className="relative w-[250px] sm:w-[350px] lg:w-[250px] xl:w-[350px]">
+    <Image
+      src="/Dress/Dress Grace/2.avif"
+      alt="Center showcase of Latore Atelier's elegant design"
+      width={350} // Встановлено ширину, сумісну з розмірами
+      height={350}
+      sizes="(min-width: 1600px) 50vw, (min-width: 1024px) 33vw, 250px"
+      className="rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+      priority
+      style={{
+        width: "100%", // Забезпечує масштабування в рамках контейнера
+        height: "auto", // Зберігає пропорції
+      }}
+    />
+    <div className="absolute inset-0 flex flex-col items-center justify-center text-4xl font-bold text-white bg-black bg-opacity-50 rounded-full">
+      <span className="block self-start ml-4">LATORE</span>
+      <span className="block text-4xl font-bold self-end mr-8 mt-2">ATELIER</span>
+    </div>
+  </div>
+</div>
             {/* Right Image */}
-            <div className="relative flex justify-start items-center px-4">
-              <Image
-                src="/Dress/Dress Grace/4.avif"
-                alt="Showcase of Latore Atelier's signature collection"
-                width={300}
-                height={500}
-                sizes="(min-width: 1600px) 50vw, (min-width: 1024px) 33vw, 300px"
-                className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
-                priority
-                style={{ aspectRatio: "3 / 4" }}
-              />
-            </div>
+            <div className="relative flex justify-start items-center px-8">
+  <Image
+    src="/Dress/Dress Grace/4.avif"
+    alt="Showcase of Latore Atelier's signature collection"
+    width={300} // Збільшена ширина
+    height={400} // Збільшена висота
+    sizes="(min-width: 1600px) 50vw, (min-width: 1024px) 33vw, 400px"
+    className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+    priority
+    style={{
+      width: "100%", // Масштабування відповідно до контейнера
+      height: "auto", // Збереження пропорцій
+    }}
+  />
+</div>
+
           </div>
         )}
 
