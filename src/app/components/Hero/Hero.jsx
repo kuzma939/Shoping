@@ -147,35 +147,42 @@ const Hero = () => {
             </div>
           </div>
         )}
+<header
+  className="flex flex-col justify-center text-center space-y-2"
+  style={{
+    marginTop: "20px",
+    minHeight: "200px", // Збільшена мінімальна висота
+  }}
+>
+  {/* Перше текстове поле */}
+  <p
+    className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
+    style={{
+      minHeight: "3em", // Резерв для тексту
+      lineHeight: "1.5", // Чітка висота рядка
+      margin: "0", // Уникаємо відступів
+      overflow: "hidden", // Уникаємо додаткових зміщень
+      whiteSpace: "nowrap", // Текст не переноситься
+    }}
+  >
+    {menuItems[0] || "Experience the Difference"}
+  </p>
 
-        <header
-          className="flex flex-col justify-center text-center space-y-2 min-h-[150px]"
-          style={{
-            marginTop: "20px",
-            minHeight: "150px",
-          }}
-        >
-          <p
-            className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
-            style={{
-              minHeight: "2.5em",
-              lineHeight: "1.5",
-              margin: "0",
-            }}
-          >
-            {menuItems[0] || "Experience the Difference"}
-          </p>
-          <p
-            className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
-            style={{
-              minHeight: "2.5em",
-              lineHeight: "1.5",
-              margin: "0",
-            }}
-          >
-            {menuItems[1] || "Explore Our Signature Collections"}
-          </p>
-        </header>
+  {/* Друге текстове поле */}
+  <p
+    className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
+    style={{
+      minHeight: "3em", // Резерв для тексту
+      lineHeight: "1.5", // Чітка висота рядка
+      margin: "0", // Уникаємо відступів
+      overflow: "hidden", // Уникаємо додаткових зміщень
+      whiteSpace: "nowrap", // Текст не переноситься
+    }}
+  >
+    {menuItems[1] || "Explore Our Signature Collections"}
+  </p>
+</header>
+
       </section>
     </>
   );
