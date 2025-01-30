@@ -63,8 +63,8 @@ const Hero = () => {
               <Image
                 src="/Dress/Dress Grace/1.avif"
                 alt="Elegant design by Latore Atelier – Centerpiece"
-                width={300}
-                height={300}
+                width={250}
+                height={250}
                 sizes="(max-width: 768px) 100vw, 300px"
                 className="rounded-full object-cover shadow-lg block"
                 priority
@@ -154,13 +154,13 @@ const Hero = () => {
           className="flex flex-col mt-12 justify-center text-center space-y-2 min-h-[150px]"
         >
           <p
-            className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
+            className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
             style={{ minHeight: "2em" }}
           >
             {menuItems[0] || "Experience the Difference"}
           </p>
           <p
-            className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
+            className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
             style={{ minHeight: "2em" }}
           >
             {menuItems[1] || "Explore Our Signature Collections"}
