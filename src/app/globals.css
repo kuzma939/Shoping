@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -15,6 +16,33 @@
 .light {
   background-color: white;
   color: black;
+}
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway-Thin.woff2') format('woff2'),
+       url('/fonts/Raleway-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-Regular.woff2') format('woff2'),
+       url('/fonts/Roboto-Regular.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+body {
+  font-family: "Raleway", Arial, sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 200 !important;
 }
 
 

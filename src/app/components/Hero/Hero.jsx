@@ -110,7 +110,10 @@ const Hero = () => {
                 sizes="(min-width: 1024px) 33vw"
                 className="rounded-lg object-cover shadow-lg"
                 priority
-                style={{ aspectRatio: "2 / 3" }}
+                style={{ aspectRatio: "2 / 3",
+                  objectFit: "cover", // Відображаємо повне зображення
+    backgroundColor: "#f0f0f0",
+                 }}
               />
             </div>
             <div className="flex flex-col items-center justify-center relative">
@@ -123,7 +126,10 @@ const Hero = () => {
                   sizes="(min-width: 1024px) 33vw"
                   className="rounded-full object-cover shadow-lg"
                   priority
-                  style={{ aspectRatio: "1 / 1" }}
+                  style={{ aspectRatio: "1 / 1",
+                    objectFit: "cover", // Відображаємо повне зображення
+    backgroundColor: "#f0f0f0",
+                   }}
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-5xl font-bold text-white bg-black bg-opacity-50 rounded-full">
                   <span className="block self-start ml-4">LATORE</span>
@@ -142,43 +148,19 @@ const Hero = () => {
                 sizes="(min-width: 1024px) 33vw"
                 className="rounded-lg object-cover shadow-lg"
                 loading="lazy"
-                style={{ aspectRatio: "2 / 3" }}
+                style={{ aspectRatio: "2 / 3",
+                  objectFit: "cover", // Відображаємо повне зображення
+    backgroundColor: "#f0f0f0",
+                 }}
               />
             </div>
           </div>
         )}
-<header
-  className="flex flex-col justify-center text-center space-y-2"
-  style={{
-    marginTop: "20px",
-    minHeight: "200px", // Збільшена мінімальна висота
-  }}
->
-  {/* Перше текстове поле */}
-  <p
-    className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
-    style={{
-      minHeight: "3em", // Резерв для тексту
-      lineHeight: "1.5", // Чітка висота рядка
-      margin: "0", // Уникаємо відступів
-      overflow: "hidden", // Уникаємо додаткових зміщень
-      whiteSpace: "nowrap", // Текст не переноситься
-    }}
-  >
+        <header className="flex flex-col justify-center text-center space-y-2 mt-5 min-h-[200px]">
+  <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 min-h-[3em] leading-[1.5] overflow-hidden whitespace-nowrap m-0">
     {menuItems[0] || "Experience the Difference"}
   </p>
-
-  {/* Друге текстове поле */}
-  <p
-    className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
-    style={{
-      minHeight: "3em", // Резерв для тексту
-      lineHeight: "1.5", // Чітка висота рядка
-      margin: "0", // Уникаємо відступів
-      overflow: "hidden", // Уникаємо додаткових зміщень
-      whiteSpace: "nowrap", // Текст не переноситься
-    }}
-  >
+  <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300 min-h-[3em] leading-[1.5] overflow-hidden whitespace-nowrap m-0">
     {menuItems[1] || "Explore Our Signature Collections"}
   </p>
 </header>
