@@ -150,34 +150,18 @@ const Hero = () => {
           </div>
         </div>
         )}
-
-        <header
-          className="flex flex-col justify-center text-center space-y-2"
-          style={{
-            marginTop: "20px",
-            minHeight: "150px",
-            width: "100%",
-          }}
+<header
+          className="flex flex-col mt-12 justify-center text-center space-y-2 min-h-[150px]"
         >
           <p
-            className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
-            style={{
-              minHeight: "2.5em",
-              lineHeight: "1.5",
-              margin: "0",
-              textAlign: "center",
-            }}
+            className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
+            style={{ minHeight: "2em" }}
           >
             {menuItems[0] || "Experience the Difference"}
           </p>
           <p
-            className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
-            style={{
-              minHeight: "2.5em",
-              lineHeight: "1.5",
-              margin: "0",
-              textAlign: "center",
-            }}
+            className="text-xs sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
+            style={{ minHeight: "2em" }}
           >
             {menuItems[1] || "Explore Our Signature Collections"}
           </p>
