@@ -160,7 +160,7 @@ const Hero = () => {
           <p
             className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
             style={{
-              minHeight: "3em", // Встановлюємо таку ж висоту для другого блоку тексту
+              minHeight: "2em", // Встановлюємо таку ж висоту для другого блоку тексту
               lineHeight: "1.5",
               margin: "0",
             }}
@@ -171,7 +171,7 @@ const Hero = () => {
           <p
             className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
             style={{
-              minHeight: "3em", // Встановлюємо таку ж висоту для другого блоку тексту
+              minHeight: "2em", // Встановлюємо таку ж висоту для другого блоку тексту
               lineHeight: "1.5",
               margin: "0",
             }}
