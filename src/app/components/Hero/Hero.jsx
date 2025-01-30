@@ -11,6 +11,7 @@ const Hero = () => {
   return (
     <>
       <Head>
+        {/* Попереднє завантаження зображень */}
         <link rel="preload" as="image" href="/Dress/Dress Grace/1.avif" type="image/avif" />
         <link rel="preload" as="image" href="/Dress/Dress Grace/2.avif" type="image/avif" />
         <link rel="preload" as="image" href="/Dress/Dress Grace/4.avif" type="image/avif" />
@@ -32,6 +33,7 @@ const Hero = () => {
           Explore Latore Atelier – Signature Fashion and Design
         </h1>
 
+        {/* Для мобільних пристроїв */}
         {viewportSize === "mobile" ? (
           <div className="flex flex-col items-center gap-4">
             <Image
@@ -40,14 +42,17 @@ const Hero = () => {
               width={200}
               height={200}
               sizes="(max-width: 450px) 100vw, 200px"
-              className="rounded-full object-cover shadow-lg"
+              className="rounded-full object-cover shadow-lg block" // Додаємо display: block
               priority
               style={{ aspectRatio: "1 / 1" }}
             />
-            <div className="w-full flex justify-center relative -mt-8">
+            <div
+              className="w-full flex justify-center relative"
+              style={{ marginTop: "-40px" }} // Фіксуємо зміщення тексту
+            >
               <h2
                 className="text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-2 px-6 rounded-lg"
-                style={{ minHeight: "2em" }}
+                style={{ minHeight: "3em" }}
               >
                 LATORE ATELIER
               </h2>
@@ -62,13 +67,13 @@ const Hero = () => {
                 width={300}
                 height={300}
                 sizes="(max-width: 768px) 100vw, 300px"
-                className="rounded-full object-cover shadow-lg"
+                className="rounded-full object-cover shadow-lg block"
                 priority
                 style={{ aspectRatio: "1 / 1" }}
               />
               <h2
                 className="absolute bottom-[-20px] left-[50%] translate-x-[-50%] text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-3 px-6 rounded-2xl whitespace-nowrap"
-                style={{ minHeight: "2em" }}
+                style={{ minHeight: "3em" }}
               >
                 LATORE ATELIER
               </h2>
@@ -80,7 +85,7 @@ const Hero = () => {
                 width={200}
                 height={300}
                 sizes="(max-width: 768px) 50vw, 200px"
-                className="rounded-lg object-cover shadow-lg"
+                className="rounded-lg object-cover shadow-lg block"
                 loading="lazy"
                 style={{ aspectRatio: "2 / 3" }}
               />
@@ -90,7 +95,7 @@ const Hero = () => {
                 width={200}
                 height={300}
                 sizes="(max-width: 768px) 50vw, 200px"
-                className="rounded-lg object-cover shadow-lg"
+                className="rounded-lg object-cover shadow-lg block"
                 loading="lazy"
                 style={{ aspectRatio: "2 / 3" }}
               />
@@ -105,7 +110,7 @@ const Hero = () => {
                 width={400}
                 height={600}
                 sizes="(min-width: 1024px) 33vw"
-                className="rounded-lg object-cover shadow-lg"
+                className="rounded-lg object-cover shadow-lg block"
                 priority
                 style={{ aspectRatio: "2 / 3" }}
               />
@@ -118,11 +123,14 @@ const Hero = () => {
                   width={400}
                   height={400}
                   sizes="(min-width: 1024px) 33vw"
-                  className="rounded-full object-cover shadow-lg"
+                  className="rounded-full object-cover shadow-lg block"
                   priority
                   style={{ aspectRatio: "1 / 1" }}
                 />
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-5xl font-bold text-white bg-black bg-opacity-50 rounded-full">
+                <div
+                  className="absolute inset-0 flex flex-col items-center justify-center text-5xl font-bold text-white bg-black bg-opacity-50 rounded-full"
+                  style={{ padding: "1rem" }}
+                >
                   <span className="block self-start ml-4">LATORE</span>
                   <span className="block self-end mr-8 mt-2">ATELIER</span>
                 </div>
@@ -135,7 +143,7 @@ const Hero = () => {
                 width={400}
                 height={600}
                 sizes="(min-width: 1024px) 33vw"
-                className="rounded-lg object-cover shadow-lg"
+                className="rounded-lg object-cover shadow-lg block"
                 loading="lazy"
                 style={{ aspectRatio: "2 / 3" }}
               />
@@ -174,6 +182,7 @@ const Hero = () => {
 };
 
 export default Hero;
+
 
 {/*import Image from "next/image";
 import { useLanguage } from "../../Functions/useLanguage";
