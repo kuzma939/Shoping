@@ -107,8 +107,8 @@ const Hero = () => {
             <Image
               src="/Dress/Dress Grace/1.avif"
               alt="Left showcase of Latore Atelier's exclusive fashion design"
-              width={300}
-              height={500}
+              width={200}
+              height={400}
               sizes="(min-width: 1600px) 50vw, (min-width: 1024px) 33vw, 300px"
               className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
               priority
@@ -121,8 +121,8 @@ const Hero = () => {
               <Image
                 src="/Dress/Dress Grace/2.avif"
                 alt="Center showcase of Latore Atelier's elegant design"
-                width={350}
-                height={350}
+                width={300}
+                height={300}
                 sizes="(min-width: 1024px) 33vw, 350px"
                 className="rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
                 priority
@@ -140,8 +140,8 @@ const Hero = () => {
             <Image
               src="/Dress/Dress Grace/4.avif"
               alt="Showcase of Latore Atelier's signature collection"
-              width={300}
-              height={500}
+              width={200}
+              height={400}
               sizes="(min-width: 1600px) 50vw, (min-width: 1024px) 33vw, 300px"
               className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
               priority
