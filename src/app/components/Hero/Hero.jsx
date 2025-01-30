@@ -102,7 +102,7 @@ const Hero = () => {
           </div>
         ) : (
           // Desktop Version
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 relative w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 relative">
             {/* Left Image */}
             <div className="relative flex justify-end items-center px-4">
               <Image
@@ -156,7 +156,7 @@ const Hero = () => {
         )}
 
         {/* Text Section */}
-        <header className="flex flex-col mt-12 justify-center text-center space-y-2 min-h-[150px]">
+        <header className="flex flex-col mt-12 justify-center text-center space-y-2">
           <p
             className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
             style={{ minHeight: "2em" }}
