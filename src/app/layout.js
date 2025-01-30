@@ -36,10 +36,9 @@ export default function RootLayout({ children }) {
                 <meta property="og:type" content="website" />
                 <link rel="icon" href="/favicon-latore.avif" type="image/x-icon" />
                 <link rel="canonical" href="https://shoping-tdfr.vercel.app" />
-              
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+                <link rel="preload" href="/fonts/Raleway-Thin.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
+<link rel="preload" href="/fonts/Roboto-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+
 <style>{`
           body {
             font-family: "Raleway", Arial, sans-serif;
