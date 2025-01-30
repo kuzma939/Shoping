@@ -25,7 +25,7 @@ export default function TopProducts() {
 
   const { displayedImages, handleNext, handlePrev } = useImageFollow(
     images.length,
-    5
+    10
   );
   const { translateList } = useLanguage();
   const menuItems = translateList("home", "top_products");
@@ -95,6 +95,8 @@ export default function TopProducts() {
                   priority={imageIndex === 0} // Пріоритетне завантаження для першого зображення
                   style={{
                     objectFit: "cover",
+                    width: "200px", 
+                    height: "300px",
                   }}
                   sizes="(max-width: 768px) 45vw, (max-width: 1024px) 20vw, 300px"
                   quality={85}
@@ -103,8 +105,7 @@ export default function TopProducts() {
               </Link>
             ))}
           </div>
-
-          {/* Права кнопка */}
+{/* Права кнопка */}
           <div
             onClick={handleNext}
             className="text-black dark:text-gray-300 text-2xl sm:text-3xl cursor-pointer mx-2 sm:mx-4 hover:text-gray-500 dark:hover:text-gray-400 transition-all duration-300"
