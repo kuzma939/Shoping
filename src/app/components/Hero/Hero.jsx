@@ -84,7 +84,7 @@ const Hero = () => {
             </div>
           </div>
         ) : (
-          <div className="flex justify-between gap-8">
+          <div className="flex justify-between items-center gap-8">
             <div className="relative flex justify-center items-center">
               <Image
                 src="/Dress/Dress Grace/1.avif"
