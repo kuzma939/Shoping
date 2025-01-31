@@ -1,42 +1,33 @@
 import { useState, useEffect } from "react";
 
-// Функція для визначення viewport
-function getViewport() {
-  if (typeof window === "undefined") return "mobile"; // Значення за замовчуванням для SSR
-  if (window.innerWidth <= 450) return "mobile";
-  if (window.innerWidth <= 1024) return "tablet";
-  return "desktop";
-}
-
 export function useViewportSize() {
-  const [viewportSize, setViewportSize] = useState(getViewport);
+  const [viewportSize, setViewportSize] = useState("desktop"); // За замовчуванням для SSR
 
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const handleResize = () => {
-      const newSize = getViewport();
-      setViewportSize((prev) => (prev !== newSize ? newSize : prev));
+    const getViewport = () => {
+      if (window.innerWidth <= 450) return "mobile";
+      if (window.innerWidth <= 1024) return "tablet";
+      return "desktop";
     };
 
-    // Використання debounce для зменшення кількості викликів
-    const debouncedResize = debounce(handleResize, 100);
+    setViewportSize(getViewport());
 
-    window.addEventListener("resize", debouncedResize);
-    return () => window.removeEventListener("resize", debouncedResize);
+    const handleResize = () => {
+      setViewportSize((prev) => {
+        const newSize = getViewport();
+        return prev !== newSize ? newSize : prev;
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return viewportSize;
 }
 
-// Допоміжна функція debounce
-function debounce(func, wait) {
-  let timeout;
-  return (...args) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func(...args), wait);
-  };
-}
 {/*import { useState, useEffect } from "react";
 
 export function useViewportSize() {
