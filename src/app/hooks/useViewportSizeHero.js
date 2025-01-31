@@ -1,18 +1,21 @@
 import { useState, useEffect } from "react";
 
-export function useViewportSize(defaultViewport = "desktop") {
-  const [viewportSize, setViewportSize] = useState(defaultViewport);
+export function useViewportSize() {
+  const getViewport = () => {
+    if (typeof window === "undefined") return "mobile"; // Початкове значення для SSR
+    if (window.innerWidth <= 450) return "mobile";
+    if (window.innerWidth <= 1024) return "tablet";
+    return "desktop";
+  };
+
+  // Початкове значення — "mobile"
+  const [viewportSize, setViewportSize] = useState("mobile");
 
   useEffect(() => {
-    const getViewport = () => {
-      if (window.innerWidth <= 450) return "mobile";
-      if (window.innerWidth <= 1024) return "tablet";
-      return "desktop";
-    };
-
     const handleResize = () => setViewportSize(getViewport());
 
-    setViewportSize(getViewport()); // On first render
+    // Одразу оновлюємо стан після першого рендера
+    setViewportSize(getViewport());
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
@@ -20,7 +23,6 @@ export function useViewportSize(defaultViewport = "desktop") {
 
   return viewportSize;
 }
-
 {/*
 import { useState, useEffect } from "react";
 
