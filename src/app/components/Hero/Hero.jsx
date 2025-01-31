@@ -2,10 +2,12 @@ import Image from "next/image";
 import { useLanguage } from "../../Functions/useLanguage";
 import Head from "next/head";
 import { useViewportSize } from "../../hooks/useViewportSizeHero";
+
 const Hero = () => {
   const { translateList } = useLanguage();
   const menuItems = translateList("home", "hero");
   const viewportSize = useViewportSize();
+
   return (
     <>
       <Head>
@@ -16,172 +18,121 @@ const Hero = () => {
       </Head>
 
       <section
-        className="mt-8 relative"
+        className=" relative flex flex-col justify-center items-center section-container"
         aria-labelledby="hero-heading"
         role="banner"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
       >
         <h1 id="hero-heading" className="sr-only">
           Explore Latore Atelier – Signature Fashion and Design
         </h1>
 
         {viewportSize === "mobile" ? (
-          // Mobile Version
           <div className="flex flex-col items-center gap-4">
-            <Image
-              src="/Dress/Dress Grace/1.avif"
-              alt="Elegant design by Latore Atelier – Centerpiece"
-              width={250}
-              height={250}
-              sizes="(max-width: 450px) 100vw, 200px"
-              className="rounded-full object-cover shadow-lg block"
-              priority
-              style={{ aspectRatio: "1 / 1" }}
-            />
-            <div
-              className="w-full flex justify-center relative"
-              style={{ marginTop: "-40px", minHeight: "3em" }}
-            >
-              <h2
-                className="text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-2 px-6 rounded-lg"
-                style={{ minHeight: "2em" }}
-              >
-                LATORE ATELIER
-              </h2>
-            </div>
-          </div>
-        ) : viewportSize === "tablet" ? (
-          // Tablet Version
-          <div className="flex flex-col gap-6 items-center">
-            <div className="relative">
+            <div className="relative w-[250px] h-[250px]">
               <Image
                 src="/Dress/Dress Grace/1.avif"
                 alt="Elegant design by Latore Atelier – Centerpiece"
+                layout="intrinsic"
                 width={250}
                 height={250}
-                sizes="(max-width: 768px) 100vw, 300px"
+                style={{ aspectRatio: "1 / 1" }}
                 className="rounded-full object-cover shadow-lg block"
                 priority
-                style={{ aspectRatio: "1 / 1" }}
               />
-              <h2
-                className="absolute bottom-[-20px] left-[50%] translate-x-[-50%] text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-3 px-6 rounded-2xl whitespace-nowrap"
-                style={{ minHeight: "2em" }}
-              >
-                LATORE ATELIER
-              </h2>
             </div>
+          
+              <h2 className="text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-2 px-6 rounded-lg mt-[-10px]">
+              LATORE ATELIER
+            </h2>
+          </div>
+        ) : viewportSize === "tablet" ? (
+          <div className="flex flex-col gap-6 items-center">
+            <div className="relative w-[250px] h-[250px]">
+              <Image
+                src="/Dress/Dress Grace/1.avif"
+                alt="Elegant design by Latore Atelier – Centerpiece"
+                layout="intrinsic"
+                width={250}
+                height={250}
+                style={{ aspectRatio: "1 / 1" }}
+                className="rounded-full object-cover shadow-lg block"
+                priority
+              />
+            </div>
+            <h2 className="text-center text-3xl font-bold text-white bg-black bg-opacity-50 py-2 px-6 rounded-lg mt-[-10px]">
+              LATORE ATELIER
+            </h2>
             <div className="flex gap-4 justify-between w-full px-4">
               <Image
                 src="/Dress/Dress Grace/2.avif"
                 alt="Latore Atelier Left Design Showcase"
+                layout="intrinsic"
                 width={200}
                 height={300}
-                sizes="(max-width: 768px) 50vw, 200px"
                 className="rounded-lg object-cover shadow-lg block"
                 loading="lazy"
-                style={{ aspectRatio: "2 / 3" }}
               />
               <Image
                 src="/Dress/Dress Grace/4.avif"
                 alt="Latore Atelier Signature Collection"
+                layout="intrinsic"
                 width={200}
                 height={300}
-                sizes="(max-width: 768px) 50vw, 200px"
                 className="rounded-lg object-cover shadow-lg block"
                 loading="lazy"
-                style={{ aspectRatio: "2 / 3" }}
               />
             </div>
           </div>
         ) : (
-          // Desktop Version
-          <div className="grid sm:grid-cols-3 relative">
-            {/* Left Image */}
-            <div className="relative flex justify-start items-center px-8">
-  <Image
-    src="/Dress/Dress Grace/1.avif"
-    alt="Showcase of Latore Atelier's signature collection"
-    width={300} // Збільшена ширина
-    height={400} // Збільшена висота
-    sizes="(min-width: 1600px) 50vw, (min-width: 1024px) 33vw, 400px"
-    className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
-    priority
-    style={{
-      width: "100%", // Масштабування відповідно до контейнера
-      height: "auto", // Збереження пропорцій
-    }}
-  />
-</div>
-            {/* Center Image with Text */}
-            <div className="relative flex flex-col items-center justify-center">
-  <div className="relative w-[250px] sm:w-[350px] lg:w-[250px] xl:w-[350px]">
-    <Image
-      src="/Dress/Dress Grace/2.avif"
-      alt="Center showcase of Latore Atelier's elegant design"
-      width={350} // Встановлено ширину, сумісну з розмірами
-      height={350}
-      sizes="(min-width: 1600px) 50vw, (min-width: 1024px) 33vw, 250px"
-      className="rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
-      priority
-      style={{
-        width: "100%", // Забезпечує масштабування в рамках контейнера
-        height: "auto", // Зберігає пропорції
-      }}
-    />
-    <div className="absolute inset-0 flex flex-col items-center justify-center text-4xl font-bold text-white bg-black bg-opacity-50 rounded-full">
-      <span className="block self-start ml-4">LATORE</span>
+          <div className="grid sm:grid-cols-3 gap-8">
+            <div className="relative flex justify-center items-center">
+              <Image
+                src="/Dress/Dress Grace/1.avif"
+                alt="Left showcase of Latore Atelier's exclusive fashion design"
+                layout="intrinsic"
+                width={300}
+                height={400}
+                className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+                priority
+              />
+            </div>
+            <div className="relative flex justify-center items-center">
+              <div className="relative w-[350px] h-[350px]">
+                <Image
+                  src="/Dress/Dress Grace/2.avif"
+                  alt="Center showcase of Latore Atelier's elegant design"
+                  layout="intrinsic"
+                  width={350}
+                  height={350}
+                  style={{ aspectRatio: "1 / 1" }}
+                  className="rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+                  priority
+                />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-4xl font-bold text-white bg-black bg-opacity-50 rounded-full">
+      <span className="block self-start ml-8">LATORE</span>
       <span className="block text-4xl font-bold self-end mr-8 mt-2">ATELIER</span>
     </div>
-  </div>
-</div>
-            {/* Right Image */}
-            <div className="relative flex justify-start items-center px-8">
-  <Image
-    src="/Dress/Dress Grace/4.avif"
-    alt="Showcase of Latore Atelier's signature collection"
-    width={300} // Збільшена ширина
-    height={400} // Збільшена висота
-    sizes="(min-width: 1600px) 50vw, (min-width: 1024px) 33vw, 400px"
-    className="rounded-none object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
-    priority
-    style={{
-      width: "100%", // Масштабування відповідно до контейнера
-      height: "auto", // Збереження пропорцій
-    }}
-  />
-</div>
-
+              </div>
+            </div>
+            <div className="relative flex justify-center items-center">
+              <Image
+                src="/Dress/Dress Grace/4.avif"
+                alt="Right showcase of Latore Atelier's signature collection"
+                layout="intrinsic"
+                width={300}
+                height={400}
+                className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+                priority
+              />
+            </div>
           </div>
         )}
 
-        {/* Text Section */}
         <header className="flex flex-col mt-12 justify-center text-center space-y-2">
-          <p
-            className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
-            style={{
-              minHeight: "2em", // Встановлюємо таку ж висоту для другого блоку тексту
-              lineHeight: "1.5",
-              margin: "0",
-            }}
-            
-          >
+          <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300">
             {menuItems[0] || "Experience the Difference"}
           </p>
-          <p
-            className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300"
-            style={{
-              minHeight: "2em", // Встановлюємо таку ж висоту для другого блоку тексту
-              lineHeight: "1.5",
-              margin: "0",
-            }}
-           
-          >
+          <p className="text-xl sm:text-2xl md:text-4xl text-gray-700 dark:text-gray-300">
             {menuItems[1] || "Explore Our Signature Collections"}
           </p>
         </header>
@@ -191,6 +142,7 @@ const Hero = () => {
 };
 
 export default Hero;
+
 {/*
 import Image from "next/image";
 import { useLanguage } from "../../Functions/useLanguage";
