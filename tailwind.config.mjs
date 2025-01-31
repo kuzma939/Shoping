@@ -18,5 +18,7 @@ export default {
   plugins: [
     require("@tailwindcss/forms"), // Для покращення стилізації форм
     require("@tailwindcss/typography"), // Плагін типографіки для тексту
+    require("@tailwindcss/aspect-ratio"), // Додає класи для aspect-ratio
+
   ],
 };
