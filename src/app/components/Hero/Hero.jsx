@@ -34,6 +34,7 @@ const Hero = () => {
                 alt="Elegant design by Latore Atelier – Centerpiece"
                 width={250}
                 height={250}
+                 sizes="(max-width: 450px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="rounded-full object-cover shadow-lg block"
                 priority
               />
