@@ -97,13 +97,13 @@ const Hero = () => {
               />
             </div>
             <div className="relative flex justify-center items-center">
-              <div className="relative w-[350px] h-[350px]">
+              <div className="relative w-[300px] h-[300px]">
                 <Image
                   src="/Dress/Dress Grace/2.avif"
                   alt="Center showcase of Latore Atelier's elegant design"
                   layout="intrinsic"
-                  width={350}
-                  height={350}
+                  width={300}
+                  height={300}
                   style={{ aspectRatio: "1 / 1" }}
                   className="rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
                   priority
