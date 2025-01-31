@@ -6,8 +6,8 @@ import { useViewportSize } from "../../hooks/useViewportSizeHero";
 const Hero = () => {
   const { translateList } = useLanguage();
   const menuItems = translateList("home", "hero");
-  const viewportSize = useViewportSize();
-
+  //const viewportSize = useViewportSize();
+  const viewportWidth = useViewportSize();
   return (
     <>
       <Head>
@@ -26,7 +26,7 @@ const Hero = () => {
           Explore Latore Atelier – Signature Fashion and Design
         </h1>
 
-        {viewportSize === "mobile" ? (
+        {viewportWidth <= 450 ? (
           <div className="flex flex-col items-center gap-4">
             <div className="relative w-[250px] h-[250px] rounded-full overflow-hidden">
               <Image
@@ -43,7 +43,7 @@ const Hero = () => {
               LATORE ATELIER
             </h2>
           </div>
-        ) : viewportSize === "tablet" ? (
+        ) : viewportWidth <= 1024 ? (
           <div className="flex flex-col gap-6 items-center">
             <div className="relative w-[250px] h-[250px] rounded-full overflow-hidden">
               <Image
