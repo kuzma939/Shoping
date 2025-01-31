@@ -85,47 +85,45 @@ const Hero = () => {
           </div>
         ) : (
           <div className="flex justify-between items-center gap-8">
-            <div className="relative flex justify-center items-center">
-              <Image
-                src="/Dress/Dress Grace/1.avif"
-                alt="Left showcase of Latore Atelier's exclusive fashion design"
-                layout="intrinsic"
-                width={300}
-                height={400}
-                className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
-                priority
-              />
-            </div>
-            <div className="relative flex justify-center items-center">
-              <div className="relative w-[300px] h-[300px]">
-                <Image
-                  src="/Dress/Dress Grace/2.avif"
-                  alt="Center showcase of Latore Atelier's elegant design"
-                  layout="intrinsic"
-                  width={300}
-                  height={300}
-                  style={{ aspectRatio: "1 / 1" }}
-                  className="rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
-                  priority
-                />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-4xl font-bold text-white bg-black bg-opacity-50 rounded-full">
-      <span className="block self-start ml-8">LATORE</span>
-      <span className="block text-4xl font-bold self-end mr-8 mt-2">ATELIER</span>
+  <div className="relative flex justify-center items-center" style={{ width: "300px", height: "400px" }}>
+    <Image
+      src="/Dress/Dress Grace/1.avif"
+      alt="Left showcase of Latore Atelier's exclusive fashion design"
+      width={300}
+      height={400}
+      className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+      priority
+    />
+  </div>
+  <div className="relative flex justify-center items-center" style={{ width: "300px", height: "300px" }}>
+    <div className="relative w-[300px] h-[300px]">
+      <Image
+        src="/Dress/Dress Grace/2.avif"
+        alt="Center showcase of Latore Atelier's elegant design"
+        width={300}
+        height={300}
+        style={{ aspectRatio: "1 / 1" }}
+        className="rounded-full object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+        priority
+      />
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-4xl font-bold text-white bg-black bg-opacity-50 rounded-full">
+        <span className="block self-start ml-8">LATORE</span>
+        <span className="block text-4xl font-bold self-end mr-8 mt-2">ATELIER</span>
+      </div>
     </div>
-              </div>
-            </div>
-            <div className="relative flex justify-center items-center">
-              <Image
-                src="/Dress/Dress Grace/4.avif"
-                alt="Right showcase of Latore Atelier's signature collection"
-                layout="intrinsic"
-                width={300}
-                height={400}
-                className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
-                priority
-              />
-            </div>
-          </div>
+  </div>
+  <div className="relative flex justify-center items-center" style={{ width: "300px", height: "400px" }}>
+    <Image
+      src="/Dress/Dress Grace/4.avif"
+      alt="Right showcase of Latore Atelier's signature collection"
+      width={300}
+      height={400}
+      className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400"
+      priority
+    />
+  </div>
+</div>
+
         )}
 
         <header className="flex flex-col mt-12 justify-center text-center space-y-2">
