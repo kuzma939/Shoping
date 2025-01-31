@@ -1,5 +1,44 @@
 import { useState, useEffect } from "react";
 
+// Функція для визначення viewport
+function getViewport() {
+  if (typeof window === "undefined") return "mobile"; // Значення за замовчуванням для SSR
+  if (window.innerWidth <= 450) return "mobile";
+  if (window.innerWidth <= 1024) return "tablet";
+  return "desktop";
+}
+
+export function useViewportSize() {
+  const [viewportSize, setViewportSize] = useState(getViewport);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const handleResize = () => {
+      const newSize = getViewport();
+      setViewportSize((prev) => (prev !== newSize ? newSize : prev));
+    };
+
+    // Використання debounce для зменшення кількості викликів
+    const debouncedResize = debounce(handleResize, 100);
+
+    window.addEventListener("resize", debouncedResize);
+    return () => window.removeEventListener("resize", debouncedResize);
+  }, []);
+
+  return viewportSize;
+}
+
+// Допоміжна функція debounce
+function debounce(func, wait) {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), wait);
+  };
+}
+{/*import { useState, useEffect } from "react";
+
 export function useViewportSize() {
   const [viewportSize, setViewportSize] = useState("mobile");
 
@@ -28,28 +67,4 @@ export function useViewportSize() {
   return viewportSize;
 }
 
-{/*
-import { useState, useEffect } from "react";
-
-export function useViewportSize() {
-  const [viewportSize, setViewportSize] = useState("mobile"); // 'mobile', 'tablet', 'desktop'
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 450) {
-        setViewportSize("mobile");
-      } else if (window.innerWidth <= 620) {
-        setViewportSize("tablet");
-      } else {
-        setViewportSize("desktop");
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize(); // Викликаємо під час першого рендерингу
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  return viewportSize;
-}
 */}

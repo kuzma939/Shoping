@@ -18,7 +18,7 @@ const Hero = () => {
       </Head>
 
       <section
-        className="relative flex flex-col justify-center items-center mt-8 mb-8"
+        className="relative flex flex-col justify-center items-center section-container"
         aria-labelledby="hero-heading"
         role="banner"
       >
