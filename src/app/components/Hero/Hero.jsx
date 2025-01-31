@@ -20,7 +20,6 @@ const Hero = () => {
         aria-labelledby="hero-heading"
         role="banner"
         style={{
-          minHeight: "500px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -102,7 +101,7 @@ const Hero = () => {
           </div>
         ) : (
           // Desktop Version
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 relative">
+          <div className="grid sm:grid-cols-3 relative">
             {/* Left Image */}
             <div className="relative flex justify-start items-center px-8">
   <Image
