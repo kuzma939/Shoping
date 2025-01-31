@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 
 export function useViewportSize() {
-  const getViewportWidth = () => (typeof window === "undefined" ? 0 : window.innerWidth);
-
-  const [viewportWidth, setViewportWidth] = useState(getViewportWidth());
+  const [viewportWidth, setViewportWidth] = useState(0);
 
   useEffect(() => {
-    const handleResize = () => setViewportWidth(getViewportWidth());
+    const handleResize = () => {
+      setViewportWidth(window.innerWidth);
+    };
 
-    setViewportWidth(getViewportWidth());
+    handleResize(); // Встановити початкову ширину
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
@@ -16,6 +16,7 @@ export function useViewportSize() {
 
   return viewportWidth;
 }
+
 
 {/*
 import { useState, useEffect } from "react";

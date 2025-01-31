@@ -6,12 +6,28 @@ import { useViewportSize } from "../../hooks/useViewportSizeHero";
 const Hero = () => {
   const { translateList } = useLanguage();
   const menuItems = translateList("home", "hero");
-  //const viewportSize = useViewportSize();
   const viewportWidth = useViewportSize();
+
+  // Якщо ширина ще не визначена (SSR), повертаємо заглушку
+  if (typeof window === "undefined" || viewportWidth === 0) {
+    return (
+      <section
+        className="relative flex flex-col justify-center items-center section-container"
+        aria-labelledby="hero-heading"
+        role="banner"
+      >
+        <h1 id="hero-heading" className="sr-only">
+          Explore Latore Atelier – Signature Fashion and Design
+        </h1>
+        <div>Loading...</div>
+      </section>
+    );
+  }
+
   return (
     <>
       <Head>
-        {/* Preload images */}
+        {/* Попереднє завантаження зображень */}
         <link rel="preload" as="image" href="/Dress/Dress Grace/1.avif" type="image/avif" />
         <link rel="preload" as="image" href="/Dress/Dress Grace/2.avif" type="image/avif" />
         <link rel="preload" as="image" href="/Dress/Dress Grace/4.avif" type="image/avif" />
@@ -27,6 +43,7 @@ const Hero = () => {
         </h1>
 
         {viewportWidth <= 450 ? (
+          // Мобільна версія
           <div className="flex flex-col items-center gap-4">
             <div className="relative w-[250px] h-[250px] rounded-full overflow-hidden">
               <Image
@@ -34,7 +51,7 @@ const Hero = () => {
                 alt="Elegant design by Latore Atelier – Centerpiece"
                 width={250}
                 height={250}
-                 sizes="(max-width: 450px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                sizes="(max-width: 450px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="rounded-full object-cover shadow-lg block"
                 priority
               />
@@ -44,6 +61,7 @@ const Hero = () => {
             </h2>
           </div>
         ) : viewportWidth <= 1024 ? (
+          // Планшетна версія
           <div className="flex flex-col gap-6 items-center">
             <div className="relative w-[250px] h-[250px] rounded-full overflow-hidden">
               <Image
@@ -82,6 +100,7 @@ const Hero = () => {
             </div>
           </div>
         ) : (
+          // Десктопна версія
           <div className="flex justify-between items-center gap-4">
             <div className="relative w-[300px] h-[400px]">
               <Image
@@ -94,20 +113,19 @@ const Hero = () => {
               />
             </div>
             <div className="relative w-[300px] h-[300px] rounded-full overflow-hidden">
-  <Image
-    src="/Dress/Dress Grace/2.avif"
-    alt="Center showcase of Latore Atelier's elegant design"
-    width={300}
-    height={300}
-    className="object-cover"
-    priority
-  />
-  <div className="absolute inset-0 flex flex-col items-center justify-center text-4xl font-bold text-white bg-black bg-opacity-50">
-    <span className="block self-start ml-8">LATORE</span>
-    <span className="block text-4xl font-bold self-end mr-8 mt-2">ATELIER</span>
-  </div>
-</div>
-
+              <Image
+                src="/Dress/Dress Grace/2.avif"
+                alt="Center showcase of Latore Atelier's elegant design"
+                width={300}
+                height={300}
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-4xl font-bold text-white bg-black bg-opacity-50">
+                <span className="block self-start ml-8">LATORE</span>
+                <span className="block text-4xl font-bold self-end mr-8 mt-2">ATELIER</span>
+              </div>
+            </div>
             <div className="relative w-[300px] h-[400px]">
               <Image
                 src="/Dress/Dress Grace/4.avif"
@@ -135,6 +153,7 @@ const Hero = () => {
 };
 
 export default Hero;
+
 
 {/*
 import Image from "next/image";
