@@ -26,7 +26,7 @@ export default function FollowUs() {
 
   const { displayedImages, handleNext, handlePrev } = useImageFollow(
     images.length,
-    5
+    10
   );
   useKeyboardNavigation(handlePrev, handleNext);
 
@@ -49,33 +49,38 @@ export default function FollowUs() {
         </div>
 
         {/* Карусель зображень */}
-        <div className="flex overflow-x-auto gap-4 w-full px-4 sm:gap-6 md:gap-8">
-          {displayedImages.map((imageIndex) => (
-            <Link
-              key={imageIndex}
-              href={images[imageIndex].link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-shrink-0 group"
-            >
-              <Image
-                src={images[imageIndex].src}
-                alt={`Зображення ${imageIndex + 1}`}
-                width={200} // Ширина для мобільних пристроїв
-                height={250} // Пропорційна висота
-                sizes="(max-width: 768px) 45vw, (max-width: 1024px) 20vw, 300px" // Аналогічно TopProducts
-                style={{ width: "auto", height: "auto" }}
-                quality={100} // Висока якість
-                className="rounded-lg object-cover shadow-lg transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:opacity-90
-                  w-[calc(39vw-16px)]
-                  sm:w-[150px] sm:h-[150px]
-                  md:w-[200px] md:h-[300px]
-                  lg:w-[250px] lg:h-[350px]
-                  xl:w-[300px] xl:h-[350px]"
-              />
-            </Link>
-          ))}
-        </div>
+        <div
+            className="flex overflow-x-auto gap-4 w-full px-4 sm:gap-6 md:gap-8"
+            style={{
+              height: "400px",
+            }}
+          >
+            {displayedImages.map((imageIndex) => (
+              <Link
+                key={imageIndex}
+                href={images[imageIndex].link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-shrink-0 group"
+              >
+                <Image
+                  src={images[imageIndex].src}
+                  alt={`Топ продукт ${imageIndex + 1}`}
+                  width={250}
+                  height={300}
+                  priority={imageIndex === 0} // Пріоритетне завантаження для першого зображення
+                  style={{
+                    objectFit: "cover",
+                    width: "200px", 
+                    height: "300px",
+                  }}
+                  sizes="(max-width: 768px) 45vw, (max-width: 1024px) 20vw, 300px"
+                  quality={85}
+                  className="rounded-lg object-cover shadow-lg transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:opacity-90"
+                />
+              </Link>
+            ))}
+          </div>
 
         {/* Права кнопка */}
         <div
