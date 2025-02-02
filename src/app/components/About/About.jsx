@@ -22,7 +22,7 @@ export default function About() {
   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 350px"
   className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400 transition-transform duration-300 ease-in-out group-hover:scale-105 w-full"
   priority
-  quality={75} // Reduce quality for better optimization
+  quality={75} 
 
 />
    </figure>
@@ -35,7 +35,8 @@ export default function About() {
               height={300}
               sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 200px" // Оптимальні розміри
               className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400 transition-transform duration-300 ease-in-out group-hover:scale-105 w-full max-w-[100px] sm:max-w-[180px] md:max-w-[200px]"
-            />
+              quality={75} 
+           />
           </figure>
         </div>
 

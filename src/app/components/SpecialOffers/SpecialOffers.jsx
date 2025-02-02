@@ -32,6 +32,7 @@ export default function SpecialOffers() {
               style={{ objectFit: "cover" }}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 50vw"
               className="rounded-lg"
+              quality={85} 
               priority
             />
           </div>
