@@ -23,7 +23,7 @@ export default function SpecialOffers() {
           {/* Image Container */}
           <div
             className="max-w-[800px] w-[80%] h-[300px] sm:h-[500px] md:h-[550px] lg:h-[900px] relative rounded-lg shadow-xl shadow-gray-800 dark:shadow-gray-600"
-            style={{ minHeight: "300px" }} // Prevent CLS by reserving space
+            style={{ minHeight: "300px", paddingBottom: "56.25%", }} // Prevent CLS by reserving space
           >
             <Image
               src="/8.jpg"
@@ -33,7 +33,7 @@ export default function SpecialOffers() {
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 50vw"
               className="rounded-lg"
               quality={85} 
-              priority
+            
             />
           </div>
           {/* Text Container */}
