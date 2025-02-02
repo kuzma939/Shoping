@@ -9,6 +9,23 @@ const Hero = () => {
   return (
     <>
       <Head>
+
+        <meta
+          name="description"
+          content="Discover Latore Atelier's exclusive signature collections and elegant designs tailored for every occasion."
+        />
+        <meta
+          name="keywords"
+          content="Latore Atelier, exclusive fashion, signature collections, elegant design"
+        />
+        <meta property="og:title" content="Latore Atelier – Signature Fashion" />
+        <meta
+          property="og:description"
+          content="Explore exclusive signature collections and elegant designs by Latore Atelier."
+        />
+        <meta property="og:image" content="/Dress/Dress Grace/1.avif" />
+        <meta property="og:url" content="https://example.com" />
+        <meta name="twitter:card" content="summary_large_image" />
         <link rel="preload" as="image" href="/Dress/Dress Grace/1.avif" type="image/avif" />
         <link rel="preload" as="image" href="/Dress/Dress Grace/2.avif" type="image/avif" />
         <link rel="preload" as="image" href="/Dress/Dress Grace/4.avif" type="image/avif" />
