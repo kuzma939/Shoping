@@ -14,23 +14,25 @@ export default function About() {
         <div className="space-y-4">
           {/* Головне зображення */}
           <figure className="relative mb-6 sm:mb-8 group px-8 lg:px-8 xl:ml-16 mt-4">
-            <Image
-              src="/2.jpg"
-              alt="Main Image"
-              width={350} // Максимальна ширина для великих екранів
-              height={500} // Висота з урахуванням пропорцій
-              sizes="(max-width: 768px) 80vw, (max-width: 1200px) 50vw, 350px" // Оптимальні розміри
-              className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400 transition-transform duration-300 ease-in-out group-hover:scale-105 w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[350px]"
-              priority
-            />
-          </figure>
+          <Image
+  src="/2.jpg"
+  alt="Main Image"
+  width={350}
+  height={500}
+  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 350px"
+  className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400 transition-transform duration-300 ease-in-out group-hover:scale-105 w-full"
+  priority
+  quality={75} // Reduce quality for better optimization
+
+/>
+   </figure>
           {/* Додаткове зображення */}
           <figure className="relative mt-4 flex justify-center lg:justify-end group">
             <Image
               src="/3.jpg"
               alt="Secondary Image"
-              width={200} // Максимальна ширина для великих екранів
-              height={300} // Висота з урахуванням пропорцій
+              width={200} 
+              height={300}
               sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 200px" // Оптимальні розміри
               className="rounded-lg object-cover shadow-2xl shadow-gray-800 dark:shadow-gray-400 transition-transform duration-300 ease-in-out group-hover:scale-105 w-full max-w-[100px] sm:max-w-[180px] md:max-w-[200px]"
             />
