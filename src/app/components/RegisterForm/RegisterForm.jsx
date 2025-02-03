@@ -52,7 +52,7 @@ export default function RegisterForm() {
 
   return (
     <div className="flex justify-center items-center bg-[#f5e7da] min-h-screen dark:bg-[#2e1f14]">
-      <div className="bg-[#fcf8f3] dark:bg-black dark:text-gray-100 shadow-2xl mt-12 mb-12 rounded-lg p-8 w-full max-w-md">
+      <div className="bg-[#fcf8f3] dark:bg-[#f5e0da20] dark:text-gray-100 shadow-2xl mt-12 mb-12 rounded-lg p-8 w-full max-w-md">
         <h2 className="text-2xl font-bold text-center mb-6">Реєстрація</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
