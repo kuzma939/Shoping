@@ -3,9 +3,10 @@ import Head from "next/head";
 import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaMoon, FaSun, FaBars, FaTimes } from "react-icons/fa";
+import { FaMoon, FaSun, FaBars, FaTimes, FaUser } from "react-icons/fa";
 import { useHeaderState } from "../../hooks/useHeader"; 
 import { useLanguage } from "../../Functions/useLanguage"; 
+
 
 const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
   const { translateList, language, setLanguage } = useLanguage();
@@ -80,10 +81,18 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
         {menuItems[4]}
       </Link>
     </li>
+   
   </ul>
 </nav>
 
       <div className="hidden lg:flex items-center space-x-2">
+        <ul>
+        <li className="text-center" role="menuitem">
+    <Link href="/Register" aria-label={`View terms and conditions on the  page`}>
+    <FaUser  className="h-5 w-5 text-gray-500" />
+    </Link>
+  </li>
+        </ul>
         <button
           onClick={toggleLanguage}
           aria-label="Toggle Language"
@@ -116,6 +125,7 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
         className={`${isMenuOpen ? "translate-x-0" : "-translate-x-full"} fixed top-0 left-0 h-full w-1/2 sm:w-1/3 bg-white dark:bg-black shadow-lg z-50 transition-transform duration-300 ease-in-out lg:hidden`}
         aria-label="Mobile Menu"
       >
+     
         <button
           onClick={closeMenu}
           aria-label="Close Menu"
@@ -143,6 +153,13 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
               <FaMoon className="text-xs sm:text-sm md:text-base lg:text-lg" />
             )}
           </button>
+          <ul>
+        <li className="text-center" role="menuitem">
+    <Link href="/Register" aria-label={`View terms and conditions on the  page`}>
+    <FaUser  className="h-5 w-5 text-gray-500" />
+    </Link>
+  </li>
+        </ul>
         </div>
         <ul className="flex flex-col items-start space-y-4 p-6 text-xs sm:text-sm md:text-base lg:text-lg" role="menubar">
   <li className="text-center" role="menuitem">
@@ -170,6 +187,7 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
       {menuItems[4]}
     </Link>
   </li>
+
 </ul>
       </nav>
     </header>
