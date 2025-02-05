@@ -3,7 +3,7 @@ import Head from "next/head";
 import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaMoon, FaSun, FaBars, FaTimes, FaUser } from "react-icons/fa";
+import { FaMoon, FaSun, FaBars, FaTimes, FaUser, FaShoppingCart } from "react-icons/fa";
 import { useHeaderState } from "../../hooks/useHeader"; 
 import { useLanguage } from "../../Functions/useLanguage"; 
 
@@ -87,9 +87,15 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
 
       <div className="hidden lg:flex items-center space-x-2">
         <ul>
-        <li className="text-center" role="menuitem">
+        <li className="p-1 sm:p-2 rounded-full border border-gray-300 hover:bg-gray-200 dark:border-gray-700 dark:hover:bg-gray-600 transition duration-300 text-xs sm:text-sm md:text-base lg:text-lg" role="menuitem">
     <Link href="/Register" aria-label={`View terms and conditions on the  page`}>
     <FaUser  className="h-5 w-5 text-gray-500" />
+    </Link>
+  </li>
+  <li className="p-1 sm:p-2 rounded-full border border-gray-300 hover:bg-gray-200 dark:border-gray-700 dark:hover:bg-gray-600 transition duration-300 text-xs sm:text-sm md:text-base lg:text-lg" role="menuitem">
+    <Link href="/Cart" aria-label={`View terms and conditions on the  page`}>
+   
+    <FaShoppingCart size={24} style={{ color: 'blec' }} />
     </Link>
   </li>
         </ul>

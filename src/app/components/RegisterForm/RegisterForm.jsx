@@ -18,17 +18,16 @@ export default function RegisterForm() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const validationErrors = validateRegisterForm(formData);
     setErrors(validationErrors);
-
+  
     if (Object.keys(validationErrors).length > 0) {
       return;
     }
-
+  
     try {
       const res = await fetch("/api/register", {
         method: "POST",
@@ -37,9 +36,12 @@ export default function RegisterForm() {
         },
         body: JSON.stringify(formData),
       });
-
+  
       const data = await res.json();
       if (res.ok) {
+        // Збереження userId у локальному сховищі
+        localStorage.setItem("userId", data.userId);
+  
         setMessage("Реєстрація успішна!");
         setFormData({ username: "", lastname: "", email: "", password: "" });
       } else {
@@ -49,7 +51,7 @@ export default function RegisterForm() {
       setMessage("Щось пішло не так...");
     }
   };
-
+  
   return (
     <div className="flex justify-center items-center bg-[#f5e7da] min-h-screen dark:bg-[#2e1f14]">
       <div className="bg-[#fcf8f3] dark:bg-[#f5e0da20] dark:text-gray-100 shadow-2xl mt-12 mb-12 rounded-lg p-8 w-full max-w-md">
