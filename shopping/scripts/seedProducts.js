@@ -1,5 +1,4 @@
 // Скрипт, для читатання  даних і завантажування їх у таблицю
-// Скрипт для додавання даних у таблицю "products"
 import pkg from "pg";
 import products from "../../src/app/data/products.js";
 
@@ -9,7 +8,7 @@ const pool = new Pool({
   user: "postgres",
   host: "localhost",
   database: "postgres",
-  password: "999999999", // Заміни на свій пароль
+  password: "999999999", // Замініть на ваш пароль
   port: 5432,
 });
 
@@ -17,34 +16,42 @@ const seedProducts = async () => {
   try {
     console.log("Починаємо завантаження даних...");
 
-    // Починаємо транзакцію
+    // Початок транзакції
     await pool.query("BEGIN");
 
     for (const product of products) {
+      // Перевірка даних перед вставкою
+      if (!product.id || !product.price || !product.translations || !product.name) {
+        console.warn("Пропускаємо некоректний продукт:", product);
+        continue;
+      }
       await pool.query(
         `INSERT INTO products (
-          id, price, is_top, sku, color, size, category, image, images, colors, sizes, translations, created_at, updated_at
+          id, price, is_top, is_special_offer, sku, name, color, size, category, image, images, colors, sizes, translations, created_at, updated_at
         ) VALUES (
-          $1, $2, $3, $4, $5, $6, $7, $8, $9::text[], $10::text[], $11::text[], $12::jsonb, NOW(), NOW()
+          $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11::text[], $12::text[], $13::text[], $14::jsonb, NOW(), NOW()
         ) ON CONFLICT (id) DO NOTHING`,
         [
           product.id,
           product.price,
           product.isTop || false,
+          product.isSpecialOffer || false,
           product.sku,
+          product.name, // Передаємо значення name
           product.color,
           product.size,
           product.category,
           product.image,
-          product.images, // Передається як масив
-          product.colors, // Передається як масив
-          product.sizes, // Передається як масив
-          JSON.stringify(product.translations), // JSON.stringify для JSON-даних
+          product.images || [],
+          product.colors || [],
+          product.sizes || [],
+          JSON.stringify(product.translations),
         ]
       );
+      
     }
 
-    // Завершуємо транзакцію
+    // Завершення транзакції
     await pool.query("COMMIT");
     console.log("Дані успішно додані!");
   } catch (error) {
