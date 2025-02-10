@@ -1,6 +1,164 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation"; // Додано для навігації
+import { FaFacebook, FaInstagram } from "react-icons/fa";
+import validateRegisterForm from "../../utils/validateRegisterForm";
+import { useLanguage } from "../../Functions/useLanguage";
+export default function RegisterForm() {
+  const [formData, setFormData] = useState({
+    username: "",
+    lastname: "",
+    email: "",
+    password: "",
+  });
+  const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState({});
+  const router = useRouter(); // Перевірка, що працює тільки на клієнті
+  const { language } = useLanguage(); 
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: "" });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Валідація форми
+    const validationErrors = validateRegisterForm(formData);
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length > 0) {
+      return;
+    }
+
+    try {
+      console.log("Відправка даних для реєстрації:", formData);
+
+      const res = await fetch(`/api/register?lang=${language}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      console.log("Результат реєстрації:", data);
+
+      if (res.ok) {
+        // Збереження токена і userId в локальному сховищі
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("userId", data.userId);
+
+        setMessage("Реєстрація успішна!");
+        setFormData({ username: "", lastname: "", email: "", password: "" });
+
+        // Перенаправлення на персональний кабінет
+        router.push(`/dashboard/${data.userId}`);
+      } else {
+        setMessage(data.message || "Помилка реєстрації!");
+      }
+    } catch (error) {
+      console.error("Помилка:", error);
+      setMessage("Щось пішло не так...");
+    }
+  };
+
+  return (
+    <div className="flex justify-center items-center bg-[#f5e7da] min-h-screen dark:bg-[#2e1f14]">
+      <div className="bg-[#fcf8f3] dark:bg-[#f5e0da20] dark:text-gray-100 shadow-2xl mt-12 mb-12 rounded-lg p-8 w-full max-w-md">
+        <h2 className="text-2xl font-bold text-center mb-6">Реєстрація</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-100">
+              Ім'я користувача:
+            </label>
+            <input
+              type="text"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+              className={`w-full mt-1 p-2 border ${
+                errors.username ? "border-red-500" : "border-gray-300"
+              } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
+            />
+            {errors.username && (
+              <p className="text-red-500 text-sm mt-1">{errors.username}</p>
+            )}
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-100">
+              Прізвище:
+            </label>
+            <input
+              type="text"
+              name="lastname"
+              value={formData.lastname}
+              onChange={handleChange}
+              required
+              className={`w-full mt-1 p-2 border ${
+                errors.lastname ? "border-red-500" : "border-gray-300"
+              } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
+            />
+            {errors.lastname && (
+              <p className="text-red-500 text-sm mt-1">{errors.lastname}</p>
+            )}
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-100">
+              Email:
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className={`w-full mt-1 p-2 border ${
+                errors.email ? "border-red-500" : "border-gray-300"
+              } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
+            />
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+            )}
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-100">
+              Пароль:
+            </label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              className={`w-full mt-1 p-2 border ${
+                errors.password ? "border-red-500" : "border-gray-300"
+              } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
+            />
+            {errors.password && (
+              <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+            )}
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition"
+          >
+            Зареєструватись
+          </button>
+        </form>
+        {message && <p className="mt-4 text-center text-green-500">{message}</p>}
+      </div>
+    </div>
+  );
+}
+{/*
+"use client";
+
+import { useState } from "react";
 import { FaFacebook, FaInstagram } from "react-icons/fa"; // Видалено імпорт Google OAuth
 import validateRegisterForm from "../../utils/validateRegisterForm"; // Імпорт функції валідації
 
@@ -147,7 +305,7 @@ export default function RegisterForm() {
             {/* <GoogleLogin
               onSuccess={handleGoogleLoginSuccess}
               onError={handleGoogleLoginError}
-            /> */}
+            /> 
             <button className="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition">
               <FaFacebook className="h-6 w-6" />
             </button>
@@ -160,3 +318,4 @@ export default function RegisterForm() {
     </div>
   );
 }
+*/}
