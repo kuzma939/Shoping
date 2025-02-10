@@ -10,7 +10,6 @@
     "lint": "next lint",
     "postbuild": "next-sitemap",
     "seed": "node shopping/scripts/seedProducts.js"
-  
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -35,6 +34,7 @@
     "react-dom": "^19.0.0",
     "react-i18next": "^15.2.0",
     "react-icons": "^5.4.0",
+    "seed": "^0.4.4",
     "styled-components": "^6.1.13"
   },
   "devDependencies": {

@@ -7,103 +7,268 @@ const pool = new Pool({
   database: "postgres",
   password: "999999999", // Заміни на свій пароль
   port: 5432,
+  application_name: "myApp",
+  charset: "UTF8",
 });
 
+// Функції для роботи з базою даних
+async function getCartItems(userId, sessionId, lang) {
+  return pool.query(
+    `SELECT 
+       c.id, 
+       p.translations -> $3 ->> 'name' AS name, 
+       p.price, 
+       p.category, 
+       c.quantity, 
+       p.image
+     FROM cart c
+     INNER JOIN products p ON c.product_id = p.id
+     WHERE (c.user_id = $1 OR $1 IS NULL)
+       AND (c.session_id = $2)`,
+    [userId || null, sessionId, lang]
+  );
+}
+
+async function addCartItem(userId, sessionId, productId, quantity) {
+  return pool.query(
+    `INSERT INTO cart (user_id, session_id, product_id, quantity) 
+     VALUES ($1, $2, $3, $4) RETURNING *`,
+    [userId || null, sessionId, productId, quantity]
+  );
+}
+
+async function updateCartItemQuantity(cartId, quantity) {
+  return pool.query(
+    `UPDATE cart SET quantity = $1, updated_at = NOW() 
+     WHERE id = $2 RETURNING *`,
+    [quantity, cartId]
+  );
+}
+
+async function deleteCartItem(cartId) {
+  return pool.query(`DELETE FROM cart WHERE id = $1`, [cartId]);
+}
+
+// Основний обробник запитів
 export default async function handler(req, res) {
-    console.log(`Запит отримано: ${req.method} ${req.url}`);
+  console.log(`Запит отримано: ${req.method} ${req.url}`);
   const { method } = req;
+  try {
+    if (method === "GET") {
+      // Отримання товарів у корзині
+      const { userId, sessionId, lang } = req.query;
 
-
-  if (method === "POST") {
-    // Додавання товару в корзину
-    const { userId, sessionId, id, quantity } = req.body;
-    console.log('Запит POST:', { userId, sessionId, id, quantity });
-    if (!id || !quantity) {
-        return res.status(400).json({ message: "Поле 'id' та 'quantity' є обов'язковими!" });
+      if (!sessionId || !lang) {
+        return res.status(400).json({ message: "Не вказано sessionId або мову!" });
       }
-      {/*
-    if ((!userId && !sessionId) || !id || !quantity) {
-      return res.status(400).json({ message: "Всі поля обов'язкові!" });
-    }
-*/}
-    try {
-        const result = await pool.query(
-            `INSERT INTO cart (user_id, session_id, product_id, quantity) 
-             VALUES ($1, $2, $3, $4) RETURNING *`,
-            [userId || null, sessionId || null, id, quantity]
-          );
-         
-      return res.status(201).json({
-        message: "Товар додано в корзину!",
-        cart: result.rows[0],
-      });
-    } catch (error) {
-        console.error("Помилка в запиті:", error.message, error.stack);
-  
-      return res.status(500).json({ message: "Сталася помилка на сервері." });
-    }
-  } else if (method === "GET") {
-    // Отримання товарів у корзині для користувача або сесії
-    const { userId, sessionId } = req.query;
 
-    if (!userId && !sessionId) {
-      return res.status(400).json({ message: "Не вказано userId або sessionId!" });
-    }
+      try {
+        const result = await getCartItems(userId, sessionId, lang);
 
-    try {
-      const result = await pool.query(
-        `SELECT cart.*, products.name, products.price 
-         FROM cart
-         INNER JOIN products ON cart.product_id = products.id
-         WHERE cart.user_id = $1 OR cart.session_id = $2`,
-        [userId || null, sessionId || null]
-      );
-      return res.status(200).json({ cart: result.rows });
-    } catch (error) {
-      console.error("Error fetching cart items:", error);
-      return res.status(500).json({ message: "Сталася помилка на сервері." });
-    }
-  } else if (method === "PUT") {
-    // Оновлення кількості товару в корзині
-    const { cartId, quantity } = req.body;
+        if (result.rows.length === 0) {
+          console.log("Кошик порожній для userId:", userId, "та sessionId:", sessionId);
+          return res.status(200).json({ cart: [] });
+        }
 
-    if (!cartId || !quantity) {
-      return res.status(400).json({ message: "Всі поля обов'язкові!" });
-    }
+        console.log("Дані з кошика:", result.rows);
+        return res.status(200).json({ cart: result.rows });
+      } catch (error) {
+        console.error("SQL помилка в методі GET:", error.message, error.stack);
+        return res.status(500).json({
+          message: "Сталася помилка при отриманні товарів з корзини.",
+          error: error.message,
+        });
+      }
+    } else if (method === "POST") {
+      // Додавання товару в корзину
+      const { userId, sessionId, id: productId, quantity } = req.body;
 
-    try {
-      const result = await pool.query(
-        `UPDATE cart SET quantity = $1, updated_at = NOW() 
-         WHERE id = $2 RETURNING *`,
-        [quantity, cartId]
-      );
+      if (!sessionId || !productId || !quantity) {
+        return res.status(400).json({ message: "Поля 'sessionId', 'id' та 'quantity' є обов'язковими!" });
+      }
+
+      try {
+        const result = await addCartItem(userId, sessionId, productId, quantity);
+        return res.status(201).json({
+          message: "Товар додано в корзину!",
+          cart: result.rows[0],
+        });
+      } catch (error) {
+        console.error("Помилка додавання товару в кошик:", error.message, error.stack);
+
+        if (error.message === "Товар вже є в кошику!") {
+          return res.status(400).json({ message: error.message });
+        }
+
+        return res.status(500).json({ message: "Сталася помилка на сервері." });
+      }
+    } else if (method === "PUT") {
+      // Оновлення кількості товару
+      console.log("Отримані дані:", req.body);
+
+      const { cartId, quantity } = req.body;
+
+      if (!cartId || !quantity) {
+        return res.status(400).json({ message: "Всі поля обов'язкові!" });
+      }
+
+      const result = await updateCartItemQuantity(cartId, quantity);
       return res.status(200).json({
         message: "Кількість товару оновлено!",
         cart: result.rows[0],
       });
-    } catch (error) {
-      console.error("Error updating cart item:", error);
-      return res.status(500).json({ message: "Сталася помилка на сервері." });
-    }
-  } else if (method === "DELETE") {
-    // Видалення товару з корзини
-    const { cartId } = req.body;
+    } else if (method === "DELETE") {
+      // Видалення товару з корзини
+      const { cartId } = req.body;
 
-    if (!cartId) {
-      return res.status(400).json({ message: "Не вказано cartId!" });
-    }
+      if (!cartId) {
+        return res.status(400).json({ message: "Не вказано cartId!" });
+      }
 
-    try {
-      await pool.query(`DELETE FROM cart WHERE id = $1`, [cartId]);
+      await deleteCartItem(cartId);
       return res.status(200).json({ message: "Товар видалено з корзини!" });
-    } catch (error) {
-        
-      console.error("Error deleting cart item:", error);
-      return res.status(500).json({ message: "Сталася помилка на сервері." });
+    } else {
+      // Якщо метод запиту не підтримується
+      res.setHeader("Allow", ["POST", "GET", "PUT", "DELETE"]);
+      return res.status(405).end(`Метод ${method} не дозволено`);
     }
-  } else {
-    // Якщо метод запиту не підтримується
-    res.setHeader("Allow", ["POST", "GET", "PUT", "DELETE"]);
-    return res.status(405).end(`Метод ${method} не дозволено`);
+  } catch (error) {
+    console.error("Помилка:", error.message, error.stack);
+    return res.status(500).json({ message: "Сталася помилка на сервері." });
   }
 }
+{/*import { Pool } from "pg";
+
+// Налаштування підключення до бази даних PostgreSQL
+const pool = new Pool({
+  user: "postgres",
+  host: "localhost",
+  database: "postgres",
+  password: "999999999", // Заміни на свій пароль
+  port: 5432,
+  application_name: "myApp",
+  charset: "UTF8",
+});
+
+// Функції для роботи з базою даних
+async function getCartItems(userId, sessionId) {
+  return pool.query(
+    `SELECT c.id, p.name, p.price, p.category, c.quantity, p.image
+     FROM cart c
+     INNER JOIN products p ON c.product_id = p.id
+     WHERE (c.user_id = $1 OR $1 IS NULL)
+       AND (c.session_id = $2)`,
+    [userId || null, sessionId]
+  );
+}
+
+async function addCartItem(userId, sessionId, productId, quantity) {
+  return pool.query(
+    `INSERT INTO cart (user_id, session_id, product_id, quantity) 
+     VALUES ($1, $2, $3, $4) RETURNING *`,
+    [userId || null, sessionId, productId, quantity]
+  );
+}
+
+async function updateCartItemQuantity(cartId, quantity) {
+  return pool.query(
+    `UPDATE cart SET quantity = $1, updated_at = NOW() 
+     WHERE id = $2 RETURNING *`,
+    [quantity, cartId]
+  );
+}
+
+async function deleteCartItem(cartId) {
+  return pool.query(`DELETE FROM cart WHERE id = $1`, [cartId]);
+}
+
+// Основний обробник запитів
+export default async function handler(req, res) {
+  console.log(`Запит отримано: ${req.method} ${req.url}`);
+  const { method } = req;
+  try {
+    if (method === "GET") {
+      // Отримання товарів у корзині
+      const { userId, sessionId } = req.query;
+
+      if (!sessionId) {
+        return res.status(400).json({ message: "Не вказано sessionId!" });
+      }
+
+  try {
+    const result = await getCartItems(userId, sessionId);
+  
+    if (result.rows.length === 0) {
+      console.log("Кошик порожній для userId:", userId, "та sessionId:", sessionId);
+      return res.status(200).json({ cart: [] });
+    }
+  
+    console.log("Дані з кошика:", result.rows);
+    return res.status(200).json({ cart: result.rows });
+  } catch (error) {
+    console.error("SQL помилка в методі GET:", error.message, error.stack);
+    return res.status(500).json({
+      message: "Сталася помилка при отриманні товарів з корзини.",
+      error: error.message,
+    });
+  }
+ 
+    } else if (method === "POST") {
+      // Додавання товару в корзину
+      const { userId, sessionId, id: productId, quantity } = req.body;
+
+      if (!sessionId || !productId || !quantity) {
+        return res.status(400).json({ message: "Поля 'sessionId', 'id' та 'quantity' є обов'язковими!" });
+      }
+
+      try {
+        const result = await addCartItem(userId, sessionId, productId, quantity);
+        return res.status(201).json({
+          message: "Товар додано в корзину!",
+          cart: result.rows[0],
+        });
+      } catch (error) {
+        console.error("Помилка додавання товару в кошик:", error.message, error.stack);
+
+        if (error.message === "Товар вже є в кошику!") {
+          return res.status(400).json({ message: error.message });
+        }
+
+        return res.status(500).json({ message: "Сталася помилка на сервері." });
+      }
+    } else if (method === "PUT") {
+      // Оновлення кількості товару
+      console.log("Отримані дані:", req.body);
+    
+      const { cartId, quantity } = req.body;
+    
+      if (!cartId || !quantity) {
+        return res.status(400).json({ message: "Всі поля обов'язкові!" });
+      }
+    
+      const result = await updateCartItemQuantity(cartId, quantity);
+      return res.status(200).json({
+        message: "Кількість товару оновлено!",
+        cart: result.rows[0],
+      });
+    } else if (method === "DELETE") {
+      // Видалення товару з корзини
+      const { cartId } = req.body;
+
+      if (!cartId) {
+        return res.status(400).json({ message: "Не вказано cartId!" });
+      }
+
+      await deleteCartItem(cartId);
+      return res.status(200).json({ message: "Товар видалено з корзини!" });
+    } else {
+      // Якщо метод запиту не підтримується
+      res.setHeader("Allow", ["POST", "GET", "PUT", "DELETE"]);
+      return res.status(405).end(`Метод ${method} не дозволено`);
+    }
+  } catch (error) {
+    console.error("Помилка:", error.message, error.stack);
+    return res.status(500).json({ message: "Сталася помилка на сервері." });
+  }
+}
+*/}

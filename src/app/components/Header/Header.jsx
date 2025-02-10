@@ -6,7 +6,7 @@ import Link from "next/link";
 import { FaMoon, FaSun, FaBars, FaTimes, FaUser, FaShoppingCart } from "react-icons/fa";
 import { useHeaderState } from "../../hooks/useHeader"; 
 import { useLanguage } from "../../Functions/useLanguage"; 
-
+import CartIcon from "../CartIcon/CartIcon"
 
 const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
   const { translateList, language, setLanguage } = useLanguage();
@@ -89,15 +89,12 @@ const Header = React.memo(({ isDarkMode, toggleDarkMode }) => {
         <ul>
         <li className="p-1 sm:p-2 rounded-full border border-gray-300 hover:bg-gray-200 dark:border-gray-700 dark:hover:bg-gray-600 transition duration-300 text-xs sm:text-sm md:text-base lg:text-lg" role="menuitem">
     <Link href="/Register" aria-label={`View terms and conditions on the  page`}>
-    <FaUser  className="h-5 w-5 text-gray-500" />
+    <FaUser  size={16} style={{ color: 'blec' }} />
     </Link>
   </li>
-  <li className="p-1 sm:p-2 rounded-full border border-gray-300 hover:bg-gray-200 dark:border-gray-700 dark:hover:bg-gray-600 transition duration-300 text-xs sm:text-sm md:text-base lg:text-lg" role="menuitem">
-    <Link href="/Cart" aria-label={`View terms and conditions on the  page`}>
-   
-    <FaShoppingCart size={24} style={{ color: 'blec' }} />
-    </Link>
-  </li>
+
+  <CartIcon />
+ 
         </ul>
         <button
           onClick={toggleLanguage}

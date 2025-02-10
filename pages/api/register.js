@@ -7,6 +7,8 @@ const pool = new Pool({
   database: "postgres",
   password: "999999999", 
   port: 5432,
+  application_name: "myApp",
+  charset: "UTF8",
 });
 
 export default async function handler(req, res) {
