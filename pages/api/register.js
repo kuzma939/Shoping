@@ -12,6 +12,7 @@ const pool = new Pool({
   application_name: "myApp",
   charset: "UTF8",
 });
+
 export default async function handler(req, res) {
   if (req.method === "GET") {
     try {
@@ -19,7 +20,10 @@ export default async function handler(req, res) {
       const user = verifyToken(req);
       console.log("Токен валідний, ID користувача:", user.userId);
 
-      const userData = await pool.query("SELECT id, username, email, role FROM users WHERE id = $1", [user.userId]);
+      const userData = await pool.query(
+        "SELECT id, username, lastname, email, phone, address, country, role FROM users WHERE id = $1",
+        [user.userId]
+      );
       console.log("Отримані дані користувача:", userData.rows);
 
       if (userData.rowCount === 0) {
@@ -30,15 +34,15 @@ export default async function handler(req, res) {
         user: userData.rows[0],
       });
     } catch (error) {
-      console.error("Помилка при GET запиті:", error.message);
+      console.error("Помилка при GET-запиті:", error.message);
       res.status(401).json({ message: error.message });
     }
   } else if (req.method === "POST") {
-    const { username, lastname, email, password } = req.body;
+    const { username, lastname, email, phone, address, country, password } = req.body;
 
     console.log("Отримані дані для реєстрації:", req.body);
 
-    if (!username || !lastname || !email || !password) {
+    if (!username || !lastname || !email || !phone || !address || !country || !password) {
       return res.status(400).json({ message: "Всі поля обов'язкові!" });
     }
 
@@ -54,8 +58,10 @@ export default async function handler(req, res) {
       console.log("Хешований пароль:", hashedPassword);
 
       const result = await pool.query(
-        `INSERT INTO users (username, lastname, email, password_hash, role) VALUES ($1, $2, $3, $4, 'user') RETURNING id`,
-        [username, lastname, email, hashedPassword]
+        `INSERT INTO users (username, lastname, email, phone, address, country, password_hash, role) 
+         VALUES ($1, $2, $3, $4, $5, $6, $7, 'user') 
+         RETURNING id`,
+        [username, lastname, email, phone, address, country, hashedPassword]
       );
 
       const userId = result.rows[0].id;
