@@ -5,6 +5,7 @@ import "./globals.css";
 import Script from "next/script";
 import { siteJsonLd, organizationJsonLd } from "./seo/loyout-jsonld"; // Імпорт SEO-даних
 import ErrorBoundary from "../app/components/ErrorBoundary/ErrorBoundary";
+
 export default function RootLayout({ children }) {
     return (
         <html lang="uk">
@@ -34,41 +35,40 @@ export default function RootLayout({ children }) {
                 <meta property="og:image:height" content="630" />
                 <meta property="og:url" content="https://shoping-tdfr.vercel.app" />
                 <meta property="og:type" content="website" />
-                <link rel="icon" href="/favicon-latore.avif" type="image/x-icon" />
+                <link rel="icon" href="/favicon-latore.ico" type="image/x-icon" />
                 <link rel="canonical" href="https://shoping-tdfr.vercel.app" />
-                <link rel="preload" href="/fonts/Raleway-Thin.woff2" as="font" type="font/woff2" crossOrigin="anonymous"/>
-<link rel="preload" href="/fonts/Roboto-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+                <link rel="preload" href="/fonts/Raleway-Thin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+                <link rel="preload" href="/fonts/Roboto-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
 
-<style>{`
-          body {
-            font-family: "Raleway", Arial, sans-serif;
-            font-weight: 400;
-            background-color: white;
-            color: black;
-          }
-        `}</style>
+                <style>{`
+                    body {
+                        font-family: "Raleway", Arial, sans-serif;
+                        font-weight: 400;
+                        background-color: white;
+                        color: black;
+                    }
+                `}</style>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                
                 <meta name="google-site-verification" content="cEPkdQQw_dVOxzbi7iLzOjHyYw9kx6u7lGboqRczRa8" />
-       {/* Google Analytics  */}
-       {
-  process.env.NODE_ENV === "production" && (
-    <>
-                <Script
-                    src="https://www.googletagmanager.com/gtag/js?id=G-0PPLZGLX20"
-                    strategy="afterInteractive"
-                />
-                <Script id="google-analytics" strategy="afterInteractive">
-                    {`
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-                        gtag('config', 'G-0PPLZGLX20');
-                    `}
-                </Script>
-                </>
-  )
-} 
+                
+                {/* Google Analytics  */}
+                {process.env.NODE_ENV === "production" && (
+                    <>
+                        <Script
+                            src="https://www.googletagmanager.com/gtag/js?id=G-0PPLZGLX20"
+                            strategy="afterInteractive"
+                        />
+                        <Script id="google-analytics" strategy="afterInteractive">
+                            {`
+                                window.dataLayer = window.dataLayer || [];
+                                function gtag(){dataLayer.push(arguments);}
+                                gtag('js', new Date());
+                                gtag('config', 'G-0PPLZGLX20');
+                            `}
+                        </Script>
+                    </>
+                )}
+                
                 {/* JSON-LD через next/script */}
                 <Script
                     id="organization-jsonld"
@@ -87,10 +87,10 @@ export default function RootLayout({ children }) {
             </head>
             <body className="transition-colors min-h-screen">
                 <ThemeProvider>
-                <ErrorBoundary>
-                    {children}
+                    <ErrorBoundary>
+                        {children}
                     </ErrorBoundary>
-                    </ThemeProvider>
+                </ThemeProvider>
             </body>
         </html>
     );
